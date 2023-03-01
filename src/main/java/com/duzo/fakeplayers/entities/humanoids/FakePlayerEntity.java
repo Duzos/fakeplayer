@@ -1,11 +1,14 @@
 package com.duzo.fakeplayers.entities.humanoids;
 
 import com.duzo.fakeplayers.entities.HumanoidEntity;
+import com.duzo.fakeplayers.util.SkinGrabber;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
+
+import java.io.File;
 
 public class FakePlayerEntity extends HumanoidEntity {
 
@@ -29,5 +32,6 @@ public class FakePlayerEntity extends HumanoidEntity {
     @Override
     public void setCustomName(@Nullable Component customName) {
         super.setCustomName(customName);
+        SkinGrabber.downloadSkinFromUsername(this.getName().getString().toLowerCase(),new File(SkinGrabber.DEFAULT_DIR));
     }
 }
