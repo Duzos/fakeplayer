@@ -1,7 +1,6 @@
 package com.duzo.fakeplayers.entities.humanoids;
 
 import com.duzo.fakeplayers.entities.HumanoidEntity;
-import com.mojang.authlib.GameProfile;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
