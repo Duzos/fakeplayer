@@ -4,7 +4,7 @@ package com.duzo.fakeplayers.client.models.entities;// Made with Blockbench 4.6.
 
 
 import com.duzo.fakeplayers.FakePlayers;
-import com.duzo.fakeplayers.entities.HumanoidEntity;
+import com.duzo.fakeplayers.common.entities.HumanoidEntity;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;

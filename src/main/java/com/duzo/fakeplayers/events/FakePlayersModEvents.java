@@ -2,7 +2,7 @@ package com.duzo.fakeplayers.events;
 
 import com.duzo.fakeplayers.FakePlayers;
 import com.duzo.fakeplayers.core.init.FPEntities;
-import com.duzo.fakeplayers.entities.HumanoidEntity;
+import com.duzo.fakeplayers.common.entities.HumanoidEntity;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;

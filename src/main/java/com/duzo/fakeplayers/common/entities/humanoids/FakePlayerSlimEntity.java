@@ -1,4 +1,4 @@
-package com.duzo.fakeplayers.entities.humanoids;
+package com.duzo.fakeplayers.common.entities.humanoids;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
