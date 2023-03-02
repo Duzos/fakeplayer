@@ -60,8 +60,13 @@ public class FakePlayers {
     }
 
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
-        if (event.getTab() == CreativeModeTabs.BUILDING_BLOCKS) {
-//            event.accept(EXAMPLE_BLOCK_ITEM);
+        if (event.getTab() == CreativeModeTabs.SPAWN_EGGS) {
+            event.accept(FPItems.FAKE_PLAYER_SPAWN_EGG.get());
+            event.accept(FPItems.FAKE_PLAYER_SLIM_SPAWN_EGG.get());
+        }
+        if (event.getTab() == CreativeModeTabs.REDSTONE_BLOCKS) {
+            event.accept(FPItems.PLAYER_AI.get());
+            event.accept(FPItems.PLAYER_SHELL.get());
         }
     }
 
