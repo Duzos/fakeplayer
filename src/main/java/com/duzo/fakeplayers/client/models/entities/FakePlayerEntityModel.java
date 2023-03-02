@@ -1,7 +1,8 @@
 package com.duzo.fakeplayers.client.models.entities;
 
 import com.duzo.fakeplayers.FakePlayers;
-import com.duzo.fakeplayers.common.entities.humanoids.FakePlayerEntity;
+import com.duzo.fakeplayers.entities.HumanoidEntity;
+import com.duzo.fakeplayers.entities.humanoids.FakePlayerEntity;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;

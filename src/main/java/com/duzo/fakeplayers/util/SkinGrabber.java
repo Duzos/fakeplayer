@@ -1,6 +1,5 @@
 package com.duzo.fakeplayers.util;
 
-import com.duzo.fakeplayers.FakePlayers;
 import com.mojang.blaze3d.platform.NativeImage;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.DynamicTexture;
@@ -19,7 +18,6 @@ import java.net.URLConnection;
 public class SkinGrabber {
     private static final String URL = "https://mineskin.eu/skin/";
     public static final String DEFAULT_DIR = "/fakeplayers/skins/";
-    private static final String ERROR_SKIN = "textures/entities/humanoid/error.png";
 
     public static ResourceLocation fileToLocation(File file) {
         NativeImage image = null;
@@ -27,9 +25,6 @@ public class SkinGrabber {
             image = NativeImage.read(new FileInputStream(file));
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        if (image == null) {
-            return new ResourceLocation(FakePlayers.MODID,ERROR_SKIN);
         }
         return registerImage(image);
     }

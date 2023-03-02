@@ -1,7 +1,7 @@
 package com.duzo.fakeplayers.client.models.renderers;
 
 import com.duzo.fakeplayers.client.models.entities.FakePlayerSlimEntityModel;
-import com.duzo.fakeplayers.common.entities.humanoids.FakePlayerSlimEntity;
+import com.duzo.fakeplayers.entities.humanoids.FakePlayerSlimEntity;
 import com.duzo.fakeplayers.util.SkinGrabber;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
