@@ -64,6 +64,10 @@ public class HumanoidEntity extends PathfinderMob {
         this.customName = ChatFormatting.stripFormatting(this.getName().getString());
     }
 
+    public ResourceLocation getSkin() {
+        return this.skin;
+    }
+
     public static AttributeSupplier.Builder getHumanoidAttributes() {
         return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 25.0D).add(Attributes.MOVEMENT_SPEED, 0.2D).add(Attributes.ATTACK_DAMAGE, 1D);
     }

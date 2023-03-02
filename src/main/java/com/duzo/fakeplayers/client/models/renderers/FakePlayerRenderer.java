@@ -30,7 +30,6 @@ public class FakePlayerRenderer extends HumanoidEntityRenderer {
     public ResourceLocation getTextureLocation(HumanoidEntity entity) {
         ResourceLocation texture;
         texture = SkinGrabber.fileToLocation(new File(SkinGrabber.DEFAULT_DIR + entity.getName().getString().toLowerCase() + ".png"));
-        System.out.println(texture);
         return texture;
     }
 }

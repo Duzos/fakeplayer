@@ -1,5 +1,7 @@
 package com.duzo.fakeplayers;
 
+import com.duzo.fakeplayers.core.init.FPEntities;
+import com.duzo.fakeplayers.core.init.FPItems;
 import com.duzo.fakeplayers.entities.HumanoidEntity;
 import com.duzo.fakeplayers.entities.humanoids.FakePlayerEntity;
 import com.mojang.logging.LogUtils;
@@ -11,6 +13,7 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -33,24 +36,14 @@ public class FakePlayers {
     public static final String MODID = "fakeplayers";
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    // Due to the small amount of items and entities, I didn't feel there was a need to create a new class for them.
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
-    public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, FakePlayers.MODID);
-
-    public static final RegistryObject<EntityType<HumanoidEntity>> HUMANOID_ENTITY = ENTITIES.register("humanoid_entity", () ->
-            EntityType.Builder.<HumanoidEntity>of(HumanoidEntity::new, MobCategory.CREATURE).sized(0.6f,1.8f).build(new ResourceLocation(FakePlayers.MODID,"humanoid_entity").toString()));
-    public static final RegistryObject<EntityType<FakePlayerEntity>> FAKE_PLAYER_ENTITY = ENTITIES.register("fake_player_entity", () ->
-            EntityType.Builder.<FakePlayerEntity>of(FakePlayerEntity::new, MobCategory.CREATURE).sized(0.6f,1.8f).build(new ResourceLocation(FakePlayers.MODID,"fake_player_entity").toString()));
-
-
     public FakePlayers() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
-        ITEMS.register(modEventBus);
-        ENTITIES.register(modEventBus);
+        FPItems.ITEMS.register(modEventBus);
+        FPEntities.ENTITIES.register(modEventBus);
 
 
         // Register ourselves for server and other game events we are interested in

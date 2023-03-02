@@ -1,6 +1,7 @@
 package com.duzo.fakeplayers.events;
 
 import com.duzo.fakeplayers.FakePlayers;
+import com.duzo.fakeplayers.core.init.FPEntities;
 import com.duzo.fakeplayers.entities.HumanoidEntity;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -16,7 +17,8 @@ public class FakePlayersModEvents {
 
     @SubscribeEvent
     public static void entityAttributes(EntityAttributeCreationEvent event) {
-        event.put(FakePlayers.HUMANOID_ENTITY.get(), HumanoidEntity.getHumanoidAttributes().build());
-        event.put(FakePlayers.FAKE_PLAYER_ENTITY.get(), HumanoidEntity.getHumanoidAttributes().build());
+        event.put(FPEntities.HUMANOID_ENTITY.get(), HumanoidEntity.getHumanoidAttributes().build());
+        event.put(FPEntities.FAKE_PLAYER_ENTITY.get(), HumanoidEntity.getHumanoidAttributes().build());
+        event.put(FPEntities.FAKE_PLAYER_SLIM_ENTITY.get(), HumanoidEntity.getHumanoidAttributes().build());
     }
 }

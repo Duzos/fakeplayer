@@ -31,7 +31,7 @@ public class SkinGrabber {
 
     public static ResourceLocation registerImage(NativeImage image) {
         TextureManager manager = Minecraft.getInstance().getTextureManager();
-        return manager.register("humanoid_", new DynamicTexture(image));
+        return manager.register("humanoid", new DynamicTexture(image));
     }
 
     public static void downloadSkinFromUsername(String username, File filepath) {
