@@ -8,8 +8,6 @@ import com.duzo.fakeplayers.client.models.renderers.FakePlayerRenderer;
 import com.duzo.fakeplayers.client.models.renderers.FakePlayerSlimRenderer;
 import com.duzo.fakeplayers.client.models.renderers.HumanoidEntityRenderer;
 import com.duzo.fakeplayers.core.init.FPEntities;
-import com.duzo.fakeplayers.entities.HumanoidEntity;
-import com.duzo.fakeplayers.entities.humanoids.FakePlayerSlimEntity;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;

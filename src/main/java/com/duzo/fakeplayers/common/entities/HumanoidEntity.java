@@ -1,4 +1,4 @@
-package com.duzo.fakeplayers.entities;
+package com.duzo.fakeplayers.common.entities;
 
 import com.duzo.fakeplayers.FakePlayers;
 import net.minecraft.ChatFormatting;
@@ -19,7 +19,6 @@ public class HumanoidEntity extends PathfinderMob {
     private static final ResourceLocation ERROR_TEXTURE = new ResourceLocation(FakePlayers.MODID,"textures/entities/humanoid/error.png");
     public String customName = "Duzo"; // the default name (mine :) )
     public ResourceLocation skin;
-
     public HumanoidEntity(EntityType<? extends HumanoidEntity> entityType, Level level) {
         super(entityType, level);
         this.skin = ERROR_TEXTURE;
