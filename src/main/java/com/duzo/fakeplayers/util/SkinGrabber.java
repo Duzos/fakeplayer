@@ -19,7 +19,7 @@ import java.net.URLConnection;
 public class SkinGrabber {
     private static final String URL = "https://mineskin.eu/skin/";
     public static final String DEFAULT_DIR = "/fakeplayers/skins/";
-    private static final String ERROR_SKIN = "textures/entities/humanoid/error.png";
+    public static final String ERROR_SKIN = "textures/entities/humanoid/error.png";
 
     public static ResourceLocation fileToLocation(File file) {
         NativeImage image = null;

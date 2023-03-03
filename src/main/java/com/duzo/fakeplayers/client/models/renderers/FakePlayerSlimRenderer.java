@@ -1,14 +1,18 @@
 package com.duzo.fakeplayers.client.models.renderers;
 
+import com.duzo.fakeplayers.FakePlayers;
 import com.duzo.fakeplayers.client.models.entities.FakePlayerSlimEntityModel;
 import com.duzo.fakeplayers.common.entities.humanoids.FakePlayerSlimEntity;
 import com.duzo.fakeplayers.util.SkinGrabber;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.layers.CustomHeadLayer;
+import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
 import net.minecraft.client.renderer.entity.layers.ItemInHandLayer;
 import net.minecraft.resources.ResourceLocation;
 
@@ -18,8 +22,7 @@ public class FakePlayerSlimRenderer extends LivingEntityRenderer<FakePlayerSlimE
     public FakePlayerSlimRenderer(EntityRendererProvider.Context context) {
         super(context, new FakePlayerSlimEntityModel(Minecraft.getInstance().getEntityModels().bakeLayer(FakePlayerSlimEntityModel.LAYER_LOCATION),true), 0.5f);
         this.addLayer(new ItemInHandLayer<>(this, context.getItemInHandRenderer()));
-        // @TODO ARMOUR RENDERING - "Cannot find ears!"
-        //this.addLayer(new HumanoidArmorLayer<>(this, new FakePlayerSlimEntityModel(context.bakeLayer(ModelLayers.PLAYER_SLIM_INNER_ARMOR)), new FakePlayerSlimEntityModel(context.bakeLayer(ModelLayers.PLAYER_SLIM_OUTER_ARMOR))));
+        this.addLayer(new HumanoidArmorLayer<>(this, new HumanoidModel<>(context.bakeLayer(ModelLayers.PLAYER_SLIM_INNER_ARMOR)), new HumanoidModel<>(context.bakeLayer(ModelLayers.PLAYER_SLIM_OUTER_ARMOR))));
         this.addLayer(new CustomHeadLayer<>(this, context.getModelSet(), context.getItemInHandRenderer()));
     }
     
@@ -43,9 +46,11 @@ public class FakePlayerSlimRenderer extends LivingEntityRenderer<FakePlayerSlimE
     }
     @Override
     public ResourceLocation getTextureLocation(FakePlayerSlimEntity entity) {
-        ResourceLocation texture;
-        texture = SkinGrabber.fileToLocation(new File(SkinGrabber.DEFAULT_DIR + entity.getName().getString().toLowerCase() + ".png"));
-        return texture;
+        if (entity.level.isClientSide()) {
+            ResourceLocation texture;
+            texture = SkinGrabber.fileToLocation(new File(SkinGrabber.DEFAULT_DIR + entity.getName().getString().toLowerCase() + ".png"));
+            return texture;
+        }
+        return new ResourceLocation(FakePlayers.MODID,SkinGrabber.ERROR_SKIN);
     }
 }
-
