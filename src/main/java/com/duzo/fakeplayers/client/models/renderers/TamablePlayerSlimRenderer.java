@@ -20,11 +20,13 @@ import java.io.File;
 
 public class TamablePlayerSlimRenderer extends LivingEntityRenderer<TamablePlayerSlim, TamablePlayerSlimModel> {
     public TamablePlayerSlimRenderer(EntityRendererProvider.Context context) {
-        super(context, new TamablePlayerSlimModel(Minecraft.getInstance().getEntityModels().bakeLayer(TamablePlayerSlimModel.LAYER_LOCATION), true), 0.5f);
+        super(context, new TamablePlayerSlimModel(Minecraft.getInstance().getEntityModels().bakeLayer(TamablePlayerSlimModel.LAYER_LOCATION)), 0.5f);
         this.addLayer(new ItemInHandLayer<>(this, context.getItemInHandRenderer()));
         this.addLayer(new HumanoidArmorLayer<>(this, new HumanoidModel<>(context.bakeLayer(ModelLayers.PLAYER_SLIM_INNER_ARMOR)), new HumanoidModel<>(context.bakeLayer(ModelLayers.PLAYER_SLIM_OUTER_ARMOR))));
         this.addLayer(new CustomHeadLayer<>(this, context.getModelSet(), context.getItemInHandRenderer()));
     }
+
+
 
     @Override
     public void render(TamablePlayerSlim entity, float p_115456_, float p_115457_, PoseStack matrixStack, MultiBufferSource p_115459_, int p_115460_) {
@@ -42,7 +44,6 @@ public class TamablePlayerSlimRenderer extends LivingEntityRenderer<TamablePlaye
     protected boolean shouldShowName(TamablePlayerSlim entity) {
         return true;
     }
-
     @Override
     public ResourceLocation getTextureLocation(TamablePlayerSlim entity) {
         if (entity.level.isClientSide()) {
