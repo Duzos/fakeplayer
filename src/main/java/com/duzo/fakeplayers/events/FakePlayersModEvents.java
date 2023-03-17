@@ -17,8 +17,9 @@ public class FakePlayersModEvents {
 
     @SubscribeEvent
     public static void entityAttributes(EntityAttributeCreationEvent event) {
-        event.put(FPEntities.HUMANOID_ENTITY.get(), HumanoidEntity.getHumanoidAttributes().build());
         event.put(FPEntities.FAKE_PLAYER_ENTITY.get(), HumanoidEntity.getHumanoidAttributes().build());
         event.put(FPEntities.FAKE_PLAYER_SLIM_ENTITY.get(), HumanoidEntity.getHumanoidAttributes().build());
+        event.put(FPEntities.TAMABLE_PLAYER.get(), HumanoidEntity.getHumanoidAttributes().build());
+        event.put(FPEntities.TAMABLE_PLAYER_SLIM.get(), HumanoidEntity.getHumanoidAttributes().build());
     }
 }
