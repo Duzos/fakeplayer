@@ -81,16 +81,22 @@ public abstract class TamableHumanoid extends TamableAnimal {
     @Override
     public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
         ItemStack itemstack = pPlayer.getItemInHand(pHand);
-        if (itemstack.is(this.tameItem)) {
-            if (this.random.nextInt(3) == 0) {
-                this.tame(pPlayer);
-                this.navigation.stop();
-                this.setTarget((LivingEntity) null);
-                this.level.broadcastEntityEvent(this, (byte) 7);
-            } else {
-                this.level.broadcastEntityEvent(this, (byte) 6);
+        // Taming
+        if (!this.isTame()) {
+            if (itemstack.is(this.tameItem)) {
+                if (this.random.nextInt(3) == 0) {
+                    this.tame(pPlayer);
+                    this.navigation.stop();
+                    this.setTarget((LivingEntity) null);
+                    this.level.broadcastEntityEvent(this, (byte) 7);
+                    return InteractionResult.SUCCESS;
+                } else {
+                    this.level.broadcastEntityEvent(this, (byte) 6);
+                    return InteractionResult.FAIL;
+                }
             }
         }
+
         return super.mobInteract(pPlayer, pHand);
     }
 
