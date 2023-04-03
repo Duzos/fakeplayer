@@ -56,10 +56,10 @@ public class FakePlayerEntity extends HumanoidEntity {
         super.setCustomName(customName);
         if (!this.level.isClientSide()) {
             if (customName.getString().equals("")) {
-                System.out.println("Packet cancelled due to blank name");
+//                System.out.println("Packet cancelled due to blank name");
                 return;
             }
-            System.out.println("Sending packet with string : " + customName.getString());
+//            System.out.println("Sending packet with string : " + customName.getString());
             Network.sendToAll(new SendSkinMessageS2CPacket(customName.getString()));
         }
 //        if (customName.getString().equals("")) {

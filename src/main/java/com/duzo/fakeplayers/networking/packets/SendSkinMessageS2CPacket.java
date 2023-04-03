@@ -1,5 +1,6 @@
 package com.duzo.fakeplayers.networking.packets;
 
+import com.duzo.fakeplayers.client.threads.SkinDownloaderThread;
 import com.duzo.fakeplayers.common.entities.humanoids.FakePlayerEntity;
 import com.duzo.fakeplayers.util.SkinGrabber;
 import net.minecraft.network.FriendlyByteBuf;
@@ -42,18 +43,13 @@ public class SendSkinMessageS2CPacket {
         buf.writeUtf(this.name);
     }
 
-    public static void downloadAndAddSkin(String name) {
-        System.out.println(name);
-        SkinGrabber.downloadSkinFromUsername(name.toLowerCase().replace(" ", ""), new File(SkinGrabber.DEFAULT_DIR));
-        SkinGrabber.addCustomNameToList(name);
-    }
-
     public boolean handle(Supplier<NetworkEvent.Context> supplier) {
         System.out.println("Skin Packet Received");
         NetworkEvent.Context context = supplier.get();
         context.enqueueWork(() -> {
+            SkinDownloaderThread skinThread = new SkinDownloaderThread(this.name);
             // Make sure it's only executed on the physical client
-            DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> downloadAndAddSkin(this.name));
+            DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> skinThread);
         });
         return true;
     }

@@ -48,20 +48,20 @@ public class SkinGrabber {
 
     public static ResourceLocation getCustomNameSkinFromFile(String name) {
         File file = new File(DEFAULT_DIR + name.toLowerCase().replace(" ", "") + ".png");
-        System.out.println(file.getAbsolutePath());
+//        System.out.println(file.getAbsolutePath());
         ResourceLocation location = fileToLocation(file);
         return location;
     }
 
     public static void addEntityToList(Entity entity) {
         ResourceLocation location = SkinGrabber.getEntitySkinFromFile(entity);
-        System.out.println("Adding " + formatEntityCustomName(entity) + " " + location);
+//        System.out.println("Adding " + formatEntityCustomName(entity) + " " + location);
         SKIN_LIST.put(formatEntityCustomName(entity),location);
     }
 
     public static void addCustomNameToList(String name) {
         ResourceLocation location = SkinGrabber.getCustomNameSkinFromFile(name);
-        System.out.println("Adding " + name.toLowerCase().replace(" ", "" + " " + location));
+//        System.out.println("Adding " + name.toLowerCase().replace(" ", "" + " " + location));
         SKIN_LIST.put(name.toLowerCase().replace(" ", ""),location);
     }
 
