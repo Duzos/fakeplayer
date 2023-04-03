@@ -1,6 +1,7 @@
 package com.duzo.fakeplayers.client.models.renderers;
 
 import com.duzo.fakeplayers.FakePlayers;
+import com.duzo.fakeplayers.client.models.entities.HumanoidEntityModel;
 import com.duzo.fakeplayers.common.entities.HumanoidEntity;
 import com.duzo.fakeplayers.util.SkinGrabber;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -15,12 +16,20 @@ public class FakePlayerRenderer extends HumanoidEntityRenderer {
     }
     @Override
     public ResourceLocation getTextureLocation(HumanoidEntity entity) {
-        if (entity.level.isClientSide()) {
-            ResourceLocation texture;
-            texture = SkinGrabber.fileToLocation(new File(SkinGrabber.DEFAULT_DIR + entity.getName().getString().toLowerCase() + ".png"));
-            return texture;
+        if (entity.level.isClientSide) {
+            ResourceLocation texture = SkinGrabber.getEntitySkinFromList(entity);
+//            System.out.println(texture);
+//            System.out.println(SkinGrabber.SKIN_LIST);
+//            System.out.println(SkinGrabber.formatEntityCustomName(entity));
+//            System.out.println(SkinGrabber.SKIN_LIST.get(SkinGrabber.formatEntityCustomName(entity)));
+            if (texture != null) {
+                return texture;
+            }
         }
-        return new ResourceLocation(FakePlayers.MODID,SkinGrabber.ERROR_SKIN);
+        if (!entity.level.isClientSide()) {
+            return HumanoidEntity.ERROR_TEXTURE;
+        }
+        return HumanoidEntity.ERROR_TEXTURE;
     }
 }
 

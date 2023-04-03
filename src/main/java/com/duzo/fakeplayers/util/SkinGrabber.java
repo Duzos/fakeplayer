@@ -7,7 +7,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.resources.Resource;
+import net.minecraft.world.entity.Entity;
 import org.slf4j.Logger;
+import org.w3c.dom.Text;
 
 import javax.annotation.Nullable;
 import javax.imageio.ImageIO;
@@ -18,42 +21,69 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.HashMap;
+import java.util.UUID;
 
 public class SkinGrabber {
     private static final Logger LOGGER = LogUtils.getLogger();
     private static final String URL = "https://mineskin.eu/skin/";
-    public static final String DEFAULT_DIR = "/fakeplayers/skins/";
+    public static final String DEFAULT_DIR = "./fakeplayers/skins/";
     public static final String ERROR_SKIN = "textures/entities/humanoid/error.png";
+    public static final HashMap<String, ResourceLocation> SKIN_LIST = new HashMap<>();
 
-//    public static NativeImage fixLegacySkins(NativeImage image) {
-//        int width = image.getWidth();
-//        int height = image.getHeight();
-//
-//        // Check if it isnt 32x32
-//        boolean is32x32 = (width == 32) && (height == 32);
-//        boolean is64x64 = (width == 64) && (height == 64);
-//        if ((!is32x32) && (is64x64)) {
-//            return image;
-//        }
-//
-//        NativeImage fixedImage = new NativeImage(64,64,true);
-//        fixedImage.copyFrom(image);
-//        image.close();
-//
-//        // Fill the lower half in
-//        fixedImage.fillRect(0, 32, 64, 32, 0);
-//
-//        // Copy the legs and arms to the bottom half
-//        // * Copy arms
-////        fixedImage.copyRect(0,15,15,47,14,14,false,false);
-//        fixedImage.fillRect(16, 48, 15, 15, 0x00ff44);
-//        // * Copy legs
-//        fixedImage.fillRect(32, 48, 15, 15, 0xae00ff);
-////        fixedImage.copyRect(40,15,31,47,15,15,false,false);
-//
-//        fixedImage.fillRect(0,0,64,64,);
-//        return fixedImage;
-//    }
+    public static ResourceLocation getEntitySkinFromList(Entity entity) {
+        ResourceLocation location = SkinGrabber.getUsernameSkinFromList(formatEntityCustomName(entity));
+        return location;
+    }
+
+    public static String formatEntityCustomName(Entity entity) {
+        return entity.getName().getString().toLowerCase().replace(" ", "");
+    }
+
+    public static ResourceLocation getEntitySkinFromFile(Entity entity) {
+        File file = new File(DEFAULT_DIR + formatEntityCustomName(entity) + ".png");
+        ResourceLocation location = fileToLocation(file);
+        return location;
+    }
+
+    public static ResourceLocation getCustomNameSkinFromFile(String name) {
+        File file = new File(DEFAULT_DIR + name.toLowerCase().replace(" ", "") + ".png");
+        System.out.println(file.getAbsolutePath());
+        ResourceLocation location = fileToLocation(file);
+        return location;
+    }
+
+    public static void addEntityToList(Entity entity) {
+        ResourceLocation location = SkinGrabber.getEntitySkinFromFile(entity);
+        System.out.println("Adding " + formatEntityCustomName(entity) + " " + location);
+        SKIN_LIST.put(formatEntityCustomName(entity),location);
+    }
+
+    public static void addCustomNameToList(String name) {
+        ResourceLocation location = SkinGrabber.getCustomNameSkinFromFile(name);
+        System.out.println("Adding " + name.toLowerCase().replace(" ", "" + " " + location));
+        SKIN_LIST.put(name.toLowerCase().replace(" ", ""),location);
+    }
+
+    public static void clearTextures() {
+        Minecraft minecraft = Minecraft.getInstance();
+        if (minecraft.level == null) {
+            TextureManager manager = minecraft.getTextureManager();
+
+            // Release the textures if the cache isnt empty
+            if (!SkinGrabber.SKIN_LIST.isEmpty()) {
+                SkinGrabber.SKIN_LIST.forEach(((uuid, resourceLocation) -> manager.release(resourceLocation)));
+                SkinGrabber.SKIN_LIST.clear();
+            }
+        }
+    }
+
+    public static ResourceLocation getUsernameSkinFromList(String name) {
+        if (SkinGrabber.SKIN_LIST.containsKey(name)) {
+            return SkinGrabber.SKIN_LIST.get(name);
+        }
+        return null;
+    }
 
     public static ResourceLocation fileToLocation(File file) {
         NativeImage image = null;
@@ -73,6 +103,8 @@ public class SkinGrabber {
         return manager.register("humanoid", new DynamicTexture(image));
     }
 
+
+
     public static void downloadSkinFromUsername(String username, File filepath) {
         try {
             URL url = new URL(URL + username);
@@ -87,6 +119,7 @@ public class SkinGrabber {
             }
 
             ImageIO.write(image, "png", new File(filepath, username + ".png"));
+            System.out.println(image);
 
         } catch (Exception exception) {
             exception.printStackTrace();

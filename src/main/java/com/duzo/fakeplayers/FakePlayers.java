@@ -2,6 +2,7 @@ package com.duzo.fakeplayers;
 
 import com.duzo.fakeplayers.core.init.FPEntities;
 import com.duzo.fakeplayers.core.init.FPItems;
+import com.duzo.fakeplayers.networking.Network;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -45,9 +46,7 @@ public class FakePlayers {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        // Some common setup code
-        LOGGER.info("HELLO FROM COMMON SETUP");
-        LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
+        Network.register();
     }
 
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
@@ -65,7 +64,7 @@ public class FakePlayers {
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
         // Do something when the server starts
-        LOGGER.info("HELLO from server starting");
+
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
@@ -75,8 +74,7 @@ public class FakePlayers {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             // Some client setup code
-            LOGGER.info("HELLO FROM CLIENT SETUP");
-            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+
         }
     }
 }

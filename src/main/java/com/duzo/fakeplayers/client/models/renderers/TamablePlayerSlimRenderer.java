@@ -46,11 +46,15 @@ public class TamablePlayerSlimRenderer extends LivingEntityRenderer<TamablePlaye
     }
     @Override
     public ResourceLocation getTextureLocation(TamablePlayerSlim entity) {
-        if (entity.level.isClientSide()) {
-            ResourceLocation texture;
-            texture = SkinGrabber.fileToLocation(new File(SkinGrabber.DEFAULT_DIR + entity.getName().getString().toLowerCase() + ".png"));
-            return texture;
+        if (entity.level.isClientSide) {
+            ResourceLocation texture = SkinGrabber.getEntitySkinFromList(entity);
+            if (texture != null) {
+                return texture;
+            }
         }
-        return new ResourceLocation(FakePlayers.MODID,SkinGrabber.ERROR_SKIN);
+        if (!entity.level.isClientSide()) {
+            return new ResourceLocation(FakePlayers.MODID, SkinGrabber.ERROR_SKIN);
+        }
+        return null;
     }
 }

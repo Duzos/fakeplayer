@@ -16,8 +16,8 @@ import net.minecraft.world.level.Level;
 import javax.annotation.Nullable;
 
 public abstract class HumanoidEntity extends PathfinderMob {
-    static final ResourceLocation ERROR_TEXTURE = new ResourceLocation(FakePlayers.MODID,"textures/entities/humanoid/error.png");
-    public String customName = "Duzo"; // the default name (mine :) )
+    public static final ResourceLocation ERROR_TEXTURE = new ResourceLocation(FakePlayers.MODID,"textures/entities/humanoid/error.png");
+    public String customName = ""; // the default name
     public ResourceLocation skin;
     public HumanoidEntity(EntityType<? extends HumanoidEntity> entityType, Level level) {
         super(entityType, level);
@@ -61,6 +61,7 @@ public abstract class HumanoidEntity extends PathfinderMob {
         if (customName == null) return;
         super.setCustomName(customName);
         this.customName = ChatFormatting.stripFormatting(this.getName().getString());
+//        this.customName = customName.getString();
     }
 
     public ResourceLocation getSkin() {

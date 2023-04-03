@@ -2,6 +2,8 @@ package com.duzo.fakeplayers.common.entities.humanoids;
 
 import com.duzo.fakeplayers.common.entities.HumanoidEntity;
 import com.duzo.fakeplayers.common.goals.MoveTowardsItemsGoal;
+import com.duzo.fakeplayers.networking.Network;
+import com.duzo.fakeplayers.networking.packets.SendSkinMessageS2CPacket;
 import com.duzo.fakeplayers.util.SkinGrabber;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -9,11 +11,13 @@ import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.network.PacketDistributor;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
@@ -50,8 +54,46 @@ public class FakePlayerEntity extends HumanoidEntity {
     @Override
     public void setCustomName(@Nullable Component customName) {
         super.setCustomName(customName);
-        SkinGrabber.downloadSkinFromUsername(this.getName().getString().toLowerCase().replace(" ", ""),new File(SkinGrabber.DEFAULT_DIR));
-        //this.skin = SkinGrabber.fileToLocation(new File(SkinGrabber.DEFAULT_DIR + this.getName().getString().toLowerCase().replace(" ", "") + ".png"));
+        if (!this.level.isClientSide()) {
+            if (customName.getString().equals("")) {
+                System.out.println("Packet cancelled due to blank name");
+                return;
+            }
+            System.out.println("Sending packet with string : " + customName.getString());
+            Network.sendToAll(new SendSkinMessageS2CPacket(customName.getString()));
+        }
+//        if (customName.getString().equals("")) {
+//            return;
+//        }
+//
+//        downloadAndAddSkin(customName.getString());
+//        String clientCustomName = this.customName;
+//        System.out.println("Is client: " + this.level.isClientSide + "| customName: " + customName.getString() + "| this.customName: " + this.customName + "| clientCustomName: " + clientCustomName + "| is blank: " + customName.getString().equals(""));
+//        if (this.level.isClientSide) {
+//            if (clientCustomName.equals("")) {
+//                System.out.println("Name was blank");
+//                return;
+//            }
+//            System.out.println("Name was not blank");
+//            System.out.println(this.getStringUUID() + " (" + clientCustomName + ")" + " is downloading a skin!");
+//            SkinGrabber.downloadSkinFromUsername(clientCustomName.toLowerCase().replace(" ", ""), new File(SkinGrabber.DEFAULT_DIR));
+//            SkinGrabber.addEntityToList(this);
+//        } else {
+//            if (clientCustomName.equals("")) {
+//                System.out.println("Name was blank");
+//                return;
+//            }
+//            System.out.println("Server: Setting this.customName to " + customName.getString());
+//            this.customName = customName.getString();
+//        }
+        //this.skin = SkinGrabber.fileToLocation(new File(SkinGrabber.DEFAULT_DIR + customName.getString().toLowerCase().replace(" ", "") + ".png"));
+}
+
+    public static void downloadAndAddSkin(String name, Entity entity) {
+        System.out.println(name);
+        System.out.println(entity);
+        SkinGrabber.downloadSkinFromUsername(name.toLowerCase().replace(" ", ""), new File(SkinGrabber.DEFAULT_DIR));
+        SkinGrabber.addEntityToList(entity);
     }
 
     @Override

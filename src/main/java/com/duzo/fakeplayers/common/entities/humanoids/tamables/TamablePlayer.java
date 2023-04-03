@@ -45,7 +45,10 @@ public class TamablePlayer extends TamableHumanoid {
     @Override
     public void setCustomName(@Nullable Component customName) {
         super.setCustomName(customName);
-        SkinGrabber.downloadSkinFromUsername(this.getName().getString().toLowerCase().replace(" ", ""),new File(SkinGrabber.DEFAULT_DIR));
+        if (this.level.isClientSide) {
+            SkinGrabber.downloadSkinFromUsername(SkinGrabber.formatEntityCustomName(this), new File(SkinGrabber.DEFAULT_DIR));
+            SkinGrabber.addEntityToList(this);
+        }
         //this.skin = SkinGrabber.fileToLocation(new File(SkinGrabber.DEFAULT_DIR + this.getName().getString().toLowerCase().replace(" ", "") + ".png"));
     }
     @Nullable
