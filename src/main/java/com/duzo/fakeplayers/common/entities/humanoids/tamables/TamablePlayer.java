@@ -2,6 +2,8 @@ package com.duzo.fakeplayers.common.entities.humanoids.tamables;
 
 import com.duzo.fakeplayers.common.entities.TamableHumanoid;
 import com.duzo.fakeplayers.common.goals.MoveTowardsItemsGoal;
+import com.duzo.fakeplayers.networking.Network;
+import com.duzo.fakeplayers.networking.packets.SendSkinMessageS2CPacket;
 import com.duzo.fakeplayers.util.SkinGrabber;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -45,9 +47,13 @@ public class TamablePlayer extends TamableHumanoid {
     @Override
     public void setCustomName(@Nullable Component customName) {
         super.setCustomName(customName);
-        if (this.level.isClientSide) {
-            SkinGrabber.downloadSkinFromUsername(SkinGrabber.formatEntityCustomName(this), new File(SkinGrabber.DEFAULT_DIR));
-            SkinGrabber.addEntityToList(this);
+        if (!this.level.isClientSide()) {
+            if (customName.getString().equals("")) {
+                System.out.println("Packet cancelled due to blank name");
+                return;
+            }
+            System.out.println("Sending packet with string : " + customName.getString());
+            Network.sendToAll(new SendSkinMessageS2CPacket(customName.getString()));
         }
         //this.skin = SkinGrabber.fileToLocation(new File(SkinGrabber.DEFAULT_DIR + this.getName().getString().toLowerCase().replace(" ", "") + ".png"));
     }
