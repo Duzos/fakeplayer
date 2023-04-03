@@ -31,7 +31,7 @@ public class SendSkinMessageS2CPacket {
             String name = buf.readUtf();
             skinPacket.name = name;
         } catch (IllegalArgumentException | IndexOutOfBoundsException e) {
-            System.out.println("Exception while reading TargetEffectMessageToClient: " + e);
+            System.out.println("Exception while reading Packet: " + e);
             return skinPacket;
         }
         skinPacket.messageIsValid = true;

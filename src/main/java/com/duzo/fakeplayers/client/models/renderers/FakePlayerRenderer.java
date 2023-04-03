@@ -17,11 +17,11 @@ public class FakePlayerRenderer extends HumanoidEntityRenderer {
     @Override
     public ResourceLocation getTextureLocation(HumanoidEntity entity) {
         if (entity.level.isClientSide) {
+            if (entity.getCustomName().getString().equals("")) {
+                // If the name is the default blank one, send back the error
+                return HumanoidEntity.ERROR_TEXTURE;
+            }
             ResourceLocation texture = SkinGrabber.getEntitySkinFromList(entity);
-//            System.out.println(texture);
-//            System.out.println(SkinGrabber.SKIN_LIST);
-//            System.out.println(SkinGrabber.formatEntityCustomName(entity));
-//            System.out.println(SkinGrabber.SKIN_LIST.get(SkinGrabber.formatEntityCustomName(entity)));
             if (texture != null) {
                 return texture;
             }

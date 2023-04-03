@@ -2,6 +2,7 @@ package com.duzo.fakeplayers.client.models.renderers;
 
 import com.duzo.fakeplayers.FakePlayers;
 import com.duzo.fakeplayers.client.models.entities.TamablePlayerSlimModel;
+import com.duzo.fakeplayers.common.entities.HumanoidEntity;
 import com.duzo.fakeplayers.common.entities.humanoids.tamables.TamablePlayerSlim;
 import com.duzo.fakeplayers.util.SkinGrabber;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -47,6 +48,10 @@ public class TamablePlayerSlimRenderer extends LivingEntityRenderer<TamablePlaye
     @Override
     public ResourceLocation getTextureLocation(TamablePlayerSlim entity) {
         if (entity.level.isClientSide) {
+            if (entity.getCustomName().getString().equals("")) {
+                // If the name is the default blank one, send back the error
+                return HumanoidEntity.ERROR_TEXTURE;
+            }
             ResourceLocation texture = SkinGrabber.getEntitySkinFromList(entity);
             if (texture != null) {
                 return texture;

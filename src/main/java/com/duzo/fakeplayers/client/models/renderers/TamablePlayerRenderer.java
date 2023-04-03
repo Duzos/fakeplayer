@@ -47,6 +47,10 @@ public class TamablePlayerRenderer extends LivingEntityRenderer<TamablePlayer, T
     @Override
     public ResourceLocation getTextureLocation(TamablePlayer entity) {
         if (entity.level.isClientSide) {
+            if (entity.getCustomName().getString().equals("")) {
+                // If the name is the default blank one, send back the error
+                return HumanoidEntity.ERROR_TEXTURE;
+            }
             ResourceLocation texture = SkinGrabber.getEntitySkinFromList(entity);
             if (texture != null) {
                 return texture;
