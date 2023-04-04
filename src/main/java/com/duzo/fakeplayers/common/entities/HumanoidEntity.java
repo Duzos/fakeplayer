@@ -4,14 +4,24 @@ import com.duzo.fakeplayers.FakePlayers;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.items.wrapper.EntityEquipmentInvWrapper;
+import net.minecraftforge.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 
@@ -19,6 +29,7 @@ public abstract class HumanoidEntity extends PathfinderMob {
     public static final ResourceLocation ERROR_TEXTURE = new ResourceLocation(FakePlayers.MODID,"textures/entities/humanoid/error.png");
     public String customName = ""; // the default name
     public ResourceLocation skin;
+    private Inventory inventory;
     public HumanoidEntity(EntityType<? extends HumanoidEntity> entityType, Level level) {
         super(entityType, level);
         this.skin = ERROR_TEXTURE;
