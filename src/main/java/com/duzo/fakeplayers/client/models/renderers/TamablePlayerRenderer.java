@@ -57,8 +57,8 @@ public class TamablePlayerRenderer extends LivingEntityRenderer<TamablePlayer, T
             }
         }
         if (!entity.level.isClientSide()) {
-            return new ResourceLocation(FakePlayers.MODID, SkinGrabber.ERROR_SKIN);
+            return HumanoidEntity.ERROR_TEXTURE;
         }
-        return null;
+        return HumanoidEntity.ERROR_TEXTURE;
     }
 }
