@@ -27,7 +27,15 @@ This mod is able to get the skin of a player.
 This means that the fake player will always have the correct and matching skin to its given username.
 
 To do this you name the fake player with the username of the player.
+
 Image of this in gallery!
+### Skins from image link
+This mod is also able to get skins from a link
+
+To do this, shift right click the fake player and paste the url into the box
+
+Watch [this](https://www.youtube.com/watch?v=GXaGC8Wqiik) video if you need an example
+
 ### Slim Skin Support!
 This mod supports both slim skins and regular skins.
 # Handy Dandy Links
