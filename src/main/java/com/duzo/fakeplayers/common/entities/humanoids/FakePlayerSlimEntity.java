@@ -26,12 +26,7 @@ public class FakePlayerSlimEntity extends FakePlayerEntity {
     }
 
     @Override
-    protected void dropCustomDeathLoot(DamageSource p_21385_, int p_21386_, boolean p_21387_) {
-//        super.dropCustomDeathLoot(p_21385_, p_21386_, p_21387_);
-
-        ItemStack egg = FPItems.FAKE_PLAYER_SLIM_SPAWN_EGG.get().getDefaultInstance();
-        egg.setHoverName(this.getCustomName());
-
-        this.spawnAtLocation(egg);
+    public ItemStack getEgg() {
+        return FPItems.FAKE_PLAYER_SLIM_SPAWN_EGG.get().getDefaultInstance();
     }
 }

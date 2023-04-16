@@ -62,10 +62,14 @@ public class FakePlayerEntity extends HumanoidEntity {
     protected void dropCustomDeathLoot(DamageSource p_21385_, int p_21386_, boolean p_21387_) {
         super.dropCustomDeathLoot(p_21385_, p_21386_, p_21387_);
 
-        ItemStack egg = FPItems.FAKE_PLAYER_SPAWN_EGG.get().getDefaultInstance();
+        ItemStack egg = this.getEgg();
         egg.setHoverName(this.getCustomName());
 
         this.spawnAtLocation(egg);
+    }
+
+    public ItemStack getEgg() {
+        return FPItems.FAKE_PLAYER_SPAWN_EGG.get().getDefaultInstance();
     }
 
     @Override
