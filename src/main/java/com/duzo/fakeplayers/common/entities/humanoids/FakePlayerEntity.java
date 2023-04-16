@@ -134,7 +134,7 @@ public class FakePlayerEntity extends HumanoidEntity {
     }
 
     public void updateSkin() {
-        Network.sendToAll(new SendImageDownloadMessageS2CPacket(this.getCustomName().getString(),this.getCustomName().getString(), new File(SkinGrabber.DEFAULT_DIR), this.getURL()));
+        Network.sendToAll(new SendImageDownloadMessageS2CPacket(this.getStringUUID(),this.getStringUUID(), new File(SkinGrabber.DEFAULT_DIR), this.getURL()));
     }
 
     @Override

@@ -14,11 +14,11 @@ public class SendImageDownloadMessageS2CPacket {
     private String filename;
     private File filepath;
     private String URL;
-    private String username;
+    private String uuid;
     public boolean messageIsValid;
 
-    public SendImageDownloadMessageS2CPacket(String username,String filename, File filepath, String URL) {
-        this.username = username;
+    public SendImageDownloadMessageS2CPacket(String uuid,String filename, File filepath, String URL) {
+        this.uuid = uuid;
         this.filename = filename;
         this.filepath = filepath;
         this.URL = URL;
@@ -30,13 +30,13 @@ public class SendImageDownloadMessageS2CPacket {
     public static SendImageDownloadMessageS2CPacket decode(FriendlyByteBuf buf) {
         SendImageDownloadMessageS2CPacket packet = new SendImageDownloadMessageS2CPacket();
         try {
-            String username = buf.readUtf();
+            String uuid = buf.readUtf();
             String filename = buf.readUtf();
             String filepathString = buf.readUtf();
             String URL = buf.readUtf();
             File filepath = new File(filepathString);
 
-            packet.username = username;
+            packet.uuid = uuid;
             packet.filename = filename;
             packet.filepath = filepath;
             packet.URL = URL;
@@ -50,7 +50,7 @@ public class SendImageDownloadMessageS2CPacket {
 
     public void encode(FriendlyByteBuf buf) {
         if (!this.messageIsValid) return;
-        buf.writeUtf(this.username);
+        buf.writeUtf(this.uuid);
         buf.writeUtf(this.filename);
         buf.writeUtf(this.filepath.getAbsolutePath());
         buf.writeUtf(this.URL);
@@ -59,7 +59,7 @@ public class SendImageDownloadMessageS2CPacket {
     public boolean handle(Supplier<NetworkEvent.Context> supplier) {
         NetworkEvent.Context context = supplier.get();
         context.enqueueWork(() -> {
-            ImageDownloaderThread thread = new ImageDownloaderThread(this.username,this.filename,this.filepath,this.URL);
+            ImageDownloaderThread thread = new ImageDownloaderThread(this.uuid,this.filename,this.filepath,this.URL);
             // Make sure it's only executed on the physical client
             DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> thread);
         });

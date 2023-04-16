@@ -34,7 +34,7 @@ public class SkinGrabber {
     public static final HashMap<String, ResourceLocation> SKIN_LIST = new HashMap<>();
 
     public static ResourceLocation getEntitySkinFromList(Entity entity) {
-        ResourceLocation location = SkinGrabber.getUsernameSkinFromList(formatEntityCustomName(entity));
+        ResourceLocation location = SkinGrabber.getSkinFromListKey(entity.getStringUUID());
         return location;
     }
 
@@ -78,9 +78,9 @@ public class SkinGrabber {
         }
     }
 
-    public static ResourceLocation getUsernameSkinFromList(String name) {
-        if (SkinGrabber.SKIN_LIST.containsKey(name)) {
-            return SkinGrabber.SKIN_LIST.get(name);
+    public static ResourceLocation getSkinFromListKey(String key) {
+        if (SkinGrabber.SKIN_LIST.containsKey(key)) {
+            return SkinGrabber.SKIN_LIST.get(key);
         }
         return null;
     }
