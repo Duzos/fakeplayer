@@ -19,6 +19,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
@@ -26,7 +28,7 @@ import java.util.UUID;
 
 public class SkinGrabber {
     private static final Logger LOGGER = LogUtils.getLogger();
-    private static final String URL = "https://mineskin.eu/skin/";
+    public static final String URL = "https://mineskin.eu/skin/";
     public static final String DEFAULT_DIR = "./fakeplayers/skins/";
     public static final String ERROR_SKIN = "textures/entities/humanoid/error.png";
     public static final HashMap<String, ResourceLocation> SKIN_LIST = new HashMap<>();
@@ -48,7 +50,6 @@ public class SkinGrabber {
 
     public static ResourceLocation getCustomNameSkinFromFile(String name) {
         File file = new File(DEFAULT_DIR + name.toLowerCase().replace(" ", "") + ".png");
-//        System.out.println(file.getAbsolutePath());
         ResourceLocation location = fileToLocation(file);
         return location;
     }
@@ -61,7 +62,6 @@ public class SkinGrabber {
 
     public static void addCustomNameToList(String name) {
         ResourceLocation location = SkinGrabber.getCustomNameSkinFromFile(name);
-//        System.out.println("Adding " + name.toLowerCase().replace(" ", "" + " " + location));
         SKIN_LIST.put(name.toLowerCase().replace(" ", ""),location);
     }
 
@@ -103,11 +103,18 @@ public class SkinGrabber {
         return manager.register("humanoid", new DynamicTexture(image));
     }
 
-
-
-    public static void downloadSkinFromUsername(String username, File filepath) {
+    public static boolean isValidURL(String url) {
         try {
-            URL url = new URL(URL + username);
+            new URL(url).toURI();
+            return true;
+        } catch (MalformedURLException | URISyntaxException e) {
+            return false;
+        }
+    }
+
+    public static void downloadImageFromURL(String filename,File filepath, String URL) {
+        try {
+            URL url = new URL(URL);
             URLConnection connection = url.openConnection();
             connection.connect();
             connection.setConnectTimeout(0);
@@ -118,12 +125,16 @@ public class SkinGrabber {
                 filepath.mkdirs();
             }
 
-            ImageIO.write(image, "png", new File(filepath, username + ".png"));
+            ImageIO.write(image, "png", new File(filepath, filename + ".png"));
             System.out.println(image);
 
         } catch (Exception exception) {
             exception.printStackTrace();
         }
+    }
+
+    public static void downloadSkinFromUsername(String username, File filepath) {
+        downloadImageFromURL(username, filepath, SkinGrabber.URL + username);
     }
 
     // These functions were coped from HttpTexture by Mojang (thak you moywang(

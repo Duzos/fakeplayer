@@ -1,6 +1,7 @@
 package com.duzo.fakeplayers.networking;
 
 import com.duzo.fakeplayers.FakePlayers;
+import com.duzo.fakeplayers.networking.packets.SendImageDownloadMessageS2CPacket;
 import com.duzo.fakeplayers.networking.packets.SendSkinMessageS2CPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -27,6 +28,12 @@ public class Network {
 
         INSTANCE = net;
         
+        net.messageBuilder(SendImageDownloadMessageS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(SendImageDownloadMessageS2CPacket::decode)
+                .encoder(SendImageDownloadMessageS2CPacket::encode)
+                .consumerMainThread(SendImageDownloadMessageS2CPacket::handle)
+                .add();
+
         net.messageBuilder(SendSkinMessageS2CPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
                 .decoder(SendSkinMessageS2CPacket::decode)
                 .encoder(SendSkinMessageS2CPacket::encode)

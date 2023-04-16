@@ -12,11 +12,9 @@ public class SkinDownloaderThread implements Runnable {
      * @param username The username to be downloaded
      */
     public SkinDownloaderThread(String username) {
-//        System.out.println("Skin thread created with username: " + username);
         this.username = username;
     }
     public void run() {
-//        System.out.println("Skin thread running with username: " + this.username);
         downloadAndAddSkin(this.username);
     }
 
