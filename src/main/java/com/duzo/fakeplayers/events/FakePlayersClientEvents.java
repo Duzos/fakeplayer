@@ -19,8 +19,8 @@ public class FakePlayersClientEvents {
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers renderers) {
         renderers.registerEntityRenderer(FPEntities.FAKE_PLAYER_ENTITY.get(), FakePlayerRenderer::new);
         renderers.registerEntityRenderer(FPEntities.FAKE_PLAYER_SLIM_ENTITY.get(), FakePlayerSlimRenderer::new);
-        renderers.registerEntityRenderer(FPEntities.TAMABLE_PLAYER.get(), TamablePlayerRenderer::new);
-        renderers.registerEntityRenderer(FPEntities.TAMABLE_PLAYER_SLIM.get(), TamablePlayerSlimRenderer::new);
+//        renderers.registerEntityRenderer(FPEntities.TAMABLE_PLAYER.get(), TamablePlayerRenderer::new);
+//        renderers.registerEntityRenderer(FPEntities.TAMABLE_PLAYER_SLIM.get(), TamablePlayerSlimRenderer::new);
     }
 
     @SubscribeEvent

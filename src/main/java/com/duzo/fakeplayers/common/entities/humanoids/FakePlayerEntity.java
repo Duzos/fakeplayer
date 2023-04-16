@@ -5,6 +5,7 @@ import com.duzo.fakeplayers.client.threads.ImageDownloaderThread;
 import com.duzo.fakeplayers.common.containers.HumanoidInventoryContainer;
 import com.duzo.fakeplayers.common.entities.HumanoidEntity;
 import com.duzo.fakeplayers.common.goals.MoveTowardsItemsGoal;
+import com.duzo.fakeplayers.core.init.FPItems;
 import com.duzo.fakeplayers.networking.Network;
 import com.duzo.fakeplayers.networking.packets.SendImageDownloadMessageS2CPacket;
 import com.duzo.fakeplayers.networking.packets.SendSkinMessageS2CPacket;
@@ -21,11 +22,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
@@ -53,6 +56,16 @@ public class FakePlayerEntity extends HumanoidEntity {
     public FakePlayerEntity(EntityType<? extends FakePlayerEntity> entityType, Level level, ResourceLocation skin) {
         super(entityType, level, skin);
         this.setCanPickUpLoot(true);
+    }
+
+    @Override
+    protected void dropCustomDeathLoot(DamageSource p_21385_, int p_21386_, boolean p_21387_) {
+        super.dropCustomDeathLoot(p_21385_, p_21386_, p_21387_);
+
+        ItemStack egg = FPItems.FAKE_PLAYER_SPAWN_EGG.get().getDefaultInstance();
+        egg.setHoverName(this.getCustomName());
+
+        this.spawnAtLocation(egg);
     }
 
     @Override

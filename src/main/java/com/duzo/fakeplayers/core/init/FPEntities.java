@@ -21,8 +21,8 @@ public class FPEntities {
             EntityType.Builder.<FakePlayerEntity>of(FakePlayerEntity::new, MobCategory.CREATURE).sized(0.6f,1.8f).build(new ResourceLocation(FakePlayers.MODID,"fake_player_entity").toString()));
     public static final RegistryObject<EntityType<FakePlayerSlimEntity>> FAKE_PLAYER_SLIM_ENTITY = ENTITIES.register("fake_player_slim_entity", () ->
             EntityType.Builder.<FakePlayerSlimEntity>of(FakePlayerSlimEntity::new, MobCategory.CREATURE).sized(0.6f,1.8f).build(new ResourceLocation(FakePlayers.MODID,"fake_player_slim_entity").toString()));
-    public static final RegistryObject<EntityType<TamablePlayer>> TAMABLE_PLAYER = ENTITIES.register("tamable_player", () ->
-            EntityType.Builder.<TamablePlayer>of(TamablePlayer::new, MobCategory.CREATURE).sized(0.6f,1.8f).build(new ResourceLocation(FakePlayers.MODID,"tamable_player").toString()));
-    public static final RegistryObject<EntityType<TamablePlayerSlim>> TAMABLE_PLAYER_SLIM = ENTITIES.register("tamable_player_slim", () ->
-            EntityType.Builder.<TamablePlayerSlim>of(TamablePlayerSlim::new, MobCategory.CREATURE).sized(0.6f,1.8f).build(new ResourceLocation(FakePlayers.MODID,"tamable_player_slim").toString()));
+//    public static final RegistryObject<EntityType<TamablePlayer>> TAMABLE_PLAYER = ENTITIES.register("tamable_player", () ->
+//            EntityType.Builder.<TamablePlayer>of(TamablePlayer::new, MobCategory.CREATURE).sized(0.6f,1.8f).build(new ResourceLocation(FakePlayers.MODID,"tamable_player").toString()));
+//    public static final RegistryObject<EntityType<TamablePlayerSlim>> TAMABLE_PLAYER_SLIM = ENTITIES.register("tamable_player_slim", () ->
+//            EntityType.Builder.<TamablePlayerSlim>of(TamablePlayerSlim::new, MobCategory.CREATURE).sized(0.6f,1.8f).build(new ResourceLocation(FakePlayers.MODID,"tamable_player_slim").toString()));
 }
