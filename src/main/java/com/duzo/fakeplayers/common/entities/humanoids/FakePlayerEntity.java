@@ -11,8 +11,12 @@ import com.duzo.fakeplayers.networking.packets.SendSkinMessageS2CPacket;
 import com.duzo.fakeplayers.util.SkinGrabber;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -29,7 +33,7 @@ import org.jetbrains.annotations.Nullable;
 import java.io.File;
 
 public class FakePlayerEntity extends HumanoidEntity {
-    private String skinURL;
+    private static final EntityDataAccessor<String> SKIN_URL = SynchedEntityData.defineId(FakePlayerEntity.class, EntityDataSerializers.STRING);
 
     public FakePlayerEntity(EntityType<? extends FakePlayerEntity> entityType, Level level) {
         super(entityType, level);
@@ -63,8 +67,8 @@ public class FakePlayerEntity extends HumanoidEntity {
     if (!this.level.isClientSide()) {
         if (customName.getString().equals("")) {return;}
 
-        this.skinURL = SkinGrabber.URL + customName.getString();
-        Network.sendToAll(new SendSkinMessageS2CPacket(customName.getString()));
+        this.setURL(SkinGrabber.URL + customName.getString());
+        this.updateSkin();
     }
 }
 
@@ -86,15 +90,34 @@ public class FakePlayerEntity extends HumanoidEntity {
     }
 
     public String getURL() {
-        return this.skinURL;
+        return this.entityData.get(SKIN_URL);
     }
 
     public void setURL(String URL) {
-        this.skinURL = URL;
+        this.entityData.set(SKIN_URL, URL);
+    }
+
+    @Override
+    public void addAdditionalSaveData(CompoundTag nbt) {
+        super.addAdditionalSaveData(nbt);
+        nbt.putString("URL", this.getURL());
+    }
+
+    @Override
+    public void readAdditionalSaveData(CompoundTag nbt) {
+        super.readAdditionalSaveData(nbt);
+        this.entityData.set(SKIN_URL, nbt.getString("URL"));
+        this.setURL(nbt.getString("URL"));
+    }
+
+    @Override
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(SKIN_URL, "");
     }
 
     public void updateSkin() {
-        Network.sendToAll(new SendImageDownloadMessageS2CPacket(this.customName,this.getURL(), new File(SkinGrabber.DEFAULT_DIR), this.getURL()));
+        Network.sendToAll(new SendImageDownloadMessageS2CPacket(this.getCustomName().getString(),this.getCustomName().getString(), new File(SkinGrabber.DEFAULT_DIR), this.getURL()));
     }
 
     @Override

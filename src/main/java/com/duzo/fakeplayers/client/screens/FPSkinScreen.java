@@ -27,8 +27,8 @@ public class FPSkinScreen extends Screen {
 
         assert this.minecraft != null;
         this.input = new EditBox(this.minecraft.fontFilterFishy, 4, this.height / 2, this.width, 12, Component.translatable("screen.fakeplayers.skin"));
-        this.input.setValue(humanoid.getURL());
-        this.input.setMaxLength(512);
+        this.input.setValue(this.humanoid.getURL());
+        this.input.setMaxLength(100);
         this.input.setBordered(true);
         this.addWidget(this.input);
 
@@ -50,8 +50,11 @@ public class FPSkinScreen extends Screen {
 
     @Override
     public void render(PoseStack pPoseStack, int mouseX, int mouseY, float delta) {
-        this.input.render(pPoseStack, mouseX,mouseY,delta);
-        this.confirm.render(pPoseStack,mouseX,mouseY,delta);
+        if (this.input != null && this.confirm != null) {
+            this.input.render(pPoseStack, mouseX, mouseY, delta);
+            this.confirm.render(pPoseStack, mouseX, mouseY, delta);
+        }
+
         super.render(pPoseStack, mouseX, mouseY, delta);
     }
 }
