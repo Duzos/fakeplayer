@@ -53,7 +53,10 @@ public class FakePlayerSlimRenderer extends LivingEntityRenderer<FakePlayerSlimE
                 return HumanoidEntity.ERROR_TEXTURE;
             }
             ResourceLocation texture = SkinGrabber.getEntitySkinFromList(entity);
-            if (texture != null) {
+
+            if (texture == null) {
+                entity.updateSkin();
+            } else {
                 return texture;
             }
         }

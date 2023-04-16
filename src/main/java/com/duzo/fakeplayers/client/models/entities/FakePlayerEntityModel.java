@@ -9,7 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class FakePlayerEntityModel extends PlayerModel<FakePlayerEntity>  {
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(FakePlayers.MODID, "fake_player"),"main");
-    public FakePlayerEntityModel(ModelPart p_170821_, boolean slim) {
-        super(p_170821_, slim);
+    public FakePlayerEntityModel(ModelPart p_170821_) {
+        super(p_170821_, false);
     }
 }
