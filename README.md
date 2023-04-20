@@ -1,5 +1,6 @@
 # Fake Players Mod
-A 1.19 Forge mod aimed at adding fake players to the game.
+### A 1.19 Forge mod aimed at adding fake players to the game.
+#### I am 100% willing to try and port this mod to any minecraft version you wish, so simply ask me if you have a request!
 
 ## Features
 ### Fake Player Mob
