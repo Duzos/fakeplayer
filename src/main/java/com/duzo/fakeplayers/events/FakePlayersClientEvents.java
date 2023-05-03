@@ -3,10 +3,15 @@ package com.duzo.fakeplayers.events;
 import com.duzo.fakeplayers.FakePlayers;
 import com.duzo.fakeplayers.client.models.entities.*;
 import com.duzo.fakeplayers.client.models.renderers.*;
+import com.duzo.fakeplayers.client.screens.FPSkinScreen;
+import com.duzo.fakeplayers.common.entities.humanoids.FakePlayerEntity;
 import com.duzo.fakeplayers.core.init.FPEntities;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -14,6 +19,10 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(value = Dist.CLIENT, modid = FakePlayers.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class FakePlayersClientEvents {
+
+    public static Screen createSkinScreen(Component component, FakePlayerEntity entity, Player player) {
+        return new FPSkinScreen(component, entity, player);
+    }
 
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers renderers) {
