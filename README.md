@@ -11,10 +11,12 @@ These mobs look exactly like regular players.
 - Attack when hurt
 - Change username from name tag
 - Change skin from name tag
+- Change skin from UI
 - Wear armour
 - Hold items
 - Has inventory
-- Toggleable AI (Shift right click)
+- Editable AI via UI
+- Send chat messages via UI
 
 And much more!
 #### How do I get one?
