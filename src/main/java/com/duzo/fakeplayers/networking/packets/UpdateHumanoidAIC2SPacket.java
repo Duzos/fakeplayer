@@ -67,10 +67,6 @@ public class UpdateHumanoidAIC2SPacket {
             if (level.getEntity(this.uuid) instanceof FakePlayerEntity humanoid) {
                 humanoid.setNoAi(this.noAI);
 
-                if (this.setTarget) {
-                    humanoid.setTarget(player);
-                }
-
                 if (this.forceTargeting) {
                     humanoid.setForceTargeting(player);
                 } else {
