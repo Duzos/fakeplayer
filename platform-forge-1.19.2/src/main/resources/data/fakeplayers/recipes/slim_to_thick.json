@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "fakeplayers:fake_player_slim_spawn_egg"
+    }
+  ],
+  "result": {
+    "count":1,
+    "item": "fakeplayers:fake_player_spawn_egg"
+  }
+}
