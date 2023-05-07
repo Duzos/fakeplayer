@@ -1,5 +1,6 @@
 package com.duzo.fakeplayers.common.entities.humanoids;
 
+import com.duzo.fakeplayers.configs.FPCommonConfigs;
 import com.duzo.fakeplayers.events.FakePlayersClientEvents;
 import com.duzo.fakeplayers.common.entities.HumanoidEntity;
 import com.duzo.fakeplayers.common.goals.MoveTowardsItemsGoal;
@@ -58,6 +59,8 @@ public class FakePlayerEntity extends HumanoidEntity {
     @Override
     protected void dropCustomDeathLoot(DamageSource p_21385_, int p_21386_, boolean p_21387_) {
         super.dropCustomDeathLoot(p_21385_, p_21386_, p_21387_);
+
+        if (!FPCommonConfigs.DOES_DROP_EGGS.get()) return;
 
         ItemStack egg = this.getEgg();
         egg.setHoverName(this.getCustomName());

@@ -1,6 +1,8 @@
 package com.duzo.fakeplayers;
 
 import com.duzo.fakeplayers.common.containers.FPContainers;
+import com.duzo.fakeplayers.configs.FPClientConfigs;
+import com.duzo.fakeplayers.configs.FPCommonConfigs;
 import com.duzo.fakeplayers.core.init.FPEntities;
 import com.duzo.fakeplayers.core.init.FPItems;
 import com.duzo.fakeplayers.networking.Network;
@@ -10,7 +12,9 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -33,6 +37,10 @@ public class FakePlayers {
         FPItems.ITEMS.register(modEventBus);
         FPEntities.ENTITIES.register(modEventBus);
         FPContainers.MENUS.register(modEventBus);
+
+        // Configs
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, FPClientConfigs.SPEC, "fakeplayers-client.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, FPCommonConfigs.SPEC, "fakeplayers-common.toml");
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
