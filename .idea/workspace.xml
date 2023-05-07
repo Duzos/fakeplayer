@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e49ac745-2e21-47a5-b3c8-d9d2bbdb879a" name="Changes" comment="Moved 1.19.3 files into a 1.19.3 directory">
-      <change afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/configs/FPClientConfigs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/configs/FPCommonConfigs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-forge-1.19.3/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-forge-1.19.3/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-forge-1.19.3/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-forge-1.19.3/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-forge-1.19.4/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-forge-1.19.4/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/FakePlayers.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/FakePlayers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/FakePlayerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/FakePlayerEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.4/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.4/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/configs/FPClientConfigs.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/configs/FPClientConfigs.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
