@@ -1,0 +1,156 @@
+diff --git a/gradle.properties b/platform-forge-1.19.4/gradle.properties
+rename from gradle.properties
+rename to platform-forge-1.19.4/gradle.properties
+diff --git a/src/main/resources/assets/fakeplayers/models/item/player_shell.json b/platform-forge-1.19.4/src/main/resources/assets/fakeplayers/models/item/player_shell.json
+rename from src/main/resources/assets/fakeplayers/models/item/player_shell.json
+rename to platform-forge-1.19.4/src/main/resources/assets/fakeplayers/models/item/player_shell.json
+diff --git a/src/main/resources/assets/fakeplayers/models/item/player_ai.json b/platform-forge-1.19.4/src/main/resources/assets/fakeplayers/models/item/player_ai.json
+rename from src/main/resources/assets/fakeplayers/models/item/player_ai.json
+rename to platform-forge-1.19.4/src/main/resources/assets/fakeplayers/models/item/player_ai.json
+diff --git a/src/main/resources/assets/fakeplayers/models/item/fake_player_slim_spawn_egg.json b/platform-forge-1.19.4/src/main/resources/assets/fakeplayers/models/item/fake_player_slim_spawn_egg.json
+rename from src/main/resources/assets/fakeplayers/models/item/fake_player_slim_spawn_egg.json
+rename to platform-forge-1.19.4/src/main/resources/assets/fakeplayers/models/item/fake_player_slim_spawn_egg.json
+diff --git a/src/main/resources/assets/fakeplayers/models/item/fake_player_spawn_egg.json b/platform-forge-1.19.4/src/main/resources/assets/fakeplayers/models/item/fake_player_spawn_egg.json
+rename from src/main/resources/assets/fakeplayers/models/item/fake_player_spawn_egg.json
+rename to platform-forge-1.19.4/src/main/resources/assets/fakeplayers/models/item/fake_player_spawn_egg.json
+diff --git a/src/main/resources/data/fakeplayers/loot_tables/entities/humanoid_entity.json b/platform-forge-1.19.4/src/main/resources/data/fakeplayers/loot_tables/entities/humanoid_entity.json
+rename from src/main/resources/data/fakeplayers/loot_tables/entities/humanoid_entity.json
+rename to platform-forge-1.19.4/src/main/resources/data/fakeplayers/loot_tables/entities/humanoid_entity.json
+diff --git a/src/main/java/com/duzo/fakeplayers/client/models/renderers/FakePlayerSlimRenderer.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/renderers/FakePlayerSlimRenderer.java
+rename from src/main/java/com/duzo/fakeplayers/client/models/renderers/FakePlayerSlimRenderer.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/renderers/FakePlayerSlimRenderer.java
+diff --git a/src/main/java/com/duzo/fakeplayers/client/models/entities/FakePlayerSlimEntityModel.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/entities/FakePlayerSlimEntityModel.java
+rename from src/main/java/com/duzo/fakeplayers/client/models/entities/FakePlayerSlimEntityModel.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/entities/FakePlayerSlimEntityModel.java
+diff --git a/src/main/resources/data/fakeplayers/recipes/slim_to_thick.json b/platform-forge-1.19.4/src/main/resources/data/fakeplayers/recipes/slim_to_thick.json
+rename from src/main/resources/data/fakeplayers/recipes/slim_to_thick.json
+rename to platform-forge-1.19.4/src/main/resources/data/fakeplayers/recipes/slim_to_thick.json
+diff --git a/src/main/java/com/duzo/fakeplayers/networking/Network.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/networking/Network.java
+rename from src/main/java/com/duzo/fakeplayers/networking/Network.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/networking/Network.java
+diff --git a/src/main/resources/data/fakeplayers/recipes/thick_to_slim.json b/platform-forge-1.19.4/src/main/resources/data/fakeplayers/recipes/thick_to_slim.json
+rename from src/main/resources/data/fakeplayers/recipes/thick_to_slim.json
+rename to platform-forge-1.19.4/src/main/resources/data/fakeplayers/recipes/thick_to_slim.json
+diff --git a/src/main/java/com/duzo/fakeplayers/client/screens/FPSkinScreen.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/screens/FPSkinScreen.java
+rename from src/main/java/com/duzo/fakeplayers/client/screens/FPSkinScreen.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/screens/FPSkinScreen.java
+diff --git a/src/main/resources/data/fakeplayers/recipes/player_spawn_egg.json b/platform-forge-1.19.4/src/main/resources/data/fakeplayers/recipes/player_spawn_egg.json
+rename from src/main/resources/data/fakeplayers/recipes/player_spawn_egg.json
+rename to platform-forge-1.19.4/src/main/resources/data/fakeplayers/recipes/player_spawn_egg.json
+diff --git a/src/main/resources/data/fakeplayers/recipes/player_ai.json b/platform-forge-1.19.4/src/main/resources/data/fakeplayers/recipes/player_ai.json
+rename from src/main/resources/data/fakeplayers/recipes/player_ai.json
+rename to platform-forge-1.19.4/src/main/resources/data/fakeplayers/recipes/player_ai.json
+diff --git a/src/main/java/com/duzo/fakeplayers/client/models/entities/FakePlayerEntityModel.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/entities/FakePlayerEntityModel.java
+rename from src/main/java/com/duzo/fakeplayers/client/models/entities/FakePlayerEntityModel.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/entities/FakePlayerEntityModel.java
+diff --git a/src/main/resources/data/fakeplayers/recipes/player_shell.json b/platform-forge-1.19.4/src/main/resources/data/fakeplayers/recipes/player_shell.json
+rename from src/main/resources/data/fakeplayers/recipes/player_shell.json
+rename to platform-forge-1.19.4/src/main/resources/data/fakeplayers/recipes/player_shell.json
+diff --git a/src/main/java/com/duzo/fakeplayers/core/init/FPEntities.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/core/init/FPEntities.java
+rename from src/main/java/com/duzo/fakeplayers/core/init/FPEntities.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/core/init/FPEntities.java
+diff --git a/src/main/java/com/duzo/fakeplayers/client/screens/HumanoidInventoryScreen.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/screens/HumanoidInventoryScreen.java
+rename from src/main/java/com/duzo/fakeplayers/client/screens/HumanoidInventoryScreen.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/screens/HumanoidInventoryScreen.java
+diff --git a/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/FakePlayerEntity.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/FakePlayerEntity.java
+rename from src/main/java/com/duzo/fakeplayers/common/entities/humanoids/FakePlayerEntity.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/FakePlayerEntity.java
+diff --git a/src/main/java/com/duzo/fakeplayers/common/containers/HumanoidInventoryContainer.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/common/containers/HumanoidInventoryContainer.java
+rename from src/main/java/com/duzo/fakeplayers/common/containers/HumanoidInventoryContainer.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/common/containers/HumanoidInventoryContainer.java
+diff --git a/src/main/resources/pack.mcmeta b/platform-forge-1.19.4/src/main/resources/pack.mcmeta
+rename from src/main/resources/pack.mcmeta
+rename to platform-forge-1.19.4/src/main/resources/pack.mcmeta
+diff --git a/src/main/java/com/duzo/fakeplayers/events/FakePlayersClientEvents.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/events/FakePlayersClientEvents.java
+rename from src/main/java/com/duzo/fakeplayers/events/FakePlayersClientEvents.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/events/FakePlayersClientEvents.java
+diff --git a/src/main/java/com/duzo/fakeplayers/networking/packets/SendSkinMessageS2CPacket.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/networking/packets/SendSkinMessageS2CPacket.java
+rename from src/main/java/com/duzo/fakeplayers/networking/packets/SendSkinMessageS2CPacket.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/networking/packets/SendSkinMessageS2CPacket.java
+diff --git a/src/main/java/com/duzo/fakeplayers/FakePlayers.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/FakePlayers.java
+rename from src/main/java/com/duzo/fakeplayers/FakePlayers.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/FakePlayers.java
+diff --git a/src/main/java/com/duzo/fakeplayers/common/containers/FPContainers.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/common/containers/FPContainers.java
+rename from src/main/java/com/duzo/fakeplayers/common/containers/FPContainers.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/common/containers/FPContainers.java
+diff --git a/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/tamables/TamablePlayerSlim.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/tamables/TamablePlayerSlim.java
+rename from src/main/java/com/duzo/fakeplayers/common/entities/humanoids/tamables/TamablePlayerSlim.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/tamables/TamablePlayerSlim.java
+diff --git a/src/main/java/com/duzo/fakeplayers/common/goals/MoveTowardsItemsGoal.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/common/goals/MoveTowardsItemsGoal.java
+rename from src/main/java/com/duzo/fakeplayers/common/goals/MoveTowardsItemsGoal.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/common/goals/MoveTowardsItemsGoal.java
+diff --git a/src/main/java/com/duzo/fakeplayers/common/entities/TamableHumanoid.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/common/entities/TamableHumanoid.java
+rename from src/main/java/com/duzo/fakeplayers/common/entities/TamableHumanoid.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/common/entities/TamableHumanoid.java
+diff --git a/src/main/java/com/duzo/fakeplayers/client/threads/SkinDownloaderThread.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/threads/SkinDownloaderThread.java
+rename from src/main/java/com/duzo/fakeplayers/client/threads/SkinDownloaderThread.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/threads/SkinDownloaderThread.java
+diff --git a/src/main/resources/assets/fakeplayers/lang/en_us.json b/platform-forge-1.19.4/src/main/resources/assets/fakeplayers/lang/en_us.json
+rename from src/main/resources/assets/fakeplayers/lang/en_us.json
+rename to platform-forge-1.19.4/src/main/resources/assets/fakeplayers/lang/en_us.json
+diff --git a/src/main/java/com/duzo/fakeplayers/client/models/renderers/HumanoidEntityRenderer.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/renderers/HumanoidEntityRenderer.java
+rename from src/main/java/com/duzo/fakeplayers/client/models/renderers/HumanoidEntityRenderer.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/renderers/HumanoidEntityRenderer.java
+diff --git a/src/main/java/com/duzo/fakeplayers/core/init/FPItems.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/core/init/FPItems.java
+rename from src/main/java/com/duzo/fakeplayers/core/init/FPItems.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/core/init/FPItems.java
+diff --git a/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/FakePlayerSlimEntity.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/FakePlayerSlimEntity.java
+rename from src/main/java/com/duzo/fakeplayers/common/entities/humanoids/FakePlayerSlimEntity.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/FakePlayerSlimEntity.java
+diff --git a/src/main/java/com/duzo/fakeplayers/common/entities/HumanoidEntity.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/common/entities/HumanoidEntity.java
+rename from src/main/java/com/duzo/fakeplayers/common/entities/HumanoidEntity.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/common/entities/HumanoidEntity.java
+diff --git a/src/main/java/com/duzo/fakeplayers/util/SkinGrabber.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/util/SkinGrabber.java
+rename from src/main/java/com/duzo/fakeplayers/util/SkinGrabber.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/util/SkinGrabber.java
+diff --git a/src/main/java/com/duzo/fakeplayers/networking/packets/SendImageDownloadMessageS2CPacket.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/networking/packets/SendImageDownloadMessageS2CPacket.java
+rename from src/main/java/com/duzo/fakeplayers/networking/packets/SendImageDownloadMessageS2CPacket.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/networking/packets/SendImageDownloadMessageS2CPacket.java
+diff --git a/src/main/java/com/duzo/fakeplayers/client/threads/ImageDownloaderThread.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/threads/ImageDownloaderThread.java
+rename from src/main/java/com/duzo/fakeplayers/client/threads/ImageDownloaderThread.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/threads/ImageDownloaderThread.java
+diff --git a/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/tamables/TamablePlayer.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/tamables/TamablePlayer.java
+rename from src/main/java/com/duzo/fakeplayers/common/entities/humanoids/tamables/TamablePlayer.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/tamables/TamablePlayer.java
+diff --git a/src/main/java/com/duzo/fakeplayers/events/FakePlayersModEvents.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/events/FakePlayersModEvents.java
+rename from src/main/java/com/duzo/fakeplayers/events/FakePlayersModEvents.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/events/FakePlayersModEvents.java
+diff --git a/src/main/java/com/duzo/fakeplayers/client/models/renderers/TamablePlayerSlimRenderer.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/renderers/TamablePlayerSlimRenderer.java
+rename from src/main/java/com/duzo/fakeplayers/client/models/renderers/TamablePlayerSlimRenderer.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/renderers/TamablePlayerSlimRenderer.java
+diff --git a/src/main/java/com/duzo/fakeplayers/client/models/renderers/TamablePlayerRenderer.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/renderers/TamablePlayerRenderer.java
+rename from src/main/java/com/duzo/fakeplayers/client/models/renderers/TamablePlayerRenderer.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/renderers/TamablePlayerRenderer.java
+diff --git a/README.md b/platform-forge-1.19.4/README.md
+rename from README.md
+rename to platform-forge-1.19.4/README.md
+diff --git a/.gitignore b/platform-forge-1.19.4/.gitignore
+rename from .gitignore
+rename to platform-forge-1.19.4/.gitignore
+diff --git a/src/main/java/com/duzo/fakeplayers/client/models/entities/HumanoidEntityModel.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/entities/HumanoidEntityModel.java
+rename from src/main/java/com/duzo/fakeplayers/client/models/entities/HumanoidEntityModel.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/entities/HumanoidEntityModel.java
+diff --git a/src/main/java/com/duzo/fakeplayers/client/models/renderers/FakePlayerRenderer.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/renderers/FakePlayerRenderer.java
+rename from src/main/java/com/duzo/fakeplayers/client/models/renderers/FakePlayerRenderer.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/renderers/FakePlayerRenderer.java
+diff --git a/src/main/java/com/duzo/fakeplayers/client/models/entities/TamablePlayerModel.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/entities/TamablePlayerModel.java
+rename from src/main/java/com/duzo/fakeplayers/client/models/entities/TamablePlayerModel.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/entities/TamablePlayerModel.java
+diff --git a/src/main/java/com/duzo/fakeplayers/client/models/entities/TamablePlayerSlimModel.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/entities/TamablePlayerSlimModel.java
+rename from src/main/java/com/duzo/fakeplayers/client/models/entities/TamablePlayerSlimModel.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/entities/TamablePlayerSlimModel.java
+diff --git a/src/main/resources/META-INF/mods.toml b/platform-forge-1.19.4/src/main/resources/META-INF/mods.toml
+rename from src/main/resources/META-INF/mods.toml
+rename to platform-forge-1.19.4/src/main/resources/META-INF/mods.toml
+diff --git a/settings.gradle b/platform-forge-1.19.4/settings.gradle
+rename from settings.gradle
+rename to platform-forge-1.19.4/settings.gradle
+diff --git a/src/main/java/com/duzo/fakeplayers/networking/packets/UpdateHumanoidAIC2SPacket.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/networking/packets/UpdateHumanoidAIC2SPacket.java
+rename from src/main/java/com/duzo/fakeplayers/networking/packets/UpdateHumanoidAIC2SPacket.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/networking/packets/UpdateHumanoidAIC2SPacket.java
+diff --git a/src/main/java/com/duzo/fakeplayers/networking/packets/SendHumanoidChatC2SPacket.java b/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/networking/packets/SendHumanoidChatC2SPacket.java
+rename from src/main/java/com/duzo/fakeplayers/networking/packets/SendHumanoidChatC2SPacket.java
+rename to platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/networking/packets/SendHumanoidChatC2SPacket.java
+diff --git a/build.gradle b/platform-forge-1.19.4/build.gradle
+rename from build.gradle
+rename to platform-forge-1.19.4/build.gradle

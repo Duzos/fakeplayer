@@ -1,0 +1,8 @@
+{
+  "item.fakeplayers.fake_player_spawn_egg": "Player Egg",
+  "item.fakeplayers.fake_player_slim_spawn_egg": "Slim Player Egg",
+  "item.fakeplayers.player_shell": "Robot Shell",
+  "item.fakeplayers.player_ai": "Robot AI",
+  "itemGroup.fp_tab": "Fake Players",
+  "screens.fakeplayers.done": "Done"
+}
