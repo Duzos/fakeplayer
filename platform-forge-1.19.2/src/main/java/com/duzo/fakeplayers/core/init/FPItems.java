@@ -12,11 +12,11 @@ import net.minecraftforge.registries.RegistryObject;
 public class FPItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, FakePlayers.MODID);
     public static final RegistryObject<ForgeSpawnEggItem> FAKE_PLAYER_SPAWN_EGG = ITEMS.register("fake_player_spawn_egg", () ->
-            new ForgeSpawnEggItem(FPEntities.FAKE_PLAYER_ENTITY,0xe0280b,0x73eb44, new Item.Properties()));
+            new ForgeSpawnEggItem(FPEntities.FAKE_PLAYER_ENTITY,0xe0280b,0x73eb44, new Item.Properties().tab(FPCreativeTab.FP_TAB)));
     public static final RegistryObject<FakePlayerSpawnEgg> FAKE_PLAYER_CHUNKY_SPAWN_EGG = ITEMS.register("fake_player_chunky_spawn_egg", () ->
             new FakePlayerSpawnEgg(new Item.Properties(),false,true));
     public static final RegistryObject<ForgeSpawnEggItem> FAKE_PLAYER_SLIM_SPAWN_EGG = ITEMS.register("fake_player_slim_spawn_egg", () ->
-            new ForgeSpawnEggItem(FPEntities.FAKE_PLAYER_SLIM_ENTITY,0x73eb44,0xe0280b, new Item.Properties()));
+            new ForgeSpawnEggItem(FPEntities.FAKE_PLAYER_SLIM_ENTITY,0x73eb44,0xe0280b, new Item.Properties().tab(FPCreativeTab.FP_TAB)));
     public static final RegistryObject<FakePlayerSpawnEgg> FAKE_PLAYER_SLIM_CHUNKY_SPAWN_EGG = ITEMS.register("fake_player_slim_chunky_spawn_egg", () ->
             new FakePlayerSpawnEgg(new Item.Properties(),true,true));
 

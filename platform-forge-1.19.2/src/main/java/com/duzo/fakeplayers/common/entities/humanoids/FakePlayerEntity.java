@@ -177,11 +177,6 @@ public class FakePlayerEntity extends HumanoidEntity {
 
         this.getServer().getPlayerList().broadcastChatMessage(PlayerChatMessage.system(new ChatMessageContent(message)),this.createCommandSourceStack(), ChatType.bind(ChatType.CHAT,this));
     }
-
-    public void findNearestBed(ServerLevel level) {
-
-    }
-
     @Override
     public void tick() {
         super.tick();

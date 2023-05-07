@@ -4,21 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e49ac745-2e21-47a5-b3c8-d9d2bbdb879a" name="Changes" comment="ill finish this later i cabnt b assed im gonna add this cool sleeping in beds things">
-      <change afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/goals/GoToNearestBedIfNightGoal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/items/FakePlayerSpawnEgg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/com.duzo.fakeplayers.fakeplayers.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/com.duzo.fakeplayers.fakeplayers.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/com.duzo.fakeplayers.fakeplayers.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/com.duzo.fakeplayers.fakeplayers.test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/platform-forge-1.19.2.fakeplayers.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/platform-forge-1.19.2.fakeplayers.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/platform-forge-1.19.2.fakeplayers.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/platform-forge-1.19.2.fakeplayers.test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/platform-forge-1.19.3.fakeplayers.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/platform-forge-1.19.3.fakeplayers.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/platform-forge-1.19.3.fakeplayers.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/platform-forge-1.19.3.fakeplayers.test.iml" afterDir="false" />
+    <list default="true" id="e49ac745-2e21-47a5-b3c8-d9d2bbdb879a" name="Changes" comment="beginnings of adding &quot;chunky&quot; players which keep chunks around them loaded">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/TamableHumanoid.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/tamables/TamableHumanoid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/client/screens/FPSkinScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/client/screens/FPSkinScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/FakePlayerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/FakePlayerEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/tamables/TamablePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/tamables/TamablePlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/tamables/TamablePlayerSlim.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/tamables/TamablePlayerSlim.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/core/init/FPEntities.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/core/init/FPEntities.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/core/init/FPItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/core/init/FPItems.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -387,13 +376,6 @@
       <option name="presentableId" value="Default" />
       <updated>1677687785841</updated>
     </task>
-    <task id="LOCAL-00013" summary="Fixed slim models">
-      <created>1679097111189</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1679097111189</updated>
-    </task>
     <task id="LOCAL-00014" summary="the blue highlight was annoying me">
       <created>1679451345494</created>
       <option name="number" value="00014" />
@@ -730,7 +712,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683484128777</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="beginnings of adding &quot;chunky&quot; players which keep chunks around them loaded">
+      <created>1683492248431</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1683492248431</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -762,7 +751,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Image downloading + Basics of a skin select screen" />
     <MESSAGE value="Downloading skins from other sources now works" />
     <MESSAGE value="Removed tamable players&#10;Eggs now drop with names" />
     <MESSAGE value="Eggs now drop with names&#10;Removed tamable players&#10;Fixed armour not dropping for FakePlayerSlimEntity" />
@@ -787,7 +775,8 @@
     <MESSAGE value="Moved 1.19.2 files into a 1.19.2 directory" />
     <MESSAGE value="Moved 1.19.3 files into a 1.19.3 directory" />
     <MESSAGE value="ill finish this later i cabnt b assed im gonna add this cool sleeping in beds things" />
-    <option name="LAST_COMMIT_MESSAGE" value="ill finish this later i cabnt b assed im gonna add this cool sleeping in beds things" />
+    <MESSAGE value="beginnings of adding &quot;chunky&quot; players which keep chunks around them loaded" />
+    <option name="LAST_COMMIT_MESSAGE" value="beginnings of adding &quot;chunky&quot; players which keep chunks around them loaded" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/fakeplayers$fakeplayers__runClient_.ic" NAME="fakeplayers [runClient] Coverage Results" MODIFIED="1677792624837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
