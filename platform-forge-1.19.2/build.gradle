@@ -5,7 +5,7 @@ plugins {
     id 'net.minecraftforge.gradle' version '5.1.+'
 }
 group = 'com.duzo.fakeplayers'
-version = '1.19.2-0.6'
+version = '1.19.2-0.7'
 archivesBaseName = "fakeplayers"
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.

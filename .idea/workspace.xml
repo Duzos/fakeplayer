@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e49ac745-2e21-47a5-b3c8-d9d2bbdb879a" name="Changes" comment="beginnings of adding &quot;chunky&quot; players which keep chunks around them loaded">
+    <list default="true" id="e49ac745-2e21-47a5-b3c8-d9d2bbdb879a" name="Changes" comment="You can now use files to set the entities skin!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/client/screens/FPSkinScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/client/screens/FPSkinScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/FakePlayerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/FakePlayerEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/core/init/FPItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/core/init/FPItems.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -376,13 +375,6 @@
       <option name="presentableId" value="Default" />
       <updated>1677687785841</updated>
     </task>
-    <task id="LOCAL-00014" summary="the blue highlight was annoying me">
-      <created>1679451345494</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1679451345494</updated>
-    </task>
     <task id="LOCAL-00015" summary="Added Legacy Skin support">
       <created>1680398690791</created>
       <option name="number" value="00015" />
@@ -719,7 +711,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683492248431</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="You can now use files to set the entities skin!">
+      <created>1683493441479</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1683493441479</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -751,7 +750,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Downloading skins from other sources now works" />
     <MESSAGE value="Removed tamable players&#10;Eggs now drop with names" />
     <MESSAGE value="Eggs now drop with names&#10;Removed tamable players&#10;Fixed armour not dropping for FakePlayerSlimEntity" />
     <MESSAGE value="Fixed armour not dropping for FakePlayerSlimEntity" />
@@ -776,7 +774,8 @@
     <MESSAGE value="Moved 1.19.3 files into a 1.19.3 directory" />
     <MESSAGE value="ill finish this later i cabnt b assed im gonna add this cool sleeping in beds things" />
     <MESSAGE value="beginnings of adding &quot;chunky&quot; players which keep chunks around them loaded" />
-    <option name="LAST_COMMIT_MESSAGE" value="beginnings of adding &quot;chunky&quot; players which keep chunks around them loaded" />
+    <MESSAGE value="You can now use files to set the entities skin!" />
+    <option name="LAST_COMMIT_MESSAGE" value="You can now use files to set the entities skin!" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/fakeplayers$fakeplayers__runClient_.ic" NAME="fakeplayers [runClient] Coverage Results" MODIFIED="1677792624837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

@@ -103,14 +103,10 @@ public class FPSkinScreen extends Screen {
         }
         else {
             File skinDir = new File(this.input.getValue());
-            System.out.println(skinDir);
-            System.out.println(skinDir.exists());
-
             if (skinDir.exists()) {
                 ResourceLocation location = SkinGrabber.fileToLocation(skinDir);
 
                 SkinGrabber.SKIN_LIST.replace(this.humanoid.getStringUUID(),location);
-                System.out.println(SkinGrabber.SKIN_LIST.get(this.humanoid.getStringUUID()));
             }
         }
         this.onClose();
