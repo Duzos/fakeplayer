@@ -4,9 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e49ac745-2e21-47a5-b3c8-d9d2bbdb879a" name="Changes" comment="Moved 1.19.3 files into a 1.19.3 directory">
+    <list default="true" id="e49ac745-2e21-47a5-b3c8-d9d2bbdb879a" name="Changes" comment="ill finish this later i cabnt b assed im gonna add this cool sleeping in beds things">
+      <change afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/goals/GoToNearestBedIfNightGoal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/items/FakePlayerSpawnEgg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/com.duzo.fakeplayers.fakeplayers.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/com.duzo.fakeplayers.fakeplayers.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/com.duzo.fakeplayers.fakeplayers.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/com.duzo.fakeplayers.fakeplayers.test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/platform-forge-1.19.2.fakeplayers.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/platform-forge-1.19.2.fakeplayers.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/platform-forge-1.19.2.fakeplayers.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/platform-forge-1.19.2.fakeplayers.test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/platform-forge-1.19.3.fakeplayers.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/platform-forge-1.19.3.fakeplayers.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/platform-forge-1.19.3.fakeplayers.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/platform-forge-1.19.3.fakeplayers.test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/configs/FPClientConfigs.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/configs/FPClientConfigs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/TamableHumanoid.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/tamables/TamableHumanoid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/FakePlayerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/FakePlayerEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/tamables/TamablePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/tamables/TamablePlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/tamables/TamablePlayerSlim.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/tamables/TamablePlayerSlim.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/core/init/FPEntities.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/core/init/FPEntities.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/core/init/FPItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/core/init/FPItems.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -374,13 +387,6 @@
       <option name="presentableId" value="Default" />
       <updated>1677687785841</updated>
     </task>
-    <task id="LOCAL-00012" summary="FIXED GAME CRASHING BUG :D&#10;Added tamable players">
-      <created>1679095030271</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1679095030271</updated>
-    </task>
     <task id="LOCAL-00013" summary="Fixed slim models">
       <created>1679097111189</created>
       <option name="number" value="00013" />
@@ -717,7 +723,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683142964517</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="ill finish this later i cabnt b assed im gonna add this cool sleeping in beds things">
+      <created>1683484128777</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1683484128777</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -749,7 +762,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="backport to 1.19.2 for `SKspice`" />
     <MESSAGE value="Image downloading + Basics of a skin select screen" />
     <MESSAGE value="Downloading skins from other sources now works" />
     <MESSAGE value="Removed tamable players&#10;Eggs now drop with names" />
@@ -774,7 +786,8 @@
     <MESSAGE value="Moved 1.19.4 Files into a 1.19.4 directoru" />
     <MESSAGE value="Moved 1.19.2 files into a 1.19.2 directory" />
     <MESSAGE value="Moved 1.19.3 files into a 1.19.3 directory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved 1.19.3 files into a 1.19.3 directory" />
+    <MESSAGE value="ill finish this later i cabnt b assed im gonna add this cool sleeping in beds things" />
+    <option name="LAST_COMMIT_MESSAGE" value="ill finish this later i cabnt b assed im gonna add this cool sleeping in beds things" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/fakeplayers$fakeplayers__runClient_.ic" NAME="fakeplayers [runClient] Coverage Results" MODIFIED="1677792624837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

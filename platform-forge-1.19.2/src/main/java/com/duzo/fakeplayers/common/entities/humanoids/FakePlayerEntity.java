@@ -1,5 +1,6 @@
 package com.duzo.fakeplayers.common.entities.humanoids;
 
+import com.duzo.fakeplayers.FakePlayers;
 import com.duzo.fakeplayers.configs.FPCommonConfigs;
 import com.duzo.fakeplayers.events.FakePlayersClientEvents;
 import com.duzo.fakeplayers.common.entities.HumanoidEntity;
@@ -8,14 +9,18 @@ import com.duzo.fakeplayers.core.init.FPItems;
 import com.duzo.fakeplayers.networking.Network;
 import com.duzo.fakeplayers.networking.packets.SendImageDownloadMessageS2CPacket;
 import com.duzo.fakeplayers.util.SkinGrabber;
+import com.mojang.datafixers.util.Pair;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.*;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.players.PlayerList;
 import net.minecraft.world.InteractionHand;
@@ -24,15 +29,24 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.behavior.AcquirePoi;
+import net.minecraft.world.entity.ai.village.poi.PoiManager;
+import net.minecraft.world.entity.ai.village.poi.PoiType;
+import net.minecraft.world.entity.ai.village.poi.PoiTypes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.pathfinder.Path;
+import net.minecraftforge.common.world.ForgeChunkManager;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class FakePlayerEntity extends HumanoidEntity {
     private static final EntityDataAccessor<String> SKIN_URL = SynchedEntityData.defineId(FakePlayerEntity.class, EntityDataSerializers.STRING);
+    private static final EntityDataAccessor<Boolean> IS_CHUNKY = SynchedEntityData.defineId(FakePlayerEntity.class, EntityDataSerializers.BOOLEAN);
     private boolean forceTarget = false;
     private LivingEntity target;
 
@@ -115,10 +129,18 @@ public class FakePlayerEntity extends HumanoidEntity {
         this.entityData.set(SKIN_URL, URL);
     }
 
+    public boolean isChunky() {
+        return this.entityData.get(IS_CHUNKY);
+    }
+    public void setChunky(boolean chunky) {
+        this.entityData.set(IS_CHUNKY, chunky);
+    }
+
     @Override
     public void addAdditionalSaveData(CompoundTag nbt) {
         super.addAdditionalSaveData(nbt);
         nbt.putString("URL", this.getURL());
+        nbt.putBoolean("chunky", this.isChunky());
     }
 
     @Override
@@ -126,12 +148,16 @@ public class FakePlayerEntity extends HumanoidEntity {
         super.readAdditionalSaveData(nbt);
         this.entityData.set(SKIN_URL, nbt.getString("URL"));
         this.setURL(nbt.getString("URL"));
+
+        this.entityData.set(IS_CHUNKY, nbt.getBoolean("chunky"));
+        this.setChunky(nbt.getBoolean("chunky"));
     }
 
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(SKIN_URL, "");
+        this.entityData.define(IS_CHUNKY,false);
     }
 
     public void updateSkin() {
@@ -152,6 +178,10 @@ public class FakePlayerEntity extends HumanoidEntity {
         this.getServer().getPlayerList().broadcastChatMessage(PlayerChatMessage.system(new ChatMessageContent(message)),this.createCommandSourceStack(), ChatType.bind(ChatType.CHAT,this));
     }
 
+    public void findNearestBed(ServerLevel level) {
+
+    }
+
     @Override
     public void tick() {
         super.tick();
@@ -159,6 +189,11 @@ public class FakePlayerEntity extends HumanoidEntity {
         if (!this.level.isClientSide) {
             if (!(this.isNoAi()) && this.forceTarget && this.target != null && !(this.getTarget() == this.target)) {
                 this.getNavigation().moveTo(this.target,2D);
+            }
+
+            if (this.isChunky()) {
+                System.out.println(ForgeChunkManager.forceChunk((ServerLevel) this.level, FakePlayers.MODID,this,this.blockPosition().getX(),this.getBlockZ(),true,true));
+                System.out.println(level.getChunkAt(this.blockPosition()));
             }
         }
 

@@ -1,16 +1,11 @@
 package com.duzo.fakeplayers.core.init;
 
 import com.duzo.fakeplayers.FakePlayers;
-import com.duzo.fakeplayers.common.entities.HumanoidEntity;
-import com.duzo.fakeplayers.common.entities.TamableHumanoid;
 import com.duzo.fakeplayers.common.entities.humanoids.FakePlayerEntity;
 import com.duzo.fakeplayers.common.entities.humanoids.FakePlayerSlimEntity;
-import com.duzo.fakeplayers.common.entities.humanoids.tamables.TamablePlayer;
-import com.duzo.fakeplayers.common.entities.humanoids.tamables.TamablePlayerSlim;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.TamableAnimal;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;

@@ -1,15 +1,8 @@
-package com.duzo.fakeplayers.common.entities;
+package com.duzo.fakeplayers.common.entities.humanoids.tamables;
 
 import net.minecraft.ChatFormatting;
-import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.network.syncher.EntityDataSerializers;
-import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.server.players.OldUsersConverter;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.*;
@@ -20,7 +13,6 @@ import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
-import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.OwnerHurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.OwnerHurtTargetGoal;
 import net.minecraft.world.entity.player.Player;
@@ -30,8 +22,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 
 import javax.annotation.Nullable;
-import java.util.Optional;
-import java.util.UUID;
 
 import static com.duzo.fakeplayers.common.entities.HumanoidEntity.ERROR_TEXTURE;
 

@@ -1,21 +1,15 @@
 package com.duzo.fakeplayers.common.entities.humanoids.tamables;
 
-import com.duzo.fakeplayers.common.entities.TamableHumanoid;
 import com.duzo.fakeplayers.common.goals.MoveTowardsItemsGoal;
 import com.duzo.fakeplayers.networking.Network;
 import com.duzo.fakeplayers.networking.packets.SendSkinMessageS2CPacket;
-import com.duzo.fakeplayers.util.SkinGrabber;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
-
-import java.io.File;
 
 public class TamablePlayer extends TamableHumanoid {
     public TamablePlayer(EntityType<? extends TamableHumanoid> entityType, Level level) {
