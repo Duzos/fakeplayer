@@ -1,6 +1,7 @@
 package com.duzo.fakeplayers.common.entities.humanoids;
 
 import com.duzo.fakeplayers.FakePlayers;
+import com.duzo.fakeplayers.common.goals.GoToNearestBedIfNightGoal;
 import com.duzo.fakeplayers.configs.FPCommonConfigs;
 import com.duzo.fakeplayers.events.FakePlayersClientEvents;
 import com.duzo.fakeplayers.common.entities.HumanoidEntity;
@@ -23,6 +24,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.players.PlayerList;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -30,11 +32,13 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.behavior.AcquirePoi;
+import net.minecraft.world.entity.ai.goal.CatLieOnBedGoal;
 import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.ai.village.poi.PoiTypes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.pathfinder.Path;
 import net.minecraftforge.common.world.ForgeChunkManager;
@@ -88,7 +92,8 @@ public class FakePlayerEntity extends HumanoidEntity {
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new MoveTowardsItemsGoal(this, 1D, true));
+        this.goalSelector.addGoal(2, new MoveTowardsItemsGoal(this, 1D, true));
+        this.goalSelector.addGoal(1, new GoToNearestBedIfNightGoal(this, 1.1D, 8));
 //        this.goalSelector.addGoal(1, new FPFollowForcedTargetGoal(this,this.target,1D,20F,25F));
         super.registerGoals();
     }
@@ -177,6 +182,17 @@ public class FakePlayerEntity extends HumanoidEntity {
 
         this.getServer().getPlayerList().broadcastChatMessage(PlayerChatMessage.system(new ChatMessageContent(message)),this.createCommandSourceStack(), ChatType.bind(ChatType.CHAT,this));
     }
+
+    @Override
+    public void die(DamageSource source) {
+        super.die(source);
+
+        if (!this.level.isClientSide && this.hasCustomName() && this.level.getGameRules().getBoolean(GameRules.RULE_SHOWDEATHMESSAGES) && this.dead) {
+            net.minecraft.network.chat.Component deathMessage = this.getCombatTracker().getDeathMessage();
+            this.getServer().getPlayerList().broadcastSystemMessage(deathMessage,false);
+        }
+    }
+
     @Override
     public void tick() {
         super.tick();
@@ -189,6 +205,13 @@ public class FakePlayerEntity extends HumanoidEntity {
             if (this.isChunky()) {
                 System.out.println(ForgeChunkManager.forceChunk((ServerLevel) this.level, FakePlayers.MODID,this,this.blockPosition().getX(),this.getBlockZ(),true,true));
                 System.out.println(level.getChunkAt(this.blockPosition()));
+            }
+
+            if (this.level.isNight() && this.level.getBlockState(this.blockPosition()).is(BlockTags.BEDS) && !this.isSleeping()) {
+                this.startSleeping(this.blockPosition());
+                System.out.println("starting sleep");
+            } else if (this.isSleeping() && this.level.isDay()) {
+                this.stopSleeping();
             }
         }
 

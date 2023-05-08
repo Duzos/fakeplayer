@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e49ac745-2e21-47a5-b3c8-d9d2bbdb879a" name="Changes" comment="You can now use files to set the entities skin!">
+    <list default="true" id="e49ac745-2e21-47a5-b3c8-d9d2bbdb879a" name="Changes" comment="Moved README.md to highest">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/client/screens/FPSkinScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/client/screens/FPSkinScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/HumanoidEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/HumanoidEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/FakePlayerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/FakePlayerEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/goals/GoToNearestBedIfNightGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/goals/GoToNearestBedIfNightGoal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,10 +155,10 @@
       <recent name="C:\Users\james\IdeaProjects\fakeplayers\src\main\resources\data\fakeplayers\recipes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\james\IdeaProjects\fakeplayers" />
       <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-forge-1.19.3" />
       <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-forge-1.19.2" />
       <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-forge-1.19.4" />
-      <recent name="C:\Users\james\IdeaProjects\fakeplayers" />
       <recent name="C:\Users\james\IdeaProjects\fakeplayers\src\main\resources\assets\fakeplayers\models\item" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -359,8 +360,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.platform-forge-1.19.2 [runClient]" />
-        <item itemvalue="Gradle.platform-forge-1.19.2 [prepareRunClient]" />
         <item itemvalue="Gradle.fakeplayers [runClient]" />
+        <item itemvalue="Gradle.platform-forge-1.19.2 [prepareRunClient]" />
         <item itemvalue="Gradle.fakeplayers [runServer]" />
         <item itemvalue="Gradle.fakeplayers [jar]" />
       </list>
@@ -374,20 +375,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677687785841</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Added Legacy Skin support">
-      <created>1680398690791</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1680398690791</updated>
-    </task>
-    <task id="LOCAL-00016" summary="MULTIPLAYER BLOODY WORKS&#10; - Need to apply it to all the fake players now&#10; - Needs to save when you log on and off">
-      <created>1680503612598</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1680503612598</updated>
     </task>
     <task id="LOCAL-00017" summary="Added the packet functionality to the TamablePlayers">
       <created>1680504483934</created>
@@ -718,7 +705,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683493441479</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="0.6 -&gt; 0.7">
+      <created>1683493820159</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1683493820159</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Moved README.md to highest">
+      <created>1683493840662</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1683493840662</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -750,8 +751,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Removed tamable players&#10;Eggs now drop with names" />
-    <MESSAGE value="Eggs now drop with names&#10;Removed tamable players&#10;Fixed armour not dropping for FakePlayerSlimEntity" />
     <MESSAGE value="Fixed armour not dropping for FakePlayerSlimEntity" />
     <MESSAGE value="GUI Fixed, Ready for release!" />
     <MESSAGE value="0.42 -&gt; 0.5 :)" />
@@ -775,7 +774,9 @@
     <MESSAGE value="ill finish this later i cabnt b assed im gonna add this cool sleeping in beds things" />
     <MESSAGE value="beginnings of adding &quot;chunky&quot; players which keep chunks around them loaded" />
     <MESSAGE value="You can now use files to set the entities skin!" />
-    <option name="LAST_COMMIT_MESSAGE" value="You can now use files to set the entities skin!" />
+    <MESSAGE value="0.6 -&gt; 0.7" />
+    <MESSAGE value="Moved README.md to highest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved README.md to highest" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/fakeplayers$fakeplayers__runClient_.ic" NAME="fakeplayers [runClient] Coverage Results" MODIFIED="1677792624837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
