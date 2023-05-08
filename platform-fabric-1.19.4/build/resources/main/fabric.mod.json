@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "fakeplayers",
+  "version": "0.1-ALPHA",
+  "name": "fakeplayers",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/james/platform-fabric-1.19.4"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/fakeplayers/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "com.duzo.fakeplayers.client.FakeplayersClient"
+    ],
+    "main": [
+      "com.duzo.fakeplayers.Fakeplayers"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.14.19",
+    "fabric": "*",
+    "minecraft": "1.19.4"
+  }
+}

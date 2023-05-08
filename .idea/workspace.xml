@@ -4,11 +4,177 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e49ac745-2e21-47a5-b3c8-d9d2bbdb879a" name="Changes" comment="Moved README.md to highest">
+    <list default="true" id="fa1c5474-fa0f-42cc-bdef-9d75d298f441" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/7.3.3/dependencies-accessors/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/7.3.3/fileChanges/last-build.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/loom-cache/remapped_mods/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2/net/fabricmc/fabric-api/fabric-api-lookup-api-v1/1.6.26+504944c8f4/fabric-api-lookup-api-v1-1.6.26+504944c8f4.pom" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/loom-cache/remapped_mods/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2/net/fabricmc/fabric-api/fabric-command-api-v2/2.2.7+504944c8f4/fabric-command-api-v2-2.2.7+504944c8f4-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/loom-cache/remapped_mods/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2/net/fabricmc/fabric-api/fabric-events-interaction-v0/0.5.0+76ba65ebf4/fabric-events-interaction-v0-0.5.0+76ba65ebf4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/loom-cache/remapped_mods/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2/net/fabricmc/fabric-api/fabric-game-rule-api-v1/1.0.34+a1ccd7bff4/fabric-game-rule-api-v1-1.0.34+a1ccd7bff4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/loom-cache/remapped_mods/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2/net/fabricmc/fabric-api/fabric-gametest-api-v1/1.2.5+ae0966baf4/fabric-gametest-api-v1-1.2.5+ae0966baf4-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/loom-cache/remapped_mods/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2/net/fabricmc/fabric-api/fabric-gametest-api-v1/1.2.5+ae0966baf4/fabric-gametest-api-v1-1.2.5+ae0966baf4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/loom-cache/remapped_mods/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2/net/fabricmc/fabric-api/fabric-gametest-api-v1/1.2.5+ae0966baf4/fabric-gametest-api-v1-1.2.5+ae0966baf4.pom" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/loom-cache/remapped_mods/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2/net/fabricmc/fabric-api/fabric-renderer-api-v1/2.2.6+504944c8f4/fabric-renderer-api-v1-2.2.6+504944c8f4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/loom-cache/remapped_mods/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2/net/fabricmc/fabric-api/fabric-renderer-api-v1/2.2.6+504944c8f4/fabric-renderer-api-v1-2.2.6+504944c8f4.pom" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/loom-cache/remapped_mods/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2/net/fabricmc/fabric-api/fabric-renderer-indigo/1.1.2+81e8c576f4/fabric-renderer-indigo-1.1.2+81e8c576f4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/loom-cache/remapped_mods/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2/net/fabricmc/fabric-api/fabric-transfer-api-v1/3.1.2+504944c8f4/fabric-transfer-api-v1-3.1.2+504944c8f4-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/loom-cache/remapped_mods/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2/net/fabricmc/fabric-loader/0.14.19/fabric-loader-0.14.19-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/loom-cache/remapped_mods/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2/net/fabricmc/fabric-loader/0.14.19/fabric-loader-0.14.19.pom" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build/loom-cache/remapped_working/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2.net.fabricmc.fabric-api-fabric-api-0.80.0+1.19.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build/loom-cache/remapped_working/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2.net.fabricmc.fabric-api-fabric-api-base-0.4.25+504944c8f4-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build/loom-cache/remapped_working/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2.net.fabricmc.fabric-api-fabric-api-lookup-api-v1-1.6.26+504944c8f4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build/loom-cache/remapped_working/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2.net.fabricmc.fabric-api-fabric-blockrenderlayer-v1-1.1.35+c2e6f674f4-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build/loom-cache/remapped_working/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2.net.fabricmc.fabric-api-fabric-content-registries-v0-3.5.10+ae0966baf4-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build/loom-cache/remapped_working/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2.net.fabricmc.fabric-api-fabric-convention-tags-v1-1.4.2+9a7c5daaf4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build/loom-cache/remapped_working/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2.net.fabricmc.fabric-api-fabric-data-generation-api-v1-11.4.1+504944c8f4-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build/loom-cache/remapped_working/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2.net.fabricmc.fabric-api-fabric-dimensions-v1-2.1.46+7f87f8faf4-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build/loom-cache/remapped_working/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2.net.fabricmc.fabric-api-fabric-entity-events-v1-1.5.14+504944c8f4-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build/loom-cache/remapped_working/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2.net.fabricmc.fabric-api-fabric-events-interaction-v0-0.5.0+76ba65ebf4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build/loom-cache/remapped_working/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2.net.fabricmc.fabric-api-fabric-game-rule-api-v1-1.0.34+a1ccd7bff4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build/loom-cache/remapped_working/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2.net.fabricmc.fabric-api-fabric-gametest-api-v1-1.2.5+ae0966baf4-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build/loom-cache/remapped_working/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2.net.fabricmc.fabric-api-fabric-key-binding-api-v1-1.0.34+504944c8f4-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build/loom-cache/remapped_working/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2.net.fabricmc.fabric-api-fabric-loot-api-v2-1.1.28+75e98211f4-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build/loom-cache/remapped_working/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2.net.fabricmc.fabric-api-fabric-networking-api-v1-1.3.2+504944c8f4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build/loom-cache/remapped_working/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2.net.fabricmc.fabric-api-fabric-object-builder-api-v1-7.0.4+504944c8f4-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build/loom-cache/remapped_working/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2.net.fabricmc.fabric-api-fabric-particles-v1-1.0.24+f1e4495bf4-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build/loom-cache/remapped_working/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2.net.fabricmc.fabric-api-fabric-recipe-api-v1-1.0.9+a1ccd7bff4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build/loom-cache/remapped_working/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2.net.fabricmc.fabric-api-fabric-renderer-indigo-1.1.2+81e8c576f4-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build/loom-cache/remapped_working/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2.net.fabricmc.fabric-api-fabric-rendering-data-attachment-v1-0.3.29+afca2f3ef4-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build/loom-cache/remapped_working/net_fabricmc_yarn_1_19_4_1_19_4_build_2_v2.net.fabricmc.fabric-api-fabric-screen-handler-api-v1-1.3.21+504944c8f4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/config/fabric/indigo-renderer.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/crash-reports/crash-2023-05-08_13.37.11-client.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/crash-reports/crash-2023-05-08_14.20.54-server.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/crash-reports/crash-2023-05-08_14.22.08-server.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/data/fabricDefaultResourcePacks.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/2023-05-08-1.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/2023-05-08-2.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/2023-05-08-3.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/2023-05-08-4.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/2023-05-08-5.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/2023-05-08-6.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/2023-05-08-7.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-1.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-2.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-3.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-4.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-5.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/latest.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/options.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/DIM-1/data/raids.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/DIM1/data/raids_end.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/advancements/2164d6a3-d058-3632-9c13-ff2b4a7698db.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/advancements/24078ad8-d7e0-3e5c-a4a9-a3bc169a7177.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/advancements/2e2bbed4-8d1c-3b2c-8673-c561c520e4f2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/advancements/317a8ad6-0e94-3efc-b65d-ee1610ecfadc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/advancements/7d05f0c7-0fbd-313e-b15f-14e4684ddd72.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/advancements/8280f006-3f61-3ece-adfd-8952041aff70.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/advancements/ae7b5efd-7fd1-3975-a19d-4e69aea8f757.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/advancements/aff0d4e2-4fb9-3326-94fa-9e8cf7a1acbe.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/advancements/e3cbbed2-a904-3501-9aba-c8ad5473501b.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/advancements/eac293da-7d7d-3c6a-94e5-fba80de0212f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/data/raids.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/entities/r.-1.-1.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/entities/r.-1.0.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/entities/r.0.-1.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/entities/r.0.0.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/level.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/level.dat_old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/playerdata/2164d6a3-d058-3632-9c13-ff2b4a7698db.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/playerdata/24078ad8-d7e0-3e5c-a4a9-a3bc169a7177.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/playerdata/2e2bbed4-8d1c-3b2c-8673-c561c520e4f2.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/playerdata/2e2bbed4-8d1c-3b2c-8673-c561c520e4f2.dat_old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/playerdata/317a8ad6-0e94-3efc-b65d-ee1610ecfadc.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/playerdata/317a8ad6-0e94-3efc-b65d-ee1610ecfadc.dat_old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/playerdata/7d05f0c7-0fbd-313e-b15f-14e4684ddd72.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/playerdata/8280f006-3f61-3ece-adfd-8952041aff70.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/playerdata/8280f006-3f61-3ece-adfd-8952041aff70.dat_old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/playerdata/ae7b5efd-7fd1-3975-a19d-4e69aea8f757.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/playerdata/ae7b5efd-7fd1-3975-a19d-4e69aea8f757.dat_old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/playerdata/aff0d4e2-4fb9-3326-94fa-9e8cf7a1acbe.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/playerdata/aff0d4e2-4fb9-3326-94fa-9e8cf7a1acbe.dat_old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/playerdata/e3cbbed2-a904-3501-9aba-c8ad5473501b.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/playerdata/e3cbbed2-a904-3501-9aba-c8ad5473501b.dat_old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/playerdata/eac293da-7d7d-3c6a-94e5-fba80de0212f.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/playerdata/eac293da-7d7d-3c6a-94e5-fba80de0212f.dat_old" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/poi/r.-1.-1.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/poi/r.-1.0.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/poi/r.0.-1.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/poi/r.0.0.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/region/r.-1.-1.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/region/r.-1.-2.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/region/r.-1.0.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/region/r.0.-1.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/region/r.0.-2.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/region/r.0.0.mca" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/session.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/stats/2164d6a3-d058-3632-9c13-ff2b4a7698db.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/stats/24078ad8-d7e0-3e5c-a4a9-a3bc169a7177.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/stats/2e2bbed4-8d1c-3b2c-8673-c561c520e4f2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/stats/317a8ad6-0e94-3efc-b65d-ee1610ecfadc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/stats/7d05f0c7-0fbd-313e-b15f-14e4684ddd72.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/stats/8280f006-3f61-3ece-adfd-8952041aff70.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/stats/ae7b5efd-7fd1-3975-a19d-4e69aea8f757.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/stats/aff0d4e2-4fb9-3326-94fa-9e8cf7a1acbe.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/stats/e3cbbed2-a904-3501-9aba-c8ad5473501b.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/stats/eac293da-7d7d-3c6a-94e5-fba80de0212f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/usercache.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/Fakeplayers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/client/FakeplayersClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/HumanoidEntityModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/renderers/FakePlayerEntityRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/renderers/HumanoidEntityRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/common/entities/FakePlayerEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/common/entities/HumanoidEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/util/SkinGrabber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/fabric.mod.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/com.duzo.fakeplayers.fakeplayers.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/com.duzo.fakeplayers.fakeplayers.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/com.duzo.fakeplayers.fakeplayers.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/com.duzo.fakeplayers.fakeplayers.test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/fakeplayers.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/fakeplayers.test.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/platform-forge-1.19.2.fakeplayers.main.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/platform-forge-1.19.2.fakeplayers.test.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/platform-forge-1.19.3.fakeplayers.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/platform-forge-1.19.3.fakeplayers.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/platform-forge-1.19.3.fakeplayers.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/platform-forge-1.19.3.fakeplayers.test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/runClient.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/runData.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/runGameTestServer.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/runServer.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_05_2023_20_34_[Changes]/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_05_2023_20_34_[Changes]/duzo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_05_2023_20_34_[Changes]/error.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_05_2023_20_34_[Changes]/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_05_2023_20_34_[Changes]/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_05_2023_20_34_[Changes]/player_ai.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_05_2023_20_34_[Changes]/player_shell.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_05_2023_20_34_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_05_2023_20_34_[Changes]/skin_select.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_05_2023_20_34_[Changes]1/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_05_2023_20_34_[Changes]1/duzo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_05_2023_20_34_[Changes]1/error.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_05_2023_20_34_[Changes]1/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_05_2023_20_34_[Changes]1/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_05_2023_20_34_[Changes]1/player_ai.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_05_2023_20_34_[Changes]1/player_shell.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_05_2023_20_34_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_05_2023_20_34_[Changes]1/skin_select.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_05_2023_20_34__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_03_05_2023_20_34__Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/HumanoidEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/HumanoidEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/FakePlayerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/FakePlayerEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/goals/GoToNearestBedIfNightGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/java/com/duzo/fakeplayers/common/goals/GoToNearestBedIfNightGoal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.2/src/main/resources/assets/fakeplayers/textures/entities/humanoid/error.png" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/assets/fakeplayers/textures/entity/humanoid/error.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +182,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExternalProjectsData">
-    <projectState path="$PROJECT_DIR$">
+    <projectState path="$PROJECT_DIR$/platform-fabric-1.19.4">
       <ProjectState />
     </projectState>
     <projectState path="$PROJECT_DIR$/platform-forge-1.19.2">
@@ -32,22 +198,13 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <task path="C:\Users\james\IdeaProjects\fakeplayers">
+        <task path="$PROJECT_DIR$/platform-fabric-1.19.2">
           <activation />
         </task>
-        <task path="$PROJECT_DIR$">
+        <task path="C:\Users\james\IdeaProjects\fakeplayers\platform-fabric-1.19.4">
           <activation />
         </task>
-        <task path="C:\Users\james\IdeaProjects\fakeplayers\platform-forge-1.19.4">
-          <activation />
-        </task>
-        <task path="C:\Users\james\IdeaProjects\fakeplayers\platform-forge-1.19.3">
-          <activation />
-        </task>
-        <task path="C:\Users\james\IdeaProjects\fakeplayers\platform-forge-1.19.2">
-          <activation />
-        </task>
-        <task path="$PROJECT_DIR$/platform-forge-1.19.2">
+        <task path="$PROJECT_DIR$/platform-fabric-1.19.4">
           <activation />
         </task>
         <projects_view>
@@ -55,32 +212,18 @@
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="fakeplayers" type="f1a62948:ProjectNode" />
+                <item name="platform-fabric-1.19.4" type="f1a62948:ProjectNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="fakeplayers" type="f1a62948:ProjectNode" />
-                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="fakeplayers" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="fakeplayers" type="f1a62948:ProjectNode" />
+                <item name="platform-fabric-1.19.4" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="fakeplayers" type="f1a62948:ProjectNode" />
+                <item name="platform-fabric-1.19.4" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="forgegradle runs" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="fakeplayers" type="f1a62948:ProjectNode" />
-                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
+                <item name="fabric" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -97,32 +240,13 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="1.19.3" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="HARD" />
-  </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="4251c801-f51b-483a-99ba-6895603f359e" />
-        <option name="url" value="https://github.com/Duzos/fakeplayer" />
-      </UrlAndAccount>
-    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2MQ77IdrC7qaDLRQnFZKGDeaHDg" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectId" id="2PVfUIcPOmaAvGNaXrkjeUG6suE" />
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -133,108 +257,37 @@
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;jdk.selected.com.intellij.ui.dsl.builder.impl.RowImpl.sdk&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/james/IdeaProjects/fakeplayers/src/main/resources/assets/fakeplayers/textures/gui&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;jdk.selected.com.intellij.ui.dsl.builder.impl.RowImpl.sdk&quot;: &quot;19&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/james/IdeaProjects/fakeplayers/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;jdk.preference.com.intellij.ui.dsl.builder.impl.RowImpl.sdk&quot;: [
-      &quot;17=C:/Program Files/Java/jdk-17.0.5&quot;
+      &quot;19=C:/Program Files/Java/jdk-19&quot;
     ]
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\james\IdeaProjects\fakeplayers\src\main\resources\assets\fakeplayers\textures\gui" />
-      <recent name="C:\Users\james\IdeaProjects\fakeplayers\src\main\resources\data\fakeplayers\loot_tables\entities" />
-      <recent name="C:\Users\james\IdeaProjects\fakeplayers\src\main\resources\assets\fakeplayers\models\item" />
-      <recent name="C:\Users\james\IdeaProjects\fakeplayers\src\main\resources\assets\fakeplayers\textures\items" />
-      <recent name="C:\Users\james\IdeaProjects\fakeplayers\src\main\resources\data\fakeplayers\recipes" />
+      <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-fabric-1.19.4\src\main\java\com\duzo\fakeplayers" />
+      <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-fabric-1.19.4\src\main\resources\assets\fakeplayers\textures\entity\humanoid" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\james\IdeaProjects\fakeplayers" />
-      <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-forge-1.19.3" />
-      <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-forge-1.19.2" />
-      <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-forge-1.19.4" />
-      <recent name="C:\Users\james\IdeaProjects\fakeplayers\src\main\resources\assets\fakeplayers\models\item" />
+      <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-fabric-1.19.4\src\main\resources\assets\fakeplayers\textures\entity\humanoid" />
+      <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-fabric-1.19.4\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.duzo.fakeplayers.networking.packets" />
-      <recent name="com.duzo.fakeplayers.client.models.renderers" />
-      <recent name="com.duzo.fakeplayers.client.models.entities" />
+      <recent name="com.duzo.fakeplayers.common.entities" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.platform-forge-1.19.2 [runClient]">
-    <configuration name="fakeplayers [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="jar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="fakeplayers [runClient]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="runClient" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="fakeplayers [runServer]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="runServer" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Gradle.platform-fabric-1.19.4 [runClient]">
     <configuration name="fakeplayers build" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" value="fakeplayers build" />
-        <option name="externalProjectPath" value="C:\Users\james\IdeaProjects\fakeplayers" />
+        <option name="externalProjectPath" value="C:\Users\james\IdeaProjects\fakeplayers\platform-fabric-1.19.4" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -252,10 +305,10 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="platform-forge-1.19.2 [prepareRunClient]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="platform-fabric-1.19.4 [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/platform-forge-1.19.2" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/platform-fabric-1.19.4" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -263,7 +316,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="prepareRunClient" />
+            <option value="build" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -273,10 +326,52 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="platform-forge-1.19.2 [runClient]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="platform-fabric-1.19.4 [downloadAssets]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/platform-forge-1.19.2" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/platform-fabric-1.19.4" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="downloadAssets" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="platform-fabric-1.19.4 [genSources]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/platform-fabric-1.19.4" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="genSources" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="platform-fabric-1.19.4 [runClient]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/platform-fabric-1.19.4" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -285,69 +380,6 @@
         <option name="taskNames">
           <list>
             <option value="runClient" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="platform-forge-1.19.2 build" type="GradleRunConfiguration" factoryName="Gradle">
-      <ExternalSystemSettings>
-        <option name="executionName" value="platform-forge-1.19.2 build" />
-        <option name="externalProjectPath" value="C:\Users\james\IdeaProjects\fakeplayers\platform-forge-1.19.2" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="platform-forge-1.19.3 build" type="GradleRunConfiguration" factoryName="Gradle">
-      <ExternalSystemSettings>
-        <option name="executionName" value="platform-forge-1.19.3 build" />
-        <option name="externalProjectPath" value="C:\Users\james\IdeaProjects\fakeplayers\platform-forge-1.19.3" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="platform-forge-1.19.4 build" type="GradleRunConfiguration" factoryName="Gradle">
-      <ExternalSystemSettings>
-        <option name="executionName" value="platform-forge-1.19.4 build" />
-        <option name="externalProjectPath" value="C:\Users\james\IdeaProjects\fakeplayers\platform-forge-1.19.4" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -359,426 +391,25 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.platform-forge-1.19.2 [runClient]" />
-        <item itemvalue="Gradle.fakeplayers [runClient]" />
-        <item itemvalue="Gradle.platform-forge-1.19.2 [prepareRunClient]" />
-        <item itemvalue="Gradle.fakeplayers [runServer]" />
-        <item itemvalue="Gradle.fakeplayers [jar]" />
+        <item itemvalue="Gradle.platform-fabric-1.19.4 [runClient]" />
+        <item itemvalue="Gradle.platform-fabric-1.19.4 [genSources]" />
+        <item itemvalue="Gradle.platform-fabric-1.19.4 [downloadAssets]" />
+        <item itemvalue="Gradle.platform-fabric-1.19.4 [build]" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e49ac745-2e21-47a5-b3c8-d9d2bbdb879a" name="Changes" comment="" />
-      <created>1677687785841</created>
+      <changelist id="fa1c5474-fa0f-42cc-bdef-9d75d298f441" name="Changes" comment="" />
+      <created>1683547187565</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1677687785841</updated>
+      <updated>1683547187565</updated>
     </task>
-    <task id="LOCAL-00017" summary="Added the packet functionality to the TamablePlayers">
-      <created>1680504483934</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1680504483934</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Moved skin downloader into faster Threads `Ready for release 0.4`">
-      <created>1680546771063</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1680546771063</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Updated the mods.toml to have more information">
-      <created>1680547104373</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1680547104373</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Fixed crash with empty named entities">
-      <created>1680553546855</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1680553546855</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Updated build.gradle for 0.41 release">
-      <created>1680553668599</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1680553668599</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Tried and failed to add an inventory to the players.">
-      <created>1680569073638</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1680569073638</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Fixed a crash I found while recording a showcase video">
-      <created>1680571507457</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1680571507457</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Updated build.gradle for 0.42 release">
-      <created>1680571553625</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1680571553625</updated>
-    </task>
-    <task id="LOCAL-00025" summary="updated master branch to 1.19.4">
-      <created>1680623273262</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1680623273262</updated>
-    </task>
-    <task id="LOCAL-00026" summary="update gradle for 1.19.4 0.42 release">
-      <created>1680623429616</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1680623429616</updated>
-    </task>
-    <task id="LOCAL-00027" summary="push for classic">
-      <created>1680654640130</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1680654640130</updated>
-    </task>
-    <task id="LOCAL-00028" summary="backport to 1.19.2 for `SKspice`">
-      <created>1681485318321</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1681485318321</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Image downloading + Basics of a skin select screen">
-      <created>1681646397061</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1681646397061</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Downloading skins from other sources now works">
-      <created>1681649323069</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1681649323069</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Removed tamable players&#10;Eggs now drop with names">
-      <created>1681653959822</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1681653959822</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Eggs now drop with names&#10;Removed tamable players&#10;Fixed armour not dropping for FakePlayerSlimEntity">
-      <created>1681658345339</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1681658345339</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Eggs now drop with names&#10;Removed tamable players&#10;Fixed armour not dropping for FakePlayerSlimEntity">
-      <created>1681658552142</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1681658552142</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Fixed armour not dropping for FakePlayerSlimEntity">
-      <created>1681658670991</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1681658670991</updated>
-    </task>
-    <task id="LOCAL-00035" summary="GUI Fixed, Ready for release!">
-      <created>1681662887767</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1681662887767</updated>
-    </task>
-    <task id="LOCAL-00036" summary="0.42 -&gt; 0.5 :)">
-      <created>1681662916675</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1681662916675</updated>
-    </task>
-    <task id="LOCAL-00037" summary="0.42 -&gt; 0.5 :)">
-      <created>1681679278132</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1681679278132</updated>
-    </task>
-    <task id="LOCAL-00038" summary="0.42 -&gt; 0.5 :)">
-      <created>1681679566461</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1681679566461</updated>
-    </task>
-    <task id="LOCAL-00039" summary="updated gradle for 0.5 release">
-      <created>1681679632722</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1681679632722</updated>
-    </task>
-    <task id="LOCAL-00040" summary="updated gradle for 0.5 release">
-      <created>1681679679508</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1681679679508</updated>
-    </task>
-    <task id="LOCAL-00041" summary="Fixed skins not loading on relog">
-      <created>1681689247572</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1681689247572</updated>
-    </task>
-    <task id="LOCAL-00042" summary="Fixed skins not loading on relog">
-      <created>1681689909271</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1681689909272</updated>
-    </task>
-    <task id="LOCAL-00043" summary="Fixed skins not loading on relog">
-      <created>1681690200539</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1681690200539</updated>
-    </task>
-    <task id="LOCAL-00044" summary="0.5 -&gt; 0.51">
-      <created>1681690358813</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1681690358813</updated>
-    </task>
-    <task id="LOCAL-00045" summary="information on porting to other versions added">
-      <created>1682002769649</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1682002769649</updated>
-    </task>
-    <task id="LOCAL-00046" summary="information on porting to other versions added">
-      <created>1682002932171</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1682002932171</updated>
-    </task>
-    <task id="LOCAL-00047" summary="Fixed server crash report by False King Slayer III">
-      <created>1682198633775</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1682198633775</updated>
-    </task>
-    <task id="LOCAL-00048" summary="0.51 -&gt; 0.52">
-      <created>1682198674889</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1682198674889</updated>
-    </task>
-    <task id="LOCAL-00049" summary="Added stay, follow and wander buttons">
-      <created>1683030256545</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1683030256545</updated>
-    </task>
-    <task id="LOCAL-00050" summary="Properly implemented follow, wander and stay buttons">
-      <created>1683129954970</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1683129954970</updated>
-    </task>
-    <task id="LOCAL-00051" summary="Fake Players can now send chats">
-      <created>1683132505478</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1683132505478</updated>
-    </task>
-    <task id="LOCAL-00052" summary="Added AI buttons + Added chat message feature">
-      <created>1683133153083</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1683133153083</updated>
-    </task>
-    <task id="LOCAL-00053" summary="Added some updated info to README.md">
-      <created>1683133631024</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1683133631024</updated>
-    </task>
-    <task id="LOCAL-00054" summary="0.51 -&gt; 0.6">
-      <created>1683133664922</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1683133664922</updated>
-    </task>
-    <task id="LOCAL-00055" summary="0.52 -&gt; 0.6">
-      <created>1683133781973</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1683133781973</updated>
-    </task>
-    <task id="LOCAL-00056" summary="Fake Player doesnt attack player when you click follow now">
-      <created>1683134248722</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1683134248723</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Fake Player doesnt attack player when you click follow now">
-      <created>1683134289018</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1683134289018</updated>
-    </task>
-    <task id="LOCAL-00058" summary="Moved 1.19.4 Files into a 1.19.4 directoru">
-      <created>1683142602643</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1683142602644</updated>
-    </task>
-    <task id="LOCAL-00059" summary="Moved 1.19.2 files into a 1.19.2 directory">
-      <created>1683142897245</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1683142897245</updated>
-    </task>
-    <task id="LOCAL-00060" summary="Moved 1.19.3 files into a 1.19.3 directory">
-      <created>1683142964517</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1683142964517</updated>
-    </task>
-    <task id="LOCAL-00061" summary="ill finish this later i cabnt b assed im gonna add this cool sleeping in beds things">
-      <created>1683484128777</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1683484128777</updated>
-    </task>
-    <task id="LOCAL-00062" summary="beginnings of adding &quot;chunky&quot; players which keep chunks around them loaded">
-      <created>1683492248431</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1683492248431</updated>
-    </task>
-    <task id="LOCAL-00063" summary="You can now use files to set the entities skin!">
-      <created>1683493441479</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1683493441479</updated>
-    </task>
-    <task id="LOCAL-00064" summary="0.6 -&gt; 0.7">
-      <created>1683493820159</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1683493820159</updated>
-    </task>
-    <task id="LOCAL-00065" summary="Moved README.md to highest">
-      <created>1683493840662</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1683493840662</updated>
-    </task>
-    <option name="localTasksCounter" value="66" />
     <servers />
-  </component>
-  <component name="UnknownFeatures">
-    <option featureType="dependencySupport" implementationName="java:org.spongepowered:mixin" />
-    <option featureType="dependencySupport" implementationName="java:net.minecraftforge:forge" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="1.19.2" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fixed armour not dropping for FakePlayerSlimEntity" />
-    <MESSAGE value="GUI Fixed, Ready for release!" />
-    <MESSAGE value="0.42 -&gt; 0.5 :)" />
-    <MESSAGE value="updated gradle for 0.5 release" />
-    <MESSAGE value="Fixed skins not loading on relog" />
-    <MESSAGE value="0.5 -&gt; 0.51" />
-    <MESSAGE value="information on porting to other versions added" />
-    <MESSAGE value="Fixed server crash report by False King Slayer III" />
-    <MESSAGE value="0.51 -&gt; 0.52" />
-    <MESSAGE value="Added stay, follow and wander buttons" />
-    <MESSAGE value="Properly implemented follow, wander and stay buttons" />
-    <MESSAGE value="Fake Players can now send chats" />
-    <MESSAGE value="Added AI buttons + Added chat message feature" />
-    <MESSAGE value="Added some updated info to README.md" />
-    <MESSAGE value="0.51 -&gt; 0.6" />
-    <MESSAGE value="0.52 -&gt; 0.6" />
-    <MESSAGE value="Fake Player doesnt attack player when you click follow now" />
-    <MESSAGE value="Moved 1.19.4 Files into a 1.19.4 directoru" />
-    <MESSAGE value="Moved 1.19.2 files into a 1.19.2 directory" />
-    <MESSAGE value="Moved 1.19.3 files into a 1.19.3 directory" />
-    <MESSAGE value="ill finish this later i cabnt b assed im gonna add this cool sleeping in beds things" />
-    <MESSAGE value="beginnings of adding &quot;chunky&quot; players which keep chunks around them loaded" />
-    <MESSAGE value="You can now use files to set the entities skin!" />
-    <MESSAGE value="0.6 -&gt; 0.7" />
-    <MESSAGE value="Moved README.md to highest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved README.md to highest" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/fakeplayers$fakeplayers__runClient_.ic" NAME="fakeplayers [runClient] Coverage Results" MODIFIED="1677792624837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

@@ -106,8 +106,8 @@ public class FakePlayerEntity extends HumanoidEntity {
 
         this.setURL(SkinGrabber.URL + customName.getString());
         this.updateSkin();
+        }
     }
-}
 
     public void toggleAI(Player player) {
         this.setNoAi(!this.isNoAi());
