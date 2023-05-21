@@ -3,9 +3,11 @@ package com.duzo.fakeplayers.client.screens;
 import com.duzo.fakeplayers.FakePlayers;
 import com.duzo.fakeplayers.common.entities.HumanoidEntity;
 import com.duzo.fakeplayers.common.entities.humanoids.FakePlayerEntity;
+import com.duzo.fakeplayers.configs.FPClientConfigs;
 import com.duzo.fakeplayers.networking.Network;
 import com.duzo.fakeplayers.networking.packets.SendHumanoidChatC2SPacket;
 import com.duzo.fakeplayers.networking.packets.UpdateHumanoidAIC2SPacket;
+import com.duzo.fakeplayers.util.SkinGrabber;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.components.*;
@@ -16,6 +18,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+
+import java.io.File;
+
 public class FPSkinScreen extends Screen {
     private static final ResourceLocation GUI_TEXTURE = new ResourceLocation(FakePlayers.MODID,"textures/gui/skin_select.png");
     private FakePlayerEntity humanoid;
@@ -47,6 +52,10 @@ public class FPSkinScreen extends Screen {
         this.input.setMaxLength(100);
         this.input.setBordered(true);
         this.addWidget(this.input);
+
+        if (FPClientConfigs.USES_FILES.get()) {
+            this.input.setValue("PUT FILE PATH HERE!");
+        }
 
         this.chatBox = new EditBox(this.minecraft.fontFilterFishy, (i) + (this.imageWidth/2)  - j + (j/2),l + 20,j, 12, Component.translatable("screen.fakeplayers.chatbox"));
         this.chatBox.setValue("Input chat message here!");
@@ -86,8 +95,18 @@ public class FPSkinScreen extends Screen {
     }
 
     private void pressDoneButton() {
-        this.updateEntityURL();
-        this.humanoid.updateSkin();
+        if (!FPClientConfigs.USES_FILES.get()) {
+            this.updateEntityURL();
+            this.humanoid.updateSkin();
+        }
+        else {
+            File skinDir = new File(this.input.getValue());
+            if (skinDir.exists()) {
+                ResourceLocation location = SkinGrabber.fileToLocation(skinDir);
+
+                SkinGrabber.SKIN_LIST.replace(this.humanoid.getStringUUID(),location);
+            }
+        }
         this.onClose();
     }
 
