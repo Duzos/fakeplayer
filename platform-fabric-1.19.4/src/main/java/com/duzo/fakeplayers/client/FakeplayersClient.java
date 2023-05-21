@@ -1,6 +1,7 @@
 package com.duzo.fakeplayers.client;
 
 import com.duzo.fakeplayers.Fakeplayers;
+import com.duzo.fakeplayers.client.models.renderers.FakePlayerEntityRenderer;
 import com.duzo.fakeplayers.client.models.renderers.HumanoidEntityRenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
@@ -14,7 +15,7 @@ public class FakeplayersClient implements ClientModInitializer {
     @java.lang.Override
     public void onInitializeClient() {
         // Renderers
-        EntityRendererRegistry.register(Fakeplayers.HUMANOID, HumanoidEntityRenderer::new);
+        EntityRendererRegistry.register(Fakeplayers.FAKE_PLAYER, FakePlayerEntityRenderer::new);
 
         // Layers
     }

@@ -15,7 +15,7 @@ public class FakePlayerEntityRenderer extends HumanoidEntityRenderer<FakePlayerE
     @Override
     public Identifier getTexture(HumanoidEntity entity) {
         if (entity.world.isClient) {
-            if (entity.getCustomName().getString().equals("")) {
+            if (entity.getCustomName() == null ||entity.getCustomName().getString().equals("")) {
                 // If the name is the default blank one, send back the error
                 return SkinGrabber.ERROR_TEXTURE;
             }

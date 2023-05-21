@@ -1,5 +1,6 @@
 package com.duzo.fakeplayers;
 
+import com.duzo.fakeplayers.common.entities.FakePlayerEntity;
 import com.duzo.fakeplayers.common.entities.HumanoidEntity;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -15,10 +16,10 @@ public class Fakeplayers implements ModInitializer {
     public static final String MOD_ID = "fakeplayers";
 
     // Entities
-    public static final EntityType<HumanoidEntity> HUMANOID = Registry.register(
+    public static final EntityType<FakePlayerEntity> FAKE_PLAYER = Registry.register(
             Registries.ENTITY_TYPE,
-            new Identifier(MOD_ID, "humanoid"),
-            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, HumanoidEntity::new).dimensions(EntityDimensions.fixed(0.6f,1.8f)).build()
+            new Identifier(MOD_ID, "fake_player"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, FakePlayerEntity::new).dimensions(EntityDimensions.fixed(0.6f,1.8f)).build()
     );
 
     /**
@@ -27,6 +28,6 @@ public class Fakeplayers implements ModInitializer {
     @java.lang.Override
     public void onInitialize() {
         // Entity attributes
-        FabricDefaultAttributeRegistry.register(HUMANOID, HumanoidEntity.getHumanoidAttributes());
+        FabricDefaultAttributeRegistry.register(FAKE_PLAYER, HumanoidEntity.getHumanoidAttributes());
     }
 }
