@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa1c5474-fa0f-42cc-bdef-9d75d298f441" name="Changes" comment="ojh my god i need to add a gitignore im gonna end up leaking my home address fr">
-      <change afterPath="$PROJECT_DIR$/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/configs/FPClientConfigs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/configs/FPCommonConfigs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/FakePlayers.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/FakePlayers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/screens/FPSkinScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/client/screens/FPSkinScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/FakePlayerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers/common/entities/humanoids/FakePlayerEntity.java" afterDir="false" />
+    <list default="true" id="fa1c5474-fa0f-42cc-bdef-9d75d298f441" name="Changes" comment="Updated 1.19.4 to 0.7 update">
+      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.4/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.4/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,13 +268,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684669695266</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Updated 1.19.4 to 0.7 update">
+      <created>1684670578335</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1684670578335</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="beginning of a 1.19.4 fabric port&#10;forgot to gitignore my run folder, oopsies" />
     <MESSAGE value="ojh my god i need to add a gitignore im gonna end up leaking my home address fr" />
-    <option name="LAST_COMMIT_MESSAGE" value="ojh my god i need to add a gitignore im gonna end up leaking my home address fr" />
+    <MESSAGE value="Updated 1.19.4 to 0.7 update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated 1.19.4 to 0.7 update" />
   </component>
 </project>
