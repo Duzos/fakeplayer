@@ -4,9 +4,9 @@
   "version": "${version}",
   "name": "fakeplayers",
   "description": "",
-  "authors": [],
+  "authors": ["Duzo"],
   "contact": {
-    "repo": "https://github.com/james/platform-fabric-1.19.4"
+    "repo": "https://github.com/Duzos/fakeplayer"
   },
   "license": "All-Rights-Reserved",
   "icon": "assets/fakeplayers/icon.png",
