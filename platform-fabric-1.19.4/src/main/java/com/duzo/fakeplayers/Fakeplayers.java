@@ -1,6 +1,7 @@
 package com.duzo.fakeplayers;
 
 import com.duzo.fakeplayers.common.entities.FakePlayerEntity;
+import com.duzo.fakeplayers.common.entities.FakePlayerSlimEntity;
 import com.duzo.fakeplayers.common.entities.HumanoidEntity;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -21,6 +22,11 @@ public class Fakeplayers implements ModInitializer {
             new Identifier(MOD_ID, "fake_player"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, FakePlayerEntity::new).dimensions(EntityDimensions.fixed(0.6f,1.8f)).build()
     );
+    public static final EntityType<FakePlayerSlimEntity> FAKE_PLAYER_SLIM = Registry.register(
+            Registries.ENTITY_TYPE,
+            new Identifier(MOD_ID, "fake_player_slim"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, FakePlayerSlimEntity::new).dimensions(EntityDimensions.fixed(0.6f,1.8f)).build()
+    );
 
     /**
      * Runs the mod initializer.
@@ -29,5 +35,6 @@ public class Fakeplayers implements ModInitializer {
     public void onInitialize() {
         // Entity attributes
         FabricDefaultAttributeRegistry.register(FAKE_PLAYER, HumanoidEntity.getHumanoidAttributes());
+        FabricDefaultAttributeRegistry.register(FAKE_PLAYER_SLIM, HumanoidEntity.getHumanoidAttributes());
     }
 }

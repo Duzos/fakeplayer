@@ -2,7 +2,9 @@ package com.duzo.fakeplayers.client;
 
 import com.duzo.fakeplayers.Fakeplayers;
 import com.duzo.fakeplayers.client.models.renderers.FakePlayerEntityRenderer;
+import com.duzo.fakeplayers.client.models.renderers.FakePlayerSlimEntityRenderer;
 import com.duzo.fakeplayers.client.models.renderers.HumanoidEntityRenderer;
+import com.duzo.fakeplayers.common.entities.FakePlayerSlimEntity;
 import com.duzo.fakeplayers.network.NetworkConstants;
 import com.duzo.fakeplayers.util.SkinGrabber;
 import net.fabricmc.api.ClientModInitializer;
@@ -22,6 +24,7 @@ public class FakeplayersClient implements ClientModInitializer {
     public void onInitializeClient() {
         // Renderers
         EntityRendererRegistry.register(Fakeplayers.FAKE_PLAYER, FakePlayerEntityRenderer::new);
+        EntityRendererRegistry.register(Fakeplayers.FAKE_PLAYER_SLIM, FakePlayerSlimEntityRenderer::new);
 
         // Layers
 

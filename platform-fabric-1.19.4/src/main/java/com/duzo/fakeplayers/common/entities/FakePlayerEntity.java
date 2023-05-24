@@ -51,6 +51,8 @@ public class FakePlayerEntity extends HumanoidEntity{
     }
 
     public void updateSkin() {
+        if (this.getServer() == null) {return;}
+
         PacketByteBuf buf = PacketByteBufs.create();
 
         buf.writeString(this.getUuidAsString());

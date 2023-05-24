@@ -3,6 +3,7 @@ package com.duzo.fakeplayers.client.models.renderers;
 import com.duzo.fakeplayers.Fakeplayers;
 import com.duzo.fakeplayers.client.models.HumanoidEntityModel;
 import com.duzo.fakeplayers.common.entities.HumanoidEntity;
+import net.minecraft.client.model.Model;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
