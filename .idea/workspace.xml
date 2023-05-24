@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa1c5474-fa0f-42cc-bdef-9d75d298f441" name="Changes" comment="wait what i already commited this didnt i huh uwhatiuahtiusghisdughdfiughdiuhdfhidhiufdfiuhfd">
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/assets/fakeplayers/models/item/fake_player_slim_spawn_egg.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/assets/fakeplayers/models/item/fake_player_spawn_egg.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/assets/fakeplayers/models/item/player_ai.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/assets/fakeplayers/models/item/player_shell.json" afterDir="false" />
+    <list default="true" id="fa1c5474-fa0f-42cc-bdef-9d75d298f441" name="Changes" comment="Added spawn egg items">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/7.3.3/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/7.3.3/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/7.3.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/7.3.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/build/resources/main/fabric.mod.json" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build/resources/main/fabric.mod.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/gradle.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/config/fabric/indigo-renderer.properties" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/config/fabric/indigo-renderer.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-1.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-2.log.gz" afterDir="false" />
@@ -23,22 +16,9 @@
       <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-5.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/latest.log" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/latest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/DIM-1/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/DIM-1/data/raids.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/DIM1/data/raids_end.dat" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/DIM1/data/raids_end.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/data/raids.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/entities/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/entities/r.-1.-1.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/entities/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/entities/r.-1.0.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/entities/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/entities/r.0.-1.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/entities/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/entities/r.0.0.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/level.dat" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/level.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/level.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/level.dat_old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/region/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/region/r.-1.-1.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/region/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/region/r.-1.0.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/region/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/region/r.0.-1.mca" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/region/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/region/r.0.0.mca" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/usercache.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/Fakeplayers.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/Fakeplayers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/fabric.mod.json" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/fabric.mod.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/assets/fakeplayers/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/assets/fakeplayers/lang/en_us.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -346,7 +326,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684967150221</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added spawn egg items">
+      <created>1684968331359</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1684968331359</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -357,6 +344,7 @@
     <MESSAGE value="0.6 -&gt; 0.7 for 1.19.4" />
     <MESSAGE value="Downloading and applying skins from setting custom name now works" />
     <MESSAGE value="wait what i already commited this didnt i huh uwhatiuahtiusghisdughdfiughdiuhdfhidhiufdfiuhfd" />
-    <option name="LAST_COMMIT_MESSAGE" value="wait what i already commited this didnt i huh uwhatiuahtiusghisdughdfiughdiuhdfhidhiufdfiuhfd" />
+    <MESSAGE value="Added spawn egg items" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added spawn egg items" />
   </component>
 </project>

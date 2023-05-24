@@ -3,10 +3,12 @@
   "item.fakeplayers.fake_player_slim_spawn_egg": "Slim Player Egg",
   "item.fakeplayers.player_shell": "Robot Shell",
   "item.fakeplayers.player_ai": "Robot AI",
-  "itemGroup.fp_tab": "Fake Players",
+  "itemGroup.fakeplayers.fp_tab": "Fake Players",
   "screens.fakeplayers.done": "Done",
   "screens.fakeplayers.stayPut": "Stay",
   "screens.fakeplayers.follow": "Follow",
   "screens.fakeplayers.wander": "Wander",
-  "screens.fakeplayers.send": "Send chat"
+  "screens.fakeplayers.send": "Send chat",
+  "entity.fakeplayers.fake_player": "Null Player",
+  "entity.fakeplayers.fake_player_slim": "Null Player"
 }
