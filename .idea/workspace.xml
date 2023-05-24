@@ -4,8 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa1c5474-fa0f-42cc-bdef-9d75d298f441" name="Changes" comment="Updated 1.19.4 to 0.7 update">
-      <change beforePath="$PROJECT_DIR$/platform-forge-1.19.4/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/platform-forge-1.19.4/build.gradle" afterDir="false" />
+    <list default="true" id="fa1c5474-fa0f-42cc-bdef-9d75d298f441" name="Changes" comment="0.6 -&gt; 0.7 for 1.19.4">
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/network/NetworkConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/7.3.3/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/7.3.3/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/7.3.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/7.3.3/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/config/fabric/indigo-renderer.properties" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/config/fabric/indigo-renderer.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-1.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-2.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-3.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-4.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-4.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-5.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/latest.log" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/latest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/DIM-1/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/DIM-1/data/raids.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/DIM1/data/raids_end.dat" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/DIM1/data/raids_end.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/data/raids.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/entities/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/entities/r.-1.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/entities/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/entities/r.-1.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/entities/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/entities/r.0.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/entities/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/entities/r.0.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/level.dat" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/level.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/level.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/level.dat_old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/region/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/region/r.-1.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/region/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/region/r.-1.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/region/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/region/r.0.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/region/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/saves/New World/region/r.0.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/usercache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/client/FakeplayersClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/client/FakeplayersClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/renderers/FakePlayerEntityRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/renderers/FakePlayerEntityRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/common/entities/FakePlayerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/common/entities/FakePlayerEntity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +77,23 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="platform-fabric-1.19.4" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="platform-fabric-1.19.4" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="platform-fabric-1.19.4" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="fabric" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -76,24 +120,24 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "jdk.selected.com.intellij.ui.dsl.builder.impl.RowImpl.sdk": "19",
-    "last_opened_file_path": "C:/Users/james/IdeaProjects/fakeplayers/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;jdk.selected.com.intellij.ui.dsl.builder.impl.RowImpl.sdk&quot;: &quot;19&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/james/IdeaProjects/fakeplayers/platform-forge-1.19.4/src/main/java/com/duzo/fakeplayers&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   },
-  "keyToStringList": {
-    "jdk.preference.com.intellij.ui.dsl.builder.impl.RowImpl.sdk": [
-      "19=C:/Program Files/Java/jdk-19"
+  &quot;keyToStringList&quot;: {
+    &quot;jdk.preference.com.intellij.ui.dsl.builder.impl.RowImpl.sdk&quot;: [
+      &quot;19=C:/Program Files/Java/jdk-19&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-forge-1.19.4\src\main\java\com\duzo\fakeplayers" />
@@ -108,7 +152,7 @@
       <recent name="com.duzo.fakeplayers.common.entities" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.platform-forge-1.19.4 [runClient]">
+  <component name="RunManager" selected="Gradle.platform-fabric-1.19.4 [runClient]">
     <configuration name="fakeplayers build" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" value="fakeplayers build" />
@@ -237,10 +281,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.platform-fabric-1.19.4 [runClient]" />
         <item itemvalue="Gradle.platform-forge-1.19.4 [runClient]" />
         <item itemvalue="Gradle.platform-forge-1.19.3 [runClient]" />
         <item itemvalue="Gradle.platform-forge-1.19.2 [runClient]" />
-        <item itemvalue="Gradle.platform-fabric-1.19.4 [runClient]" />
         <item itemvalue="Gradle.platform-fabric-1.19.4 [genSources]" />
       </list>
     </recent_temporary>
@@ -275,7 +319,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684670578335</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="0.6 -&gt; 0.7 for 1.19.4">
+      <created>1684670596165</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1684670596165</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -283,6 +334,7 @@
     <MESSAGE value="beginning of a 1.19.4 fabric port&#10;forgot to gitignore my run folder, oopsies" />
     <MESSAGE value="ojh my god i need to add a gitignore im gonna end up leaking my home address fr" />
     <MESSAGE value="Updated 1.19.4 to 0.7 update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated 1.19.4 to 0.7 update" />
+    <MESSAGE value="0.6 -&gt; 0.7 for 1.19.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.6 -&gt; 0.7 for 1.19.4" />
   </component>
 </project>

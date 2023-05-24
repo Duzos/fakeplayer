@@ -12,6 +12,8 @@ public class FakePlayerEntityRenderer extends HumanoidEntityRenderer<FakePlayerE
         super(context);
     }
 
+
+
     @Override
     public Identifier getTexture(HumanoidEntity entity) {
         if (entity.world.isClient) {
@@ -22,7 +24,9 @@ public class FakePlayerEntityRenderer extends HumanoidEntityRenderer<FakePlayerE
             Identifier texture = SkinGrabber.getEntitySkinFromList(entity);
 
             if (texture == null) {
-//                entity.updateSkin();
+                if (entity instanceof FakePlayerEntity) {
+                    ((FakePlayerEntity) entity).updateSkin();
+                }
             } else {
                 return texture;
             }
