@@ -4,19 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa1c5474-fa0f-42cc-bdef-9d75d298f441" name="Changes" comment="Added spawn egg items">
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/common/goals/MoveTowardsItemsGoal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/assets/fakeplayers/textures/item/player_ai.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/assets/fakeplayers/textures/item/player_shell.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/data/fakeplayers/loot_tables/entities/humanoid_entity.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/data/fakeplayers/recipes/player_ai.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/data/fakeplayers/recipes/player_shell.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/data/fakeplayers/recipes/player_spawn_egg.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/data/fakeplayers/recipes/slim_to_thick.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/data/fakeplayers/recipes/thick_to_slim.json" afterDir="false" />
+    <list default="true" id="fa1c5474-fa0f-42cc-bdef-9d75d298f441" name="Changes" comment="many things, fabrci releaes probably done like right now icl">
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/remappedSrc/com/duzo/fakeplayers/Fakeplayers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/remappedSrc/com/duzo/fakeplayers/client/FakeplayersClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/remappedSrc/com/duzo/fakeplayers/client/models/HumanoidEntityModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/remappedSrc/com/duzo/fakeplayers/client/models/renderers/FakePlayerEntityRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/remappedSrc/com/duzo/fakeplayers/client/models/renderers/FakePlayerSlimEntityRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/remappedSrc/com/duzo/fakeplayers/client/models/renderers/HumanoidEntityRenderer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/remappedSrc/com/duzo/fakeplayers/common/entities/FakePlayerEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/remappedSrc/com/duzo/fakeplayers/common/entities/FakePlayerSlimEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/remappedSrc/com/duzo/fakeplayers/common/entities/HumanoidEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/remappedSrc/com/duzo/fakeplayers/common/goals/MoveTowardsItemsGoal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/remappedSrc/com/duzo/fakeplayers/network/NetworkConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/remappedSrc/com/duzo/fakeplayers/util/SkinGrabber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/assets/fakeplayers/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/7.3.3/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/7.3.3/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/7.3.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/7.3.3/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/build/resources/main/fabric.mod.json" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build/resources/main/fabric.mod.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/config/fabric/indigo-renderer.properties" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/config/fabric/indigo-renderer.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-1.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-2.log.gz" afterDir="false" />
@@ -25,11 +35,6 @@
       <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-5.log.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/latest.log" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/latest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/usercache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/Fakeplayers.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/Fakeplayers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/renderers/FakePlayerSlimEntityRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/renderers/FakePlayerSlimEntityRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/renderers/HumanoidEntityRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/renderers/HumanoidEntityRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/common/entities/FakePlayerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/common/entities/FakePlayerEntity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +127,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "jdk.selected.com.intellij.ui.dsl.builder.impl.RowImpl.sdk": "19",
-    "last_opened_file_path": "C:/Users/james/IdeaProjects/fakeplayers/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/common",
+    "last_opened_file_path": "C:/Users/james/IdeaProjects/fakeplayers/platform-fabric-1.19.4/src/main/resources/assets/fakeplayers",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -136,8 +141,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-fabric-1.19.4\src\main\java\com\duzo\fakeplayers\common" />
       <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-fabric-1.19.4\src\main\resources\assets\fakeplayers" />
+      <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-fabric-1.19.4\src\main\java\com\duzo\fakeplayers\common" />
       <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-fabric-1.19.4\src\main\resources\assets\fakeplayers\textures" />
       <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-forge-1.19.4\src\main\java\com\duzo\fakeplayers" />
       <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-fabric-1.19.4\src\main\java\com\duzo\fakeplayers" />
@@ -150,11 +155,32 @@
       <recent name="com.duzo.fakeplayers.common.entities" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.platform-fabric-1.19.4 [runClient]">
+  <component name="RunManager" selected="Gradle.platform-fabric-1.19.4 [build]">
     <configuration name="fakeplayers build" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" value="fakeplayers build" />
         <option name="externalProjectPath" value="C:\Users\james\IdeaProjects\fakeplayers\platform-fabric-1.19.4" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="platform-fabric-1.19.4 [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/platform-fabric-1.19.4" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -193,6 +219,27 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="platform-fabric-1.19.4 [remapJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/platform-fabric-1.19.4" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="remapJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="platform-fabric-1.19.4 [runClient]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -214,10 +261,10 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="platform-forge-1.19.2 [runClient]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="platform-fabric-1.19.4 [sourcesJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/platform-forge-1.19.2" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/platform-fabric-1.19.4" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -225,49 +272,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="runClient" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="platform-forge-1.19.3 [runClient]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/platform-forge-1.19.3" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="runClient" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="platform-forge-1.19.4 [runClient]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/platform-forge-1.19.4" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="runClient" />
+            <option value="sourcesJar" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -279,11 +284,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.platform-fabric-1.19.4 [runClient]" />
+        <item itemvalue="Gradle.platform-fabric-1.19.4 [build]" />
         <item itemvalue="Gradle.platform-fabric-1.19.4 [jar]" />
-        <item itemvalue="Gradle.platform-forge-1.19.4 [runClient]" />
-        <item itemvalue="Gradle.platform-forge-1.19.3 [runClient]" />
-        <item itemvalue="Gradle.platform-forge-1.19.2 [runClient]" />
+        <item itemvalue="Gradle.platform-fabric-1.19.4 [sourcesJar]" />
+        <item itemvalue="Gradle.platform-fabric-1.19.4 [remapJar]" />
+        <item itemvalue="Gradle.platform-fabric-1.19.4 [runClient]" />
       </list>
     </recent_temporary>
   </component>
@@ -345,7 +350,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684968331359</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="many things, fabrci releaes probably done like right now icl">
+      <created>1685036743138</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1685036743138</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -357,6 +369,7 @@
     <MESSAGE value="Downloading and applying skins from setting custom name now works" />
     <MESSAGE value="wait what i already commited this didnt i huh uwhatiuahtiusghisdughdfiughdiuhdfhidhiufdfiuhfd" />
     <MESSAGE value="Added spawn egg items" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added spawn egg items" />
+    <MESSAGE value="many things, fabrci releaes probably done like right now icl" />
+    <option name="LAST_COMMIT_MESSAGE" value="many things, fabrci releaes probably done like right now icl" />
   </component>
 </project>
