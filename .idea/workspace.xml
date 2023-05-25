@@ -4,37 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa1c5474-fa0f-42cc-bdef-9d75d298f441" name="Changes" comment="many things, fabrci releaes probably done like right now icl">
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/remappedSrc/com/duzo/fakeplayers/Fakeplayers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/remappedSrc/com/duzo/fakeplayers/client/FakeplayersClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/remappedSrc/com/duzo/fakeplayers/client/models/HumanoidEntityModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/remappedSrc/com/duzo/fakeplayers/client/models/renderers/FakePlayerEntityRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/remappedSrc/com/duzo/fakeplayers/client/models/renderers/FakePlayerSlimEntityRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/remappedSrc/com/duzo/fakeplayers/client/models/renderers/HumanoidEntityRenderer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/remappedSrc/com/duzo/fakeplayers/common/entities/FakePlayerEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/remappedSrc/com/duzo/fakeplayers/common/entities/FakePlayerSlimEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/remappedSrc/com/duzo/fakeplayers/common/entities/HumanoidEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/remappedSrc/com/duzo/fakeplayers/common/goals/MoveTowardsItemsGoal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/remappedSrc/com/duzo/fakeplayers/network/NetworkConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/remappedSrc/com/duzo/fakeplayers/util/SkinGrabber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/assets/fakeplayers/icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+    <list default="true" id="fa1c5474-fa0f-42cc-bdef-9d75d298f441" name="Changes" comment="added icon">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/7.3.3/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/7.3.3/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/7.3.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/7.3.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/build/resources/main/fabric.mod.json" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/build/resources/main/fabric.mod.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/config/fabric/indigo-renderer.properties" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/config/fabric/indigo-renderer.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-1.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-2.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-3.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-3.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-4.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-4.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-5.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug-5.log.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/debug.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/latest.log" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/latest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,24 +93,24 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "jdk.selected.com.intellij.ui.dsl.builder.impl.RowImpl.sdk": "19",
-    "last_opened_file_path": "C:/Users/james/IdeaProjects/fakeplayers/platform-fabric-1.19.4/src/main/resources/assets/fakeplayers",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;jdk.selected.com.intellij.ui.dsl.builder.impl.RowImpl.sdk&quot;: &quot;19&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/james/IdeaProjects/fakeplayers/platform-fabric-1.19.4/src/main/resources/assets/fakeplayers&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   },
-  "keyToStringList": {
-    "jdk.preference.com.intellij.ui.dsl.builder.impl.RowImpl.sdk": [
-      "19=C:/Program Files/Java/jdk-19"
+  &quot;keyToStringList&quot;: {
+    &quot;jdk.preference.com.intellij.ui.dsl.builder.impl.RowImpl.sdk&quot;: [
+      &quot;19=C:/Program Files/Java/jdk-19&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-fabric-1.19.4\src\main\resources\assets\fakeplayers" />
@@ -357,7 +329,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685036743138</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added icon">
+      <created>1685038518390</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1685038518390</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -370,6 +349,7 @@
     <MESSAGE value="wait what i already commited this didnt i huh uwhatiuahtiusghisdughdfiughdiuhdfhidhiufdfiuhfd" />
     <MESSAGE value="Added spawn egg items" />
     <MESSAGE value="many things, fabrci releaes probably done like right now icl" />
-    <option name="LAST_COMMIT_MESSAGE" value="many things, fabrci releaes probably done like right now icl" />
+    <MESSAGE value="added icon" />
+    <option name="LAST_COMMIT_MESSAGE" value="added icon" />
   </component>
 </project>

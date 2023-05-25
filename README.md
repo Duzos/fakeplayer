@@ -1,5 +1,5 @@
 # Fake Players Mod
-A 1.19 Forge mod aimed at adding fake players to the game.
+A 1.19 Forge/Fabric mod aimed at adding fake players to the game.
 
 ## Features
 ### Fake Player Mob
