@@ -45,6 +45,17 @@ public class Fakeplayers implements ModInitializer {
             new Identifier(MOD_ID, "fake_player_slim_spawn_egg"),
             new SpawnEggItem(FAKE_PLAYER_SLIM,0x73eb44,0xe0280b, new Item.Settings())
     );
+
+    public static final Item PLAYER_AI_ITEM = Registry.register(
+            Registries.ITEM,
+            new Identifier(MOD_ID, "player_ai"),
+            new Item(new Item.Settings())
+    );
+    public static final Item PLAYER_SHELL_ITEM = Registry.register(
+            Registries.ITEM,
+            new Identifier(MOD_ID, "player_shell"),
+            new Item(new Item.Settings())
+    );
     // Creative tabs
     private static final ItemGroup FP_TAB = FabricItemGroup.builder(new Identifier(MOD_ID, "fp_tab"))
             .icon(() -> new ItemStack(FAKE_PLAYER_SPAWN_EGG))
@@ -64,6 +75,8 @@ public class Fakeplayers implements ModInitializer {
         ItemGroupEvents.modifyEntriesEvent(FP_TAB).register(content -> {
             content.add(FAKE_PLAYER_SPAWN_EGG);
             content.add(FAKE_PLAYER_SLIM_SPAWN_EGG);
+            content.add(PLAYER_AI_ITEM);
+            content.add(PLAYER_SHELL_ITEM);
         });
     }
 }

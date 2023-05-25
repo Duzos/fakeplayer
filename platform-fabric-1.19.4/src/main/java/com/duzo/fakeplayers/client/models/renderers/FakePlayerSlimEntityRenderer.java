@@ -8,6 +8,9 @@ import com.duzo.fakeplayers.util.SkinGrabber;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
+import net.minecraft.client.render.entity.feature.ArmorFeatureRenderer;
+import net.minecraft.client.render.entity.feature.HeldItemFeatureRenderer;
+import net.minecraft.client.render.entity.model.ArmorEntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayers;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
@@ -15,6 +18,8 @@ import net.minecraft.util.Identifier;
 public class FakePlayerSlimEntityRenderer extends LivingEntityRenderer<HumanoidEntity, HumanoidEntityModel> {
     public FakePlayerSlimEntityRenderer(EntityRendererFactory.Context context) {
         super(context, new HumanoidEntityModel(context.getPart(EntityModelLayers.PLAYER_SLIM), true), 0.5f);
+        this.addFeature(new ArmorFeatureRenderer(this, new ArmorEntityModel(context.getPart(EntityModelLayers.PLAYER_SLIM_INNER_ARMOR)), new ArmorEntityModel(context.getPart(EntityModelLayers.PLAYER_SLIM_OUTER_ARMOR)), context.getModelManager()));
+        this.addFeature(new HeldItemFeatureRenderer<>(this, context.getHeldItemRenderer()));
     }
 
     @Override

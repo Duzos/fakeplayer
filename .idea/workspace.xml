@@ -5,6 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fa1c5474-fa0f-42cc-bdef-9d75d298f441" name="Changes" comment="Added spawn egg items">
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/common/goals/MoveTowardsItemsGoal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/assets/fakeplayers/textures/item/player_ai.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/assets/fakeplayers/textures/item/player_shell.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/data/fakeplayers/loot_tables/entities/humanoid_entity.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/data/fakeplayers/recipes/player_ai.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/data/fakeplayers/recipes/player_shell.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/data/fakeplayers/recipes/player_spawn_egg.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/data/fakeplayers/recipes/slim_to_thick.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/data/fakeplayers/recipes/thick_to_slim.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/7.3.3/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/7.3.3/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/7.3.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/.gradle/7.3.3/fileHashes/fileHashes.lock" afterDir="false" />
@@ -18,7 +27,9 @@
       <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/latest.log" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/logs/latest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/run/usercache.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/Fakeplayers.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/Fakeplayers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/assets/fakeplayers/lang/en_us.json" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/resources/assets/fakeplayers/lang/en_us.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/renderers/FakePlayerSlimEntityRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/renderers/FakePlayerSlimEntityRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/renderers/HumanoidEntityRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/client/models/renderers/HumanoidEntityRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/common/entities/FakePlayerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/common/entities/FakePlayerEntity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +122,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "jdk.selected.com.intellij.ui.dsl.builder.impl.RowImpl.sdk": "19",
-    "last_opened_file_path": "C:/Users/james/IdeaProjects/fakeplayers/platform-fabric-1.19.4/src/main/resources/assets/fakeplayers",
+    "last_opened_file_path": "C:/Users/james/IdeaProjects/fakeplayers/platform-fabric-1.19.4/src/main/java/com/duzo/fakeplayers/common",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -125,14 +136,15 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-fabric-1.19.4\src\main\java\com\duzo\fakeplayers\common" />
       <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-fabric-1.19.4\src\main\resources\assets\fakeplayers" />
+      <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-fabric-1.19.4\src\main\resources\assets\fakeplayers\textures" />
       <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-forge-1.19.4\src\main\java\com\duzo\fakeplayers" />
       <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-fabric-1.19.4\src\main\java\com\duzo\fakeplayers" />
-      <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-fabric-1.19.4\src\main\resources\assets\fakeplayers\textures\entity\humanoid" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-fabric-1.19.4\src\main\resources\assets\fakeplayers\textures\entity\humanoid" />
       <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-fabric-1.19.4\src\main\resources" />
+      <recent name="C:\Users\james\IdeaProjects\fakeplayers\platform-fabric-1.19.4\src\main\resources\assets\fakeplayers\textures\entity\humanoid" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.duzo.fakeplayers.common.entities" />
