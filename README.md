@@ -43,4 +43,3 @@ This mod supports both slim skins and regular skins.
 ### [Curseforge](https://www.curseforge.com/minecraft/mc-mods/fake-player)
 ### [Modrinth](https://modrinth.com/mod/fake-players)
 ### [Support Discord](https://discord.gg/ZgssqpUMHS)
-### [MDTeam Discord](https://discord.gg/tMrB5p3v36)
