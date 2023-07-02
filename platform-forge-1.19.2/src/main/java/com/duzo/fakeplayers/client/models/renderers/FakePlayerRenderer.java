@@ -1,12 +1,8 @@
 package com.duzo.fakeplayers.client.models.renderers;
 
-import com.duzo.fakeplayers.FakePlayers;
 import com.duzo.fakeplayers.client.models.entities.FakePlayerEntityModel;
-import com.duzo.fakeplayers.client.models.entities.FakePlayerSlimEntityModel;
-import com.duzo.fakeplayers.client.models.entities.HumanoidEntityModel;
 import com.duzo.fakeplayers.common.entities.HumanoidEntity;
 import com.duzo.fakeplayers.common.entities.humanoids.FakePlayerEntity;
-import com.duzo.fakeplayers.common.entities.humanoids.FakePlayerSlimEntity;
 import com.duzo.fakeplayers.util.SkinGrabber;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
@@ -19,8 +15,6 @@ import net.minecraft.client.renderer.entity.layers.CustomHeadLayer;
 import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
 import net.minecraft.client.renderer.entity.layers.ItemInHandLayer;
 import net.minecraft.resources.ResourceLocation;
-
-import java.io.File;
 
 public class FakePlayerRenderer extends LivingEntityRenderer<FakePlayerEntity, FakePlayerEntityModel> {
     public FakePlayerRenderer(EntityRendererProvider.Context context) {
@@ -58,7 +52,7 @@ public class FakePlayerRenderer extends LivingEntityRenderer<FakePlayerEntity, F
             ResourceLocation texture = SkinGrabber.getEntitySkinFromList(entity);
 
             if (texture == null) {
-                entity.updateSkin();
+                entity.requestServerUpdateSkins();
             } else {
                 return texture;
             }

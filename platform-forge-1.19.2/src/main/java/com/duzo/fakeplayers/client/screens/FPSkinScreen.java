@@ -1,7 +1,6 @@
 package com.duzo.fakeplayers.client.screens;
 
 import com.duzo.fakeplayers.FakePlayers;
-import com.duzo.fakeplayers.common.entities.HumanoidEntity;
 import com.duzo.fakeplayers.common.entities.humanoids.FakePlayerEntity;
 import com.duzo.fakeplayers.configs.FPClientConfigs;
 import com.duzo.fakeplayers.networking.Network;
@@ -12,15 +11,11 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.components.*;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.io.File;
-import java.nio.file.Path;
 
 public class FPSkinScreen extends Screen {
     private static final ResourceLocation GUI_TEXTURE = new ResourceLocation(FakePlayers.MODID,"textures/gui/skin_select.png");
@@ -50,7 +45,7 @@ public class FPSkinScreen extends Screen {
         assert this.minecraft != null;
         this.input = new EditBox(this.minecraft.fontFilterFishy, (i) + (this.imageWidth/2)  - j + (j/2),l,j, 12, Component.translatable("screen.fakeplayers.skin"));
         this.input.setValue(this.humanoid.getURL());
-        this.input.setMaxLength(100);
+        this.input.setMaxLength(9999999); // not my problem
         this.input.setBordered(true);
         this.addWidget(this.input);
 
@@ -61,7 +56,7 @@ public class FPSkinScreen extends Screen {
         this.chatBox = new EditBox(this.minecraft.fontFilterFishy, (i) + (this.imageWidth/2)  - j + (j/2),l + 20,j, 12, Component.translatable("screen.fakeplayers.chatbox"));
         this.chatBox.setValue("Input chat message here!");
         this.chatBox.setEditable(true);
-        this.chatBox.setMaxLength(100);
+        this.chatBox.setMaxLength(256);
         this.chatBox.setBordered(true);
         this.addWidget(this.chatBox);
 
@@ -99,7 +94,9 @@ public class FPSkinScreen extends Screen {
 
         if (!FPClientConfigs.USES_FILES.get()) {
             this.updateEntityURL();
-            this.humanoid.updateSkin();
+            this.humanoid.requestServerUpdateSkins();
+            System.out.println(this.humanoid.getStringUUID());
+            System.out.println(this.humanoid.getURL());
         }
         else {
             File skinDir = new File(this.input.getValue());

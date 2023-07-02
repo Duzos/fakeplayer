@@ -1,6 +1,5 @@
 package com.duzo.fakeplayers.client.models.renderers;
 
-import com.duzo.fakeplayers.FakePlayers;
 import com.duzo.fakeplayers.client.models.entities.FakePlayerSlimEntityModel;
 import com.duzo.fakeplayers.common.entities.HumanoidEntity;
 import com.duzo.fakeplayers.common.entities.humanoids.FakePlayerSlimEntity;
@@ -16,8 +15,6 @@ import net.minecraft.client.renderer.entity.layers.CustomHeadLayer;
 import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
 import net.minecraft.client.renderer.entity.layers.ItemInHandLayer;
 import net.minecraft.resources.ResourceLocation;
-
-import java.io.File;
 
 public class FakePlayerSlimRenderer extends LivingEntityRenderer<FakePlayerSlimEntity, FakePlayerSlimEntityModel> {
     public FakePlayerSlimRenderer(EntityRendererProvider.Context context) {
@@ -55,7 +52,7 @@ public class FakePlayerSlimRenderer extends LivingEntityRenderer<FakePlayerSlimE
             ResourceLocation texture = SkinGrabber.getEntitySkinFromList(entity);
 
             if (texture == null) {
-                entity.updateSkin();
+                entity.requestServerUpdateSkins();
             } else {
                 return texture;
             }
