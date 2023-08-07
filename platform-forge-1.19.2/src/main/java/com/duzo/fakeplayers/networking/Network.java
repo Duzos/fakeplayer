@@ -52,6 +52,11 @@ public class Network {
                 .encoder(SendHumanoidChatC2SPacket::encode)
                 .consumerMainThread(SendHumanoidChatC2SPacket::handle)
                 .add();
+        net.messageBuilder(UpdateHumanoidSittingC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(UpdateHumanoidSittingC2SPacket::decode)
+                .encoder(UpdateHumanoidSittingC2SPacket::encode)
+                .consumerMainThread(UpdateHumanoidSittingC2SPacket::handle)
+                .add();
     }
 
     public static <MSG> void sendToServer(MSG message) {
