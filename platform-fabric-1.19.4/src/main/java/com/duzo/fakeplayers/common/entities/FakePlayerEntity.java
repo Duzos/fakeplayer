@@ -1,11 +1,14 @@
 package com.duzo.fakeplayers.common.entities;
 
+import com.duzo.fakeplayers.client.gui.FakePlayerEntityScreen;
 import com.duzo.fakeplayers.common.goals.MoveTowardsItemsGoal;
 import com.duzo.fakeplayers.network.NetworkConstants;
 import com.duzo.fakeplayers.util.SkinGrabber;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.impl.networking.server.ServerPlayNetworkAddon;
+import net.minecraft.MinecraftVersion;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
@@ -96,9 +99,8 @@ public class FakePlayerEntity extends HumanoidEntity{
     }
     @Override
     protected ActionResult interactMob(PlayerEntity player, Hand hand) {
-        if (!this.world.isClient) {
-            // @TODO this doesnt even work lol
-            this.toggleAI();
+        if (hand == Hand.MAIN_HAND && player.isSneaking() && player.world.isClient) {
+            MinecraftClient.getInstance().setScreen(new FakePlayerEntityScreen(this));
             return ActionResult.SUCCESS;
         }
 

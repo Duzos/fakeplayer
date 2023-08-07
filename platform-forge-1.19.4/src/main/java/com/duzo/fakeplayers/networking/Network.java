@@ -1,10 +1,7 @@
 package com.duzo.fakeplayers.networking;
 
 import com.duzo.fakeplayers.FakePlayers;
-import com.duzo.fakeplayers.networking.packets.SendHumanoidChatC2SPacket;
-import com.duzo.fakeplayers.networking.packets.SendImageDownloadMessageS2CPacket;
-import com.duzo.fakeplayers.networking.packets.SendSkinMessageS2CPacket;
-import com.duzo.fakeplayers.networking.packets.UpdateHumanoidAIC2SPacket;
+import com.duzo.fakeplayers.networking.packets.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkDirection;
@@ -50,6 +47,11 @@ public class Network {
                 .decoder(SendHumanoidChatC2SPacket::decode)
                 .encoder(SendHumanoidChatC2SPacket::encode)
                 .consumerMainThread(SendHumanoidChatC2SPacket::handle)
+                .add();
+        net.messageBuilder(UpdateHumanoidSittingC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(UpdateHumanoidSittingC2SPacket::decode)
+                .encoder(UpdateHumanoidSittingC2SPacket::encode)
+                .consumerMainThread(UpdateHumanoidSittingC2SPacket::handle)
                 .add();
     }
 

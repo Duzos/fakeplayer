@@ -38,6 +38,11 @@ public class FakePlayerRenderer extends LivingEntityRenderer<FakePlayerEntity, F
         } else {
             matrixStack.scale(0.9375F, 0.9375F, 0.9375F);
         }
+
+        if (entity.isSitting()) {
+            matrixStack.translate(0,-0.5f,0);
+        }
+
         super.render(entity, p_115456_, p_115457_, matrixStack, p_115459_, p_115460_);
         matrixStack.popPose();
     }

@@ -9,6 +9,7 @@
   "screens.fakeplayers.follow": "Follow",
   "screens.fakeplayers.wander": "Wander",
   "screens.fakeplayers.send": "Send chat",
+  "screens.fakeplayers": "Fake Player Entity",
   "entity.fakeplayers.fake_player": "Null Player",
   "entity.fakeplayers.fake_player_slim": "Null Player"
 }

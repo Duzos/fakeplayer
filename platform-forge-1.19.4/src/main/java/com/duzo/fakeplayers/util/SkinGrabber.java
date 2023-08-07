@@ -26,6 +26,9 @@ import java.net.URLConnection;
 import java.util.HashMap;
 import java.util.UUID;
 
+/**
+ * Most of this code is referenced from Craig's regeneration mod, love u craig
+ */
 public class SkinGrabber {
     private static final Logger LOGGER = LogUtils.getLogger();
     public static final String URL = "https://mineskin.eu/skin/";

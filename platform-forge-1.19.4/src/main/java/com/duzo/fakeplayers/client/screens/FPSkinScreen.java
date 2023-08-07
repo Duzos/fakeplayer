@@ -7,6 +7,7 @@ import com.duzo.fakeplayers.configs.FPClientConfigs;
 import com.duzo.fakeplayers.networking.Network;
 import com.duzo.fakeplayers.networking.packets.SendHumanoidChatC2SPacket;
 import com.duzo.fakeplayers.networking.packets.UpdateHumanoidAIC2SPacket;
+import com.duzo.fakeplayers.networking.packets.UpdateHumanoidSittingC2SPacket;
 import com.duzo.fakeplayers.util.SkinGrabber;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -28,7 +29,7 @@ public class FPSkinScreen extends Screen {
     protected int imageWidth = 176;
     protected int imageHeight = 166;
     private EditBox input,chatBox;
-    private Button confirm,send, stayPut, follow, wander;
+    private Button confirm,send, stayPut, follow, wander,sitting;
     public FPSkinScreen(Component component, FakePlayerEntity humanoid, Player player) {
         super(component);
         this.humanoid = humanoid;
@@ -74,7 +75,10 @@ public class FPSkinScreen extends Screen {
         }).bounds((i) + (this.imageWidth/2) - (98/2),l + (128),98,20).build();
         this.addRenderableWidget(this.confirm);
 
-
+        this.sitting = new Button.Builder(Component.translatable("screens.fakeplayers.sit"), (p_96786_) -> {
+            this.pressToggleSit();
+        }).bounds((i) + (this.imageWidth/2) - (23), l + 80,46,20).build();
+        this.addRenderableWidget(this.sitting);
         this.stayPut = new Button.Builder(Component.translatable("screens.fakeplayers.stayPut"), (p_96786_) -> {
             this.pressStayPut();
         }).bounds((i) + (this.imageWidth/2) - 23, l + 100,46,20).build();
@@ -114,7 +118,17 @@ public class FPSkinScreen extends Screen {
         Network.sendToServer(new SendHumanoidChatC2SPacket(this.humanoid.getUUID(), this.chatBox.getValue()));
     }
 
+    private void pressToggleSit() {
+        this.sitting.active = true;
+        this.stayPut.active = true;
+        this.follow.active = true;
+        this.wander.active = true;
+        this.humanoid.toggleSit();
+        Network.sendToServer(new UpdateHumanoidSittingC2SPacket(humanoid.getUUID(),humanoid.isSitting()));
+    }
+
     private void pressStayPut() {
+        this.sitting.active = true;
         this.stayPut.active = false;
         this.follow.active = true;
         this.wander.active = true;
@@ -128,6 +142,7 @@ public class FPSkinScreen extends Screen {
         this.stayPut.active = true;
         this.follow.active = true;
         this.wander.active = false;
+        this.sitting.active = true;
 
         this.humanoid.setNoAi(false);
         this.humanoid.setForceTargeting(false);
@@ -136,6 +151,7 @@ public class FPSkinScreen extends Screen {
     }
     private void pressFollowButton() {
         this.stayPut.active = true;
+        this.sitting.active = true;
         this.follow.active = false;
         this.wander.active = true;
 

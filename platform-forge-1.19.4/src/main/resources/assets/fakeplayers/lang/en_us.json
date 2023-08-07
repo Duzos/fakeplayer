@@ -8,5 +8,6 @@
   "screens.fakeplayers.stayPut": "Stay",
   "screens.fakeplayers.follow": "Follow",
   "screens.fakeplayers.wander": "Wander",
-  "screens.fakeplayers.send": "Send chat"
+  "screens.fakeplayers.send": "Send chat",
+  "screens.fakeplayers.sit": "Toggle Sit"
 }
