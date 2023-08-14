@@ -5,7 +5,7 @@ plugins {
 
 
 group = 'com.duzo.fakeplayers'
-version = '1.19.3-0.51'
+version = '0.5.2+1.19.3'
 
 java {
     archivesBaseName = 'fakeplayers'

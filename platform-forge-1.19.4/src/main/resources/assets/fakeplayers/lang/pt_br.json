@@ -1,0 +1,13 @@
+{
+  "item.fakeplayers.fake_player_spawn_egg": "Ovo de Jogador Falso",
+  "item.fakeplayers.fake_player_slim_spawn_egg": "Ovo de Jogador Falso Magro",
+  "item.fakeplayers.player_shell": "Casca de Robô",
+  "item.fakeplayers.player_ai": "IA de Robô",
+  "itemGroup.fp_tab": "Jogadores Falsos",
+  "screens.fakeplayers.done": "Concluído",
+  "screens.fakeplayers.stayPut": "Permanecer",
+  "screens.fakeplayers.follow": "Seguir",
+  "screens.fakeplayers.wander": "Vagar",
+  "screens.fakeplayers.send": "Enviar chat",
+  "screens.fakeplayers.sit": "Alternar Sentar"
+}

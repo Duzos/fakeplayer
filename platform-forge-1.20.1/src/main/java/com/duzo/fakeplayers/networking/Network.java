@@ -8,9 +8,12 @@ import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Network {
     private static SimpleChannel INSTANCE;
+    private static final Logger LOGGER = LogManager.getLogger();
 
     private static int packetId = 0;
     private static int id() {
@@ -64,6 +67,12 @@ public class Network {
     }
 
     public static <MSG> void sendToAll(MSG message) {
-        INSTANCE.send(PacketDistributor.ALL.noArg(), message);
+        if (INSTANCE != null && message != null) {
+            try {
+                INSTANCE.send(PacketDistributor.ALL.noArg(), message);
+            } catch (NullPointerException e) {
+                LOGGER.warn("Failed to send message to all players.");
+            }
+        }
     }
 }
