@@ -9,5 +9,6 @@
   "screens.fakeplayers.follow": "Follow",
   "screens.fakeplayers.wander": "Wander",
   "screens.fakeplayers.send": "Send chat",
-  "screens.fakeplayers.sit": "Toggle Sit"
+  "screens.fakeplayers.sit": "Toggle Sit",
+  "screens.fakeplayers.nametagShown": "Toggle NameTag"
 }
