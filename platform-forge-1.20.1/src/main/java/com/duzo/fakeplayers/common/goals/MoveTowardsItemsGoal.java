@@ -29,38 +29,30 @@ public class MoveTowardsItemsGoal extends Goal {
 
     @Override
     public boolean canUse() {
-        List<ItemEntity> nearbyItems = getNearbyItems(this.mob, 4);
-        if (nearbyItems.size() != 0) {
-            return true;
-        }
-        return false;
+        return getNearbyItems(this.mob, 4).size() != 0;
     }
 
     public boolean canContinueToUse() {
         LivingEntity livingentity = this.mob.getTarget();
-        if (livingentity == null) {
+        if (livingentity == null || !livingentity.isAlive() || !this.mob.isWithinRestriction(livingentity.blockPosition())) {
             return false;
-        } else if (!livingentity.isAlive()) {
-            return false;
-        } else if (!this.followingTargetEvenIfNotSeen) {
+        }
+        if (!this.followingTargetEvenIfNotSeen) {
             return !this.mob.getNavigation().isDone();
-        } else if (!this.mob.isWithinRestriction(livingentity.blockPosition())) {
-            return false;
         } else {
             return !(livingentity instanceof Player) || !livingentity.isSpectator() && !((Player)livingentity).isCreative();
         }
     }
     public void start() {
         List<ItemEntity> nearbyItems = getNearbyItems(this.mob, 4);
-        if (nearbyItems.size() != 0) {
-            for (int i = 0; i < nearbyItems.size(); i++) {
-                ItemEntity checkedItem = nearbyItems.get(i);
-                if (checkedItem.onGround()) {
-                    this.mob.getNavigation().moveTo(checkedItem.getX(), checkedItem.getY(), checkedItem.getZ(), this.speedModifier);
-                    break;
-                }
+        assert nearbyItems.size() != 0;
+        for (ItemEntity checkedItem : nearbyItems) { // @TODO: If this has lag, maybe add a maximum depth we can go
+            if (checkedItem.onGround()) {
+                this.mob.getNavigation().moveTo(checkedItem.getX(), checkedItem.getY(), checkedItem.getZ(), this.speedModifier);
+                break;
             }
         }
+
     }
 
     public void stop() {
