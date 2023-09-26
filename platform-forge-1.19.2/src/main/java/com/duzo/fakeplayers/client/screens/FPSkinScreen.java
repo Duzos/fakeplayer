@@ -25,7 +25,7 @@ public class FPSkinScreen extends Screen {
     protected int imageWidth = 176;
     protected int imageHeight = 166;
     private EditBox input,chatBox;
-    private Button confirm,send, stayPut, follow, wander,sitting;
+    private Button confirm,send, stayPut, follow, wander,sitting,nametagShown;
     public FPSkinScreen(Component component, FakePlayerEntity humanoid, Player player) {
         super(component);
         this.humanoid = humanoid;
@@ -46,7 +46,7 @@ public class FPSkinScreen extends Screen {
         assert this.minecraft != null;
         this.input = new EditBox(this.minecraft.fontFilterFishy, (i) + (this.imageWidth/2)  - j + (j/2),l,j, 12, Component.translatable("screen.fakeplayers.skin"));
         this.input.setValue(this.humanoid.getURL());
-        this.input.setMaxLength(9999999); // not my problem
+        this.input.setMaxLength(128); // it was my problem
         this.input.setBordered(true);
         this.addWidget(this.input);
 
@@ -71,19 +71,26 @@ public class FPSkinScreen extends Screen {
         });
         this.addRenderableWidget(this.confirm);
 
-        this.sitting = new Button((i) + (this.imageWidth/2) - 23, l + 80,46,20,Component.translatable("screens.fakeplayers.sit"), (p_96786_) -> {
+        this.sitting = new Button((i) + (this.imageWidth/2) - (23), l + 60,46,20,Component.translatable("screens.fakeplayers.sit"), (p_96786_) -> {
             this.pressToggleSit();
         });
         this.addRenderableWidget(this.sitting);
+
+        this.nametagShown = new Button((i) + (this.imageWidth/2) - (43), l + 80,86,20,Component.translatable("screens.fakeplayers.nametagShown"), (p_96786_) -> {
+            this.pressNameTagShown();
+        });
+        this.addRenderableWidget(this.nametagShown);
 
         this.stayPut = new Button((i) + (this.imageWidth/2) - 23, l + 100,46,20,Component.translatable("screens.fakeplayers.stayPut"), (p_96786_) -> {
             this.pressStayPut();
         });
         this.addRenderableWidget(this.stayPut);
+
         this.wander = new Button((i) + (this.imageWidth/2) - (23*3), l + 100,46,20,Component.translatable("screens.fakeplayers.wander"), (p_96786_) -> {
             this.pressWanderButton();
         });
         this.addRenderableWidget(this.wander);
+
         this.follow = new Button((i) + (this.imageWidth/2) + 23, l + 100,46,20,Component.translatable("screens.fakeplayers.follow"), (p_96786_) -> {
             this.pressFollowButton();
         });
@@ -126,7 +133,10 @@ public class FPSkinScreen extends Screen {
         this.humanoid.toggleSit();
         Network.sendToServer(new UpdateHumanoidSittingC2SPacket(humanoid.getUUID(),humanoid.isSitting()));
     }
-
+    private void pressNameTagShown() {
+        this.humanoid.toggleShown();
+        Network.sendToServer(new UpdateHumanoidSittingC2SPacket(humanoid.getUUID(),humanoid.nametagShown()));
+    }
     private void pressStayPut() {
         this.sitting.active = true;
         this.stayPut.active = false;

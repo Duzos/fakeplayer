@@ -55,6 +55,11 @@ public class Network {
                 .encoder(UpdateHumanoidSittingC2SPacket::encode)
                 .consumerMainThread(UpdateHumanoidSittingC2SPacket::handle)
                 .add();
+        net.messageBuilder(UpdateHumanoidNameTagShownC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(UpdateHumanoidNameTagShownC2SPacket::decode)
+                .encoder(UpdateHumanoidNameTagShownC2SPacket::encode)
+                .consumerMainThread(UpdateHumanoidNameTagShownC2SPacket::handle)
+                .add();
     }
 
     public static <MSG> void sendToServer(MSG message) {

@@ -36,7 +36,7 @@ public class HumanoidEntityRenderer extends LivingEntityRenderer<HumanoidEntity,
 
     @Override
     protected boolean shouldShowName(HumanoidEntity entity) {
-        return true;
+        return entity.nametagShown();
     }
 
     @Override

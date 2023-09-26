@@ -3,6 +3,7 @@ package com.duzo.fakeplayers.client.models.renderers;
 import com.duzo.fakeplayers.FakePlayers;
 import com.duzo.fakeplayers.client.models.entities.FakePlayerSlimEntityModel;
 import com.duzo.fakeplayers.common.entities.HumanoidEntity;
+import com.duzo.fakeplayers.common.entities.humanoids.FakePlayerEntity;
 import com.duzo.fakeplayers.common.entities.humanoids.FakePlayerSlimEntity;
 import com.duzo.fakeplayers.util.SkinGrabber;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -45,10 +46,9 @@ public class FakePlayerSlimRenderer extends LivingEntityRenderer<FakePlayerSlimE
         super.render(entity, p_115456_, p_115457_, matrixStack, p_115459_, p_115460_);
         matrixStack.popPose();
     }
-
     @Override
     protected boolean shouldShowName(FakePlayerSlimEntity entity) {
-        return true;
+        return entity.nametagShown();
     }
     @Override
     public ResourceLocation getTextureLocation(FakePlayerSlimEntity entity) {

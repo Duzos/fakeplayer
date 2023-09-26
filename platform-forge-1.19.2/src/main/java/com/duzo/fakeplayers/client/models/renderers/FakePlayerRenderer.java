@@ -3,6 +3,7 @@ package com.duzo.fakeplayers.client.models.renderers;
 import com.duzo.fakeplayers.client.models.entities.FakePlayerEntityModel;
 import com.duzo.fakeplayers.common.entities.HumanoidEntity;
 import com.duzo.fakeplayers.common.entities.humanoids.FakePlayerEntity;
+import com.duzo.fakeplayers.common.entities.humanoids.FakePlayerSlimEntity;
 import com.duzo.fakeplayers.util.SkinGrabber;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
@@ -45,7 +46,7 @@ public class FakePlayerRenderer extends LivingEntityRenderer<FakePlayerEntity, F
 
     @Override
     protected boolean shouldShowName(FakePlayerEntity entity) {
-        return true;
+        return entity.nametagShown();
     }
     @Override
     public ResourceLocation getTextureLocation(FakePlayerEntity entity) {

@@ -31,6 +31,11 @@ public class FakePlayerRenderer extends LivingEntityRenderer<FakePlayerEntity, F
     }
 
     @Override
+    protected boolean shouldShowName(FakePlayerEntity entity) {
+        return entity.nametagShown();
+    }
+
+    @Override
     public void render(FakePlayerEntity entity, float p_115456_, float p_115457_, PoseStack matrixStack, MultiBufferSource p_115459_, int p_115460_) {
         matrixStack.pushPose();
         if (entity.isBaby()) {
@@ -45,11 +50,6 @@ public class FakePlayerRenderer extends LivingEntityRenderer<FakePlayerEntity, F
 
         super.render(entity, p_115456_, p_115457_, matrixStack, p_115459_, p_115460_);
         matrixStack.popPose();
-    }
-
-    @Override
-    protected boolean shouldShowName(FakePlayerEntity entity) {
-        return true;
     }
     @Override
     public ResourceLocation getTextureLocation(FakePlayerEntity entity) {

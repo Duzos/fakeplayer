@@ -2,6 +2,7 @@ package com.duzo.fakeplayers.client.models.renderers;
 
 import com.duzo.fakeplayers.client.models.entities.HumanoidEntityModel;
 import com.duzo.fakeplayers.common.entities.HumanoidEntity;
+import com.duzo.fakeplayers.common.entities.humanoids.FakePlayerSlimEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
@@ -36,7 +37,7 @@ public class HumanoidEntityRenderer extends LivingEntityRenderer<HumanoidEntity,
 
     @Override
     protected boolean shouldShowName(HumanoidEntity entity) {
-        return true;
+        return entity.nametagShown();
     }
 
     @Override

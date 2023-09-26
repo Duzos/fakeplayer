@@ -35,6 +35,8 @@ import javax.annotation.Nullable;
 public abstract class HumanoidEntity extends PathfinderMob {
     public static final ResourceLocation ERROR_TEXTURE = new ResourceLocation(FakePlayers.MODID,"textures/entities/humanoid/error.png");
     private static final EntityDataAccessor<Boolean> SITTING = SynchedEntityData.defineId(HumanoidEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> NAMETAG_SHOWN = SynchedEntityData.defineId(HumanoidEntity.class, EntityDataSerializers.BOOLEAN);
+
     public String customName = ""; // the default name
     public ResourceLocation skin;
     private Inventory inventory;
@@ -97,6 +99,7 @@ public abstract class HumanoidEntity extends PathfinderMob {
     public void addAdditionalSaveData(CompoundTag nbt) {
         super.addAdditionalSaveData(nbt);
         nbt.putBoolean("sitting", this.isSitting());
+        nbt.putBoolean("nametag_shown", this.nametagShown());
     }
 
     @Override
@@ -104,12 +107,15 @@ public abstract class HumanoidEntity extends PathfinderMob {
         super.readAdditionalSaveData(nbt);
         this.entityData.set(SITTING, nbt.getBoolean("sitting"));
         this.setSitting(nbt.getBoolean("sitting"));
+        this.entityData.set(NAMETAG_SHOWN, nbt.getBoolean("nametag_shown"));
+        this.setNametagShown(nbt.getBoolean("nametag_shown"));
     }
 
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(SITTING,false);
+        this.entityData.define(NAMETAG_SHOWN,true);
     }
 
     public void sit() {
@@ -127,7 +133,15 @@ public abstract class HumanoidEntity extends PathfinderMob {
     public boolean isSitting() {
         return this.entityData.get(SITTING);
     }
-
+    public void toggleShown() {
+        this.setNametagShown(!this.nametagShown());
+    }
+    public void setNametagShown(boolean val) {
+        this.entityData.set(NAMETAG_SHOWN,val);
+    }
+    public boolean nametagShown() {
+        return this.entityData.get(NAMETAG_SHOWN);
+    }
     public ResourceLocation getSkin() {
         return this.skin;
     }
