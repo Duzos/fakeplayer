@@ -1,10 +1,8 @@
 package com.duzo.fakeplayers.common.entities;
 
-import com.duzo.fakeplayers.client.gui.FakePlayerEntityScreen;
 import com.duzo.fakeplayers.common.goals.MoveTowardsItemsGoal;
 import com.duzo.fakeplayers.components.MyComponents;
 import com.duzo.fakeplayers.util.SkinGrabber;
-import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.data.DataTracker;
@@ -12,8 +10,6 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.PacketByteBuf;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -79,7 +75,8 @@ public class FakePlayerEntity extends HumanoidEntity{
     @Override
     protected ActionResult interactMob(PlayerEntity player, Hand hand) {
         if (hand == Hand.MAIN_HAND && player.isSneaking() && player.getWorld().isClient) {
-            MinecraftClient.getInstance().setScreen(new FakePlayerEntityScreen(this));
+            // @TODO: Replace with a better screen
+
             return ActionResult.SUCCESS;
         }
 

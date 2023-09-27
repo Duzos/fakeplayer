@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.duzo.fakeplayers.fakeplayers.iml" filepath="$PROJECT_DIR$/.idea/modules/com.duzo.fakeplayers.fakeplayers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.duzo.fakeplayers.fakeplayers.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.duzo.fakeplayers.fakeplayers.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.duzo.fakeplayers.fakeplayers.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.duzo.fakeplayers.fakeplayers.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fakeplayers.iml" filepath="$PROJECT_DIR$/.idea/modules/fakeplayers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fakeplayers.main.iml" filepath="$PROJECT_DIR$/.idea/modules/fakeplayers.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fakeplayers.test.iml" filepath="$PROJECT_DIR$/.idea/modules/fakeplayers.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/platform-fabric-1.19.3.iml" filepath="$PROJECT_DIR$/.idea/modules/platform-fabric-1.19.3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/platform-fabric-1.19.3.main.iml" filepath="$PROJECT_DIR$/.idea/modules/platform-fabric-1.19.3.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/platform-fabric-1.19.3.test.iml" filepath="$PROJECT_DIR$/.idea/modules/platform-fabric-1.19.3.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/platform-fabric-1.19.4.iml" filepath="$PROJECT_DIR$/.idea/modules/platform-fabric-1.19.4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/platform-fabric-1.19.4.main.iml" filepath="$PROJECT_DIR$/.idea/modules/platform-fabric-1.19.4.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/platform-fabric-1.19.4.test.iml" filepath="$PROJECT_DIR$/.idea/modules/platform-fabric-1.19.4.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/platform-fabric-1.20.1.iml" filepath="$PROJECT_DIR$/.idea/modules/platform-fabric-1.20.1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/platform-fabric-1.20.1.main.iml" filepath="$PROJECT_DIR$/.idea/modules/platform-fabric-1.20.1.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/platform-fabric-1.20.1.test.iml" filepath="$PROJECT_DIR$/.idea/modules/platform-fabric-1.20.1.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/platform-forge-1.19.3.fakeplayers.iml" filepath="$PROJECT_DIR$/.idea/modules/platform-forge-1.19.3.fakeplayers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/platform-forge-1.19.3.fakeplayers.main.iml" filepath="$PROJECT_DIR$/.idea/modules/platform-forge-1.19.3.fakeplayers.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/platform-forge-1.19.3.fakeplayers.test.iml" filepath="$PROJECT_DIR$/.idea/modules/platform-forge-1.19.3.fakeplayers.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/platform-forge-1.20.1.iml" filepath="$PROJECT_DIR$/.idea/modules/platform-forge-1.20.1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/platform-forge-1.20.1.main.iml" filepath="$PROJECT_DIR$/.idea/modules/platform-forge-1.20.1.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/platform-forge-1.20.1.test.iml" filepath="$PROJECT_DIR$/.idea/modules/platform-forge-1.20.1.test.iml" />
+    </modules>
+  </component>
+</project>

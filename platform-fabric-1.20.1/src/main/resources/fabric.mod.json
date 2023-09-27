@@ -20,6 +20,9 @@
     ],
     "cardinal-components": [
       "com.duzo.fakeplayers.components.MyComponents"
+    ],
+    "fabric-datagen": [
+      "com.duzo.fakeplayers.datagen.ModDataGenerator"
     ]
   },
   "mixins": [
