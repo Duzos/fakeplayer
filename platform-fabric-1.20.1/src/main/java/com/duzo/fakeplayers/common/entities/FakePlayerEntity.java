@@ -1,5 +1,7 @@
 package com.duzo.fakeplayers.common.entities;
 
+import com.duzo.fakeplayers.Fakeplayers;
+import com.duzo.fakeplayers.client.screens.FakePlayerScreen;
 import com.duzo.fakeplayers.common.goals.MoveTowardsItemsGoal;
 import com.duzo.fakeplayers.components.MyComponents;
 import com.duzo.fakeplayers.util.SkinGrabber;
@@ -13,6 +15,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -68,11 +71,13 @@ public class FakePlayerEntity extends HumanoidEntity{
         }
     }
 
+    private void toggleAI() {
+        this.setAiDisabled(!this.isAiDisabled());
+    }
     @Override
     protected ActionResult interactMob(PlayerEntity player, Hand hand) {
         if (hand == Hand.MAIN_HAND && player.isSneaking() && player.getWorld().isClient) {
-            // @TODO: Replace with a better screen
-
+            MinecraftClient.getInstance().setScreen(new FakePlayerScreen(Text.translatable(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.name").toTranslationKey()), this, player));
             return ActionResult.SUCCESS;
         }
 

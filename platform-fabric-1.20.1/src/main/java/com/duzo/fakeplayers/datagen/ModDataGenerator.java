@@ -120,6 +120,7 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.stayput").toTranslationKey(), "Stay Put");
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.wander").toTranslationKey(), "Wander");
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.follow").toTranslationKey(), "Follow");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.name").toTranslationKey(), "Fake Player Screen");
 
 		return modLanguageProvider;
 	}
@@ -149,6 +150,7 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.stayput").toTranslationKey(), "Ne bougez pas");
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.wander").toTranslationKey(), "Errer");
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.follow").toTranslationKey(), "Suivre");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.name").toTranslationKey(), "Écran de faux joueur");
 
 
 		return modLanguageProvider;
@@ -179,6 +181,7 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.stayput").toTranslationKey(), "No te muevas");
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.wander").toTranslationKey(), "Vagar");
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.follow").toTranslationKey(), "Seguir");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.name").toTranslationKey(), "Pantalla de jugador falso");
 
 		return modLanguageProvider;
 	}

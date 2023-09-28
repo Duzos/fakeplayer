@@ -30,7 +30,7 @@ public class FakePlayerScreen extends Screen {
 
     private EditBoxWidget input, chatBox;
     private ButtonWidget confirm, send, stayPut, follow, wander, sitting;
-    protected FakePlayerScreen(Text title, HumanoidEntity humanoid, PlayerEntity player) {
+    public FakePlayerScreen(Text title, HumanoidEntity humanoid, PlayerEntity player) {
         super(title);
     }
 
