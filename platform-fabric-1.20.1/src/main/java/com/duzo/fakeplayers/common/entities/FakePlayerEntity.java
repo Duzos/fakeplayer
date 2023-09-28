@@ -68,10 +68,6 @@ public class FakePlayerEntity extends HumanoidEntity{
         }
     }
 
-    // temporary botch way to toggle AI before I get GUI's done @TODO screens
-    private void toggleAI() {
-        this.setAiDisabled(!this.isAiDisabled());
-    }
     @Override
     protected ActionResult interactMob(PlayerEntity player, Hand hand) {
         if (hand == Hand.MAIN_HAND && player.isSneaking() && player.getWorld().isClient) {

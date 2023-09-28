@@ -10,11 +10,13 @@ import com.duzo.fakeplayers.datagen.datagen_providers.ModSoundProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.util.Identifier;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -37,6 +39,10 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
 					.input('L', Items.LIME_DYE)
 					.input('O', Items.OBSERVER)
 					.input('R', Items.REDSTONE_BLOCK)
+					.criterion(FabricRecipeProvider.hasItem(Items.OBSERVER), FabricRecipeProvider.conditionsFromItem(Items.OBSERVER))
+					.criterion(FabricRecipeProvider.hasItem(Items.REDSTONE_BLOCK), FabricRecipeProvider.conditionsFromItem(Items.REDSTONE_BLOCK))
+					.criterion(FabricRecipeProvider.hasItem(Items.IRON_INGOT), FabricRecipeProvider.conditionsFromItem(Items.IRON_INGOT))
+					.criterion(FabricRecipeProvider.hasItem(Items.LIME_DYE), FabricRecipeProvider.conditionsFromItem(Items.LIME_DYE))
 			);
 
 			modRecipeProvider.addShapedRecipe(ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ItemInit.PLAYER_SHELL, 1)
@@ -46,17 +52,26 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
 					.input('i', Items.IRON_INGOT)
 					.input('C', Items.CLAY)
 					.input('R', Items.REDSTONE_BLOCK)
+					.criterion(FabricRecipeProvider.hasItem(Items.CLAY), FabricRecipeProvider.conditionsFromItem(Items.CLAY))
+					.criterion(FabricRecipeProvider.hasItem(Items.REDSTONE_BLOCK), FabricRecipeProvider.conditionsFromItem(Items.REDSTONE_BLOCK))
+					.criterion(FabricRecipeProvider.hasItem(Items.IRON_INGOT), FabricRecipeProvider.conditionsFromItem(Items.IRON_INGOT))
 			);
 			modRecipeProvider.addShapelessRecipe(ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ItemInit.FAKE_PLAYER_SPAWN_EGG, 1)
-					.input(Items.PLAYER_HEAD)
-					.input(Items.EGG)
+					.input(ItemInit.PLAYER_AI)
+					.input(ItemInit.PLAYER_SHELL)
+					.criterion(FabricRecipeProvider.hasItem(ItemInit.PLAYER_AI), FabricRecipeProvider.conditionsFromItem(ItemInit.PLAYER_AI))
+					.criterion(FabricRecipeProvider.hasItem(ItemInit.PLAYER_SHELL), FabricRecipeProvider.conditionsFromItem(ItemInit.PLAYER_SHELL))
 			);
-			modRecipeProvider.addShapelessRecipe(ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ItemInit.FAKE_PLAYER_SLIM_SPAWN_EGG, 1)
+			modRecipeProvider.addShapelessRecipeWithCustomname(ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ItemInit.FAKE_PLAYER_SLIM_SPAWN_EGG, 1)
 					.input(ItemInit.FAKE_PLAYER_SPAWN_EGG)
-			);
-			modRecipeProvider.addShapelessRecipe(ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ItemInit.FAKE_PLAYER_SPAWN_EGG, 1)
+					.criterion(FabricRecipeProvider.hasItem(ItemInit.FAKE_PLAYER_SPAWN_EGG), FabricRecipeProvider.conditionsFromItem(ItemInit.FAKE_PLAYER_SPAWN_EGG))
+			,
+					new Identifier("fakeplayers:thick_to_slim"));
+			modRecipeProvider.addShapelessRecipeWithCustomname(ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ItemInit.FAKE_PLAYER_SPAWN_EGG, 1)
 					.input(ItemInit.FAKE_PLAYER_SLIM_SPAWN_EGG)
-			);
+					.criterion(FabricRecipeProvider.hasItem(ItemInit.FAKE_PLAYER_SLIM_SPAWN_EGG), FabricRecipeProvider.conditionsFromItem(ItemInit.FAKE_PLAYER_SLIM_SPAWN_EGG))
+			,
+					new Identifier("fakeplayers:slim_to_thick"));
 
 			return modRecipeProvider;
 		})); // Recipes
@@ -94,6 +109,17 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
 		modLanguageProvider.addTranslation(ItemInit.FAKE_PLAYER_SPAWN_EGG, "Player Egg");
 		modLanguageProvider.addTranslation(ItemInit.FAKE_PLAYER_SLIM_SPAWN_EGG, "Slim Player Egg");
 		modLanguageProvider.addTranslation(Fakeplayers.FP_ITEM_GROUP, "Fake Players");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.skininput").toTranslationKey(), "NOT CURRENTLY FUNCTIONING IGNORE THIS BOX");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.skininputmessage").toTranslationKey(), "INPUT");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.chatinput").toTranslationKey(), "message");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.chatinputmessage").toTranslationKey(), "CHAT");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.send").toTranslationKey(), "Send");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.confirm").toTranslationKey(), "Confirm");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "not_implemented_message").toTranslationKey(), "This feature is not yet implemented");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.sit").toTranslationKey(), "Sit");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.stayput").toTranslationKey(), "Stay Put");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.wander").toTranslationKey(), "Wander");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.follow").toTranslationKey(), "Follow");
 
 		return modLanguageProvider;
 	}
