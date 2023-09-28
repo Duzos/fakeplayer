@@ -6,7 +6,6 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.predicate.entity.EntityPredicate;
 import net.minecraft.predicate.entity.EntityPredicates;
 
 import java.util.EnumSet;
@@ -25,17 +24,13 @@ public class MoveTowardsItemsGoal extends Goal {
     }
 
     public static List<ItemEntity> getNearbyItems(PathAwareEntity entity, double radius) {
-        List<ItemEntity> list = entity.getWorld().getEntitiesByClass(ItemEntity.class, entity.getBoundingBox().expand(radius), EntityPredicates.VALID_ENTITY);
-        return list;
+        return entity.getWorld().getEntitiesByClass(ItemEntity.class, entity.getBoundingBox().expand(radius), EntityPredicates.VALID_ENTITY);
     }
 
     @Override
     public boolean canStart() {
         List<ItemEntity> nearbyItems = getNearbyItems(this.mob, 4);
-        if (nearbyItems.size() != 0) {
-            return true;
-        }
-        return false;
+        return nearbyItems.size() != 0;
     }
 
     @Override
@@ -66,7 +61,7 @@ public class MoveTowardsItemsGoal extends Goal {
     public void stop() {
         LivingEntity livingentity = this.mob.getTarget();
         if (!EntityPredicates.EXCEPT_CREATIVE_OR_SPECTATOR.test(livingentity)) {
-            this.mob.setTarget((LivingEntity)null);
+            this.mob.setTarget(null);
         }
         this.mob.getNavigation().stop();
     }

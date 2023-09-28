@@ -1,20 +1,12 @@
 package com.duzo.fakeplayers.util;
 
 import com.duzo.fakeplayers.Fakeplayers;
-import com.duzo.fakeplayers.client.models.renderers.FakePlayerEntityRenderer;
-import com.duzo.fakeplayers.common.entities.FakePlayerEntity;
-import com.duzo.fakeplayers.common.entities.HumanoidEntity;
-import com.duzo.fakeplayers.components.MyComponents;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.texture.NativeImage;
 import net.minecraft.client.texture.NativeImageBackedTexture;
 import net.minecraft.client.texture.TextureManager;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.entity.Entity;
 import org.asynchttpclient.*;
@@ -22,12 +14,9 @@ import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 
 import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
-import javax.imageio.stream.ImageOutputStream;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -36,7 +25,6 @@ import java.util.Objects;
 public class SkinGrabber {
     private static final Logger LOGGER = LogUtils.getLogger();
     public static final String URL = "https://mineskin.eu/skin/";
-    public static final String DEFAULT_DIR = "./fakeplayers/skins/";
     public static final String DEFAULT_CACHE_DIR = "./fakeplayers/cache/";
     public static final String ERROR_SKIN = "textures/entity/humanoid/error.png";
     public static final Identifier ERROR_TEXTURE = new Identifier(Fakeplayers.MOD_ID, ERROR_SKIN);
@@ -45,7 +33,6 @@ public class SkinGrabber {
 
     public static final List<String> SKINS_IN_THE_PROCESS_OF_DOWNLOADING = new ArrayList<>();
 
-    public static final List<Entity> entities_to_update = new ArrayList<>();
     public static final HashMap<String, List<String>> USERNAME_TO_ENTITY_UUID_LIST = new HashMap<>();
 
     public static Identifier getEntitySkinFromList(LivingEntity entity) {
@@ -156,7 +143,7 @@ public class SkinGrabber {
 
                     @Override
                     public ByteArrayOutputStream onCompleted(Response response)
-                            throws Exception {
+                    {
                         SKINS_IN_THE_PROCESS_OF_DOWNLOADING.remove(username);
                         return byteArrayOutputStream;
                     }

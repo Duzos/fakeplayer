@@ -53,9 +53,6 @@ public class FakePlayerEntity extends HumanoidEntity{
         MyComponents.FAKE_PLAYER_SKIN_COMPONENT_COMPONENT.get(this).setURL(url);
         this.dataTracker.set(SKIN_URL, url);
     }
-    public String getURL() {
-        return MyComponents.FAKE_PLAYER_SKIN_COMPONENT_COMPONENT.get(this).getURL();
-    }
 
     public void updateSkin() {
         MyComponents.FAKE_PLAYER_SKIN_COMPONENT_COMPONENT.sync(this);
@@ -65,16 +62,13 @@ public class FakePlayerEntity extends HumanoidEntity{
     public void setCustomName(@Nullable Text name) {
         super.setCustomName(name);
         if (!this.getWorld().isClient()) {
+            assert name != null;
             if (name.getString().equals("")) {
                 return;
             }
 
             this.setURL(SkinGrabber.URL + name.getString());
         }
-    }
-
-    private void toggleAI() {
-        this.setAiDisabled(!this.isAiDisabled());
     }
     @Override
     protected ActionResult interactMob(PlayerEntity player, Hand hand) {

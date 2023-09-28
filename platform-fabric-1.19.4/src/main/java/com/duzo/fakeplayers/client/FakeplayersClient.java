@@ -6,11 +6,7 @@ import com.duzo.fakeplayers.client.models.renderers.FakePlayerSlimEntityRenderer
 import com.duzo.fakeplayers.networking.packets.S2CDownloadSkinAsync;
 import com.duzo.fakeplayers.util.SkinGrabber;
 import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-
-import java.io.File;
-import java.util.Arrays;
 
 public class FakeplayersClient implements ClientModInitializer {
     /**

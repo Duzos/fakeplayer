@@ -28,9 +28,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         for (ShapedRecipeJsonBuilder shapedRecipeJsonBuilder : shapedRecipes) {
             shapedRecipeJsonBuilder.offerTo(exporter);
         }
-        shapelessRecipesWithNameHashMap.forEach((shapelessRecipeJsonBuilder, identifier) -> {
-            shapelessRecipeJsonBuilder.offerTo(exporter, identifier);
-        });
+        shapelessRecipesWithNameHashMap.forEach((shapelessRecipeJsonBuilder, identifier) -> shapelessRecipeJsonBuilder.offerTo(exporter, identifier));
     }
 
     public void addShapelessRecipe(ShapelessRecipeJsonBuilder builder) {

@@ -1,7 +1,6 @@
 package com.duzo.fakeplayers.components;
 
 import com.duzo.fakeplayers.Fakeplayers;
-import com.duzo.fakeplayers.common.entities.FakePlayerEntity;
 import com.duzo.fakeplayers.common.entities.HumanoidEntity;
 import dev.onyxstudios.cca.api.v3.component.ComponentKey;
 import dev.onyxstudios.cca.api.v3.component.ComponentRegistryV3;

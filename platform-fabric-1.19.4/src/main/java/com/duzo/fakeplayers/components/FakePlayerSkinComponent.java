@@ -5,13 +5,8 @@ import com.duzo.fakeplayers.util.SkinGrabber;
 import dev.onyxstudios.cca.api.v3.component.Component;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.data.DataTracker;
-import net.minecraft.entity.data.TrackedData;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
-
-import java.io.File;
-import java.util.UUID;
 
 import static com.duzo.fakeplayers.util.SkinGrabber.URL;
 

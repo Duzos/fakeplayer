@@ -2,23 +2,14 @@ package com.duzo.fakeplayers.mixin;
 
 import com.duzo.fakeplayers.Fakeplayers;
 import com.duzo.fakeplayers.common.ItemInit;
-import com.duzo.fakeplayers.common.items.FakePlayerSpawnEggItem;
 import com.duzo.fakeplayers.util.SkinGrabber;
-import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.AnvilScreenHandler;
-import net.minecraft.screen.ForgingScreenHandler;
-import net.minecraft.screen.ScreenHandlerContext;
-import net.minecraft.screen.ScreenHandlerType;
-import net.minecraft.screen.slot.ForgingSlotsManager;
-import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(AnvilScreenHandler.class)
 public class AnvilMixin  {

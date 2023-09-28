@@ -1,7 +1,6 @@
 package com.duzo.fakeplayers.client.screens;
 
 import com.duzo.fakeplayers.Fakeplayers;
-import com.duzo.fakeplayers.common.entities.FakePlayerEntity;
 import com.duzo.fakeplayers.common.entities.HumanoidEntity;
 import com.duzo.fakeplayers.components.MyComponents;
 import com.duzo.fakeplayers.networking.packets.C2SHumanoidChatPacket;
@@ -10,10 +9,8 @@ import com.duzo.fakeplayers.networking.packets.C2SHumanoidToggleAiPacket;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.tooltip.Tooltip;
-import net.minecraft.client.gui.tooltip.TooltipComponent;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.EditBoxWidget;
 import net.minecraft.client.util.math.MatrixStack;
@@ -23,11 +20,9 @@ import net.minecraft.text.Text;
 import net.minecraft.text.TextColor;
 import net.minecraft.util.Identifier;
 
-import java.util.Objects;
-
 public class FakePlayerScreen extends Screen {
-    private HumanoidEntity humanoid;
-    private PlayerEntity player;
+    private final HumanoidEntity humanoid;
+    private final PlayerEntity player;
     private static final Identifier GUI_TEXTURE = new Identifier(Fakeplayers.MOD_ID,"textures/gui/skin_select.png");
 
     protected int imageWidth = 176;
@@ -51,7 +46,7 @@ public class FakePlayerScreen extends Screen {
         this.input = new EditBoxWidget(this.textRenderer, (i) + (this.imageWidth/2)  - j + (j/2),l,j, 12, Text.translatable(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.skininput").toTranslationKey()), Text.translatable(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.skininputmessage").toTranslationKey()));
         this.input.setMaxLength(100);
         // @TODO: Remove the not implemented message when the feature is implemented
-        this.input.tooltip((Text) Text.translatable(new Identifier(Fakeplayers.MOD_ID, "not_implemented_message").toTranslationKey()).setStyle(Style.EMPTY.withColor(TextColor.parse("red"))));
+        this.input.tooltip(Text.translatable(new Identifier(Fakeplayers.MOD_ID, "not_implemented_message").toTranslationKey()).setStyle(Style.EMPTY.withColor(TextColor.parse("red"))));
         addDrawableChild(this.input);
 
         this.chatBox = new EditBoxWidget(this.textRenderer, (i) + (this.imageWidth/2)  - j + (j/2),l + 20,j, 12, Text.translatable(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.chatinput").toTranslationKey()), Text.translatable(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.chatinputmessage").toTranslationKey()));
@@ -66,8 +61,8 @@ public class FakePlayerScreen extends Screen {
                 .build();
         addDrawableChild(this.send);
         this.confirm = ButtonWidget.builder(Text.translatable(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.confirm").toTranslationKey()), button -> {
-            player.sendMessage((Text) Text.translatable(new Identifier(Fakeplayers.MOD_ID, "not_implemented_message").toTranslationKey()).setStyle(Style.EMPTY.withColor(TextColor.parse("red"))), true);
-            player.sendMessage((Text) Text.translatable(new Identifier(Fakeplayers.MOD_ID, "not_implemented_message").toTranslationKey()).setStyle(Style.EMPTY.withColor(TextColor.parse("red"))), false);
+            player.sendMessage(Text.translatable(new Identifier(Fakeplayers.MOD_ID, "not_implemented_message").toTranslationKey()).setStyle(Style.EMPTY.withColor(TextColor.parse("red"))), true);
+            player.sendMessage(Text.translatable(new Identifier(Fakeplayers.MOD_ID, "not_implemented_message").toTranslationKey()).setStyle(Style.EMPTY.withColor(TextColor.parse("red"))), false);
             this.close();
 
         })

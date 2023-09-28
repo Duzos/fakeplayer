@@ -8,12 +8,10 @@ import net.minecraft.sound.SoundEvent;
 import java.util.HashMap;
 
 public class ModSoundProvider extends ModCustomSoundProvider {
-    private final FabricDataOutput dataGenerator;
 
     private HashMap<String, SoundEvent[]> soundEventList = new HashMap<>();
     public ModSoundProvider(FabricDataOutput dataOutput) {
         super(dataOutput);
-        dataGenerator = dataOutput;
     }
 
     @Override

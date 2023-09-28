@@ -5,7 +5,6 @@ import com.duzo.fakeplayers.common.items.FakePlayerSpawnEggItem;
 import io.wispforest.owo.itemgroup.OwoItemSettings;
 import io.wispforest.owo.registration.reflect.ItemRegistryContainer;
 import net.minecraft.item.Item;
-import net.minecraft.item.SpawnEggItem;
 
 public class ItemInit implements ItemRegistryContainer {
     public static final Item FAKE_PLAYER_SPAWN_EGG = new FakePlayerSpawnEggItem(Fakeplayers.FAKE_PLAYER, 0xe0280b, 0x73eb44, new OwoItemSettings().group(Fakeplayers.FP_ITEM_GROUP));

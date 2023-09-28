@@ -43,9 +43,7 @@ public abstract class ModCustomSoundProvider implements DataProvider {
         }));
         JsonObject soundJsonObject = new JsonObject();
 
-        soundEventsHashMap.forEach((soundName, soundEvents) -> {
-            soundJsonObject.add(soundName, createJsonObjectForSoundEvent(soundEvents));
-        });
+        soundEventsHashMap.forEach((soundName, soundEvents) -> soundJsonObject.add(soundName, createJsonObjectForSoundEvent(soundEvents)));
 
 
         return DataProvider.writeToPath(writer, soundJsonObject, getOutputPath());
