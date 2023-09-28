@@ -1,10 +1,12 @@
 package com.duzo.fakeplayers.common.entities;
 
-import com.duzo.fakeplayers.client.gui.FakePlayerEntityScreen;
+import com.duzo.fakeplayers.Fakeplayers;
+import com.duzo.fakeplayers.client.screens.FakePlayerScreen;
 import com.duzo.fakeplayers.common.goals.MoveTowardsItemsGoal;
 import com.duzo.fakeplayers.components.MyComponents;
 import com.duzo.fakeplayers.util.SkinGrabber;
-import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.data.DataTracker;
@@ -12,11 +14,10 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.PacketByteBuf;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -72,17 +73,21 @@ public class FakePlayerEntity extends HumanoidEntity{
         }
     }
 
-    // temporary botch way to toggle AI before I get GUI's done @TODO screens
     private void toggleAI() {
         this.setAiDisabled(!this.isAiDisabled());
     }
     @Override
     protected ActionResult interactMob(PlayerEntity player, Hand hand) {
         if (hand == Hand.MAIN_HAND && player.isSneaking() && player.getWorld().isClient) {
-            MinecraftClient.getInstance().setScreen(new FakePlayerEntityScreen(this));
+            setScreenToFakePlayerEdit(player);
             return ActionResult.SUCCESS;
         }
 
         return super.interactMob(player, hand);
+    }
+
+    @Environment(EnvType.CLIENT)
+    private void setScreenToFakePlayerEdit(PlayerEntity player) {
+        MinecraftClient.getInstance().setScreen(new FakePlayerScreen(Text.translatable(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.name").toTranslationKey()), this, player));
     }
 }
