@@ -25,7 +25,6 @@ public class HumanoidEntityRenderer<F extends HumanoidEntity, H extends PlayerEn
     @Override
     public void render(HumanoidEntity livingEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
         matrixStack.push();
-
         matrixStack.scale(0.9375F, 0.9375F, 0.9375F);
 
         super.render(livingEntity, f, g, matrixStack, vertexConsumerProvider, i);

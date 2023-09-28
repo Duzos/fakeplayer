@@ -34,7 +34,7 @@ public class FakePlayerSlimEntityRenderer extends LivingEntityRenderer<HumanoidE
 
     @Override
     public Identifier getTexture(HumanoidEntity entity) {
-        if (entity.world.isClient) {
+        if (entity.getWorld().isClient) {
             if (entity.getCustomName() == null ||entity.getCustomName().getString().equals("")) {
                 // If the name is the default blank one, send back the error
                 return SkinGrabber.ERROR_TEXTURE;

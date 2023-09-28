@@ -21,11 +21,11 @@ public class MoveTowardsItemsGoal extends Goal {
         this.mob = mob;
         this.speedModifier = speedModifier;
         this.followingTargetEvenIfNotSeen = followingTargetEvenIfNotSeen;
-        this.setControls(EnumSet.of(Goal.Control.MOVE, Goal.Control.LOOK));
+        this.setControls(EnumSet.of(Control.MOVE, Control.LOOK));
     }
 
     public static List<ItemEntity> getNearbyItems(PathAwareEntity entity, double radius) {
-        List<ItemEntity> list = entity.world.getEntitiesByClass(ItemEntity.class, entity.getBoundingBox().expand(radius), EntityPredicates.VALID_ENTITY);
+        List<ItemEntity> list = entity.getWorld().getEntitiesByClass(ItemEntity.class, entity.getBoundingBox().expand(radius), EntityPredicates.VALID_ENTITY);
         return list;
     }
 

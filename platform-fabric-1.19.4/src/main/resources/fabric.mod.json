@@ -17,11 +17,24 @@
     ],
     "main": [
       "com.duzo.fakeplayers.Fakeplayers"
+    ],
+    "cardinal-components": [
+      "com.duzo.fakeplayers.components.MyComponents"
+    ],
+    "fabric-datagen": [
+      "com.duzo.fakeplayers.datagen.ModDataGenerator"
     ]
   },
+  "mixins": [
+    "fakeplayers.mixins.json"
+  ]
+  ,
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
     "minecraft": "${minecraft_version}"
+  },
+  "custom": {
+    "cardinal-components": ["fakeplayers:fake_player_skin_component", "fakeplayers:fake_player_sitting_component"]
   }
 }

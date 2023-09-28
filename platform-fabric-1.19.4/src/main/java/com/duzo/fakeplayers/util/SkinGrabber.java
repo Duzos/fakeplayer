@@ -1,85 +1,92 @@
 package com.duzo.fakeplayers.util;
 
 import com.duzo.fakeplayers.Fakeplayers;
+import com.duzo.fakeplayers.client.models.renderers.FakePlayerEntityRenderer;
+import com.duzo.fakeplayers.common.entities.FakePlayerEntity;
+import com.duzo.fakeplayers.common.entities.HumanoidEntity;
+import com.duzo.fakeplayers.components.MyComponents;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.texture.NativeImage;
 import net.minecraft.client.texture.NativeImageBackedTexture;
 import net.minecraft.client.texture.TextureManager;
+import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.util.Identifier;
+import net.minecraft.entity.Entity;
+import org.asynchttpclient.*;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 
 import javax.imageio.ImageIO;
-import javax.swing.text.html.parser.Entity;
+import javax.imageio.stream.ImageInputStream;
+import javax.imageio.stream.ImageOutputStream;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
+import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Objects;
 
 public class SkinGrabber {
     private static final Logger LOGGER = LogUtils.getLogger();
     public static final String URL = "https://mineskin.eu/skin/";
     public static final String DEFAULT_DIR = "./fakeplayers/skins/";
+    public static final String DEFAULT_CACHE_DIR = "./fakeplayers/cache/";
     public static final String ERROR_SKIN = "textures/entity/humanoid/error.png";
     public static final Identifier ERROR_TEXTURE = new Identifier(Fakeplayers.MOD_ID, ERROR_SKIN);
-    public static final HashMap<String, Identifier> SKIN_LIST = new HashMap<>();
+    public static final HashMap<String, String> UUID_TO_USERNAME_LIST = new HashMap<>();
+    public static final HashMap<String, Identifier> UUID_SKIN_LIST = new HashMap<>();
+
+    public static final List<String> SKINS_IN_THE_PROCESS_OF_DOWNLOADING = new ArrayList<>();
+
+    public static final List<Entity> entities_to_update = new ArrayList<>();
+    public static final HashMap<String, List<String>> USERNAME_TO_ENTITY_UUID_LIST = new HashMap<>();
 
     public static Identifier getEntitySkinFromList(LivingEntity entity) {
-        Identifier location = SkinGrabber.getSkinFromListKey(entity.getUuidAsString());
-        return location;
-    }
-
-    public static String formatEntityCustomName(Entity entity) {
-        return entity.getName().toLowerCase().replace(" ", "");
-    }
-
-    public static Identifier getEntitySkinFromFile(Entity entity) {
-        File file = new File(DEFAULT_DIR + formatEntityCustomName(entity) + ".png");
-        Identifier location = fileToLocation(file);
-        return location;
+        return SkinGrabber.getSkinFromListKey(entity.getUuidAsString());
     }
 
     public static Identifier getCustomNameSkinFromFile(String name) {
-        File file = new File(DEFAULT_DIR + name.toLowerCase().replace(" ", "") + ".png");
-        Identifier location = fileToLocation(file);
-        return location;
+        File file = new File(DEFAULT_CACHE_DIR + name.toLowerCase().replace(" ", "") + ".png");
+        return fileToLocation(file);
     }
 
-    public static void addEntityToList(Entity entity) {
-        Identifier location = SkinGrabber.getEntitySkinFromFile(entity);
-//        System.out.println("Adding " + formatEntityCustomName(entity) + " " + location);
-        SKIN_LIST.put(formatEntityCustomName(entity),location);
-    }
-
-    public static void addCustomNameToList(String name) {
-        Identifier location = SkinGrabber.getCustomNameSkinFromFile(name);
-        SKIN_LIST.put(name.toLowerCase().replace(" ", ""),location);
-    }
-
-    public static void clearTextures() {
-        MinecraftClient minecraft = MinecraftClient.getInstance();
-        if (minecraft.world == null) {
-            TextureManager manager = minecraft.getTextureManager();
-
-            // Release the textures if the cache isnt empty
-            if (!SkinGrabber.SKIN_LIST.isEmpty()) {
-                SkinGrabber.SKIN_LIST.forEach(((uuid, Identifier) -> manager.destroyTexture(Identifier)));
-                SkinGrabber.SKIN_LIST.clear();
-            }
+    public static void addEntitySkinToList(Entity entity, String playerUsername) {
+        if (Objects.equals(playerUsername, "") || playerUsername == null) {
+            return;
         }
+        Identifier location = SkinGrabber.getCustomNameSkinFromFile(playerUsername);
+        List<String> uuidList;
+        if (!USERNAME_TO_ENTITY_UUID_LIST.containsKey(playerUsername)) {
+            uuidList = new ArrayList<>();
+        } else {
+            uuidList = USERNAME_TO_ENTITY_UUID_LIST.get(playerUsername);
+        }
+        if (uuidList.contains(entity.getUuidAsString())) {
+            return;
+        }
+        uuidList.add(entity.getUuidAsString());
+        if (!USERNAME_TO_ENTITY_UUID_LIST.containsKey(playerUsername)) {
+            USERNAME_TO_ENTITY_UUID_LIST.put(playerUsername, uuidList);
+        } else {
+            USERNAME_TO_ENTITY_UUID_LIST.replace(playerUsername, uuidList);
+        }
+        UUID_SKIN_LIST.put(entity.getUuidAsString(), location);
+        UUID_TO_USERNAME_LIST.put(entity.getUuidAsString(), playerUsername);
+
     }
 
     public static Identifier getSkinFromListKey(String key) {
-        if (SkinGrabber.SKIN_LIST.containsKey(key)) {
-            return SkinGrabber.SKIN_LIST.get(key);
+        if (SkinGrabber.UUID_SKIN_LIST.containsKey(key)) {
+            return SkinGrabber.UUID_SKIN_LIST.get(key);
         }
+
         return null;
     }
 
@@ -101,41 +108,67 @@ public class SkinGrabber {
         return manager.registerDynamicTexture("humanoid", new NativeImageBackedTexture(image));
     }
 
-    public static boolean isValidURL(String url) {
+    public static void downloadImageFromURL(String stringURL) {
         try {
-            new URL(url).toURI();
-            return true;
-        } catch (MalformedURLException | URISyntaxException e) {
-            return false;
-        }
-    }
+            String username = stringURL.replace(URL, "");
+            File default_cache_dir_filepath = new File(DEFAULT_CACHE_DIR);
+            if (!default_cache_dir_filepath.exists()) {
+                default_cache_dir_filepath.mkdirs();
+            }
+            File cacheFile = new File(DEFAULT_CACHE_DIR + username + ".png");
+//            File entityFile = new File(DEFAULT_DIR + filename + ".png");
+            if (!cacheFile.exists()) {
+                java.net.URL url = new URL(stringURL);
+                BufferedImage image = ImageIO.read(url.openStream());
+                ImageIO.write(image, "png", cacheFile);
 
-    public static void downloadImageFromURL(String filename,File filepath, String URL) {
-        try {
-            URL url = new URL(URL);
-            URLConnection connection = url.openConnection();
-            connection.connect();
-            connection.setConnectTimeout(0);
-
-            BufferedImage image = ImageIO.read(connection.getInputStream());
-
-            if (!filepath.exists()) {
-                filepath.mkdirs();
             }
 
-            ImageIO.write(image, "png", new File(filepath, filename + ".png"));
-            System.out.println(image);
-
         } catch (Exception exception) {
-            exception.printStackTrace();
+//            exception.printStackTrace();
         }
     }
 
-    public static void downloadSkinFromUsername(String username, File filepath) {
-        downloadImageFromURL(username, filepath, SkinGrabber.URL + username);
+    public static void downloadImageFromURLAsync(String stringURL) {
+        try {
+            String username = stringURL.replace(URL, "");
+            File default_cache_dir_filepath = new File(DEFAULT_CACHE_DIR);
+            if (!default_cache_dir_filepath.exists()) {
+                default_cache_dir_filepath.mkdirs();
+            }
+            File cacheFile = new File(DEFAULT_CACHE_DIR + username + ".png");
+//            File entityFile = new File(DEFAULT_DIR + filename + ".png");
+            if (!cacheFile.exists() || !SKINS_IN_THE_PROCESS_OF_DOWNLOADING.contains(username)) {
+                SKINS_IN_THE_PROCESS_OF_DOWNLOADING.add(username);
+                AsyncHttpClient client = Dsl.asyncHttpClient();
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                client.prepareGet(stringURL).execute(new AsyncCompletionHandler<ByteArrayOutputStream>() {
+
+                    @Override
+                    public State onBodyPartReceived(HttpResponseBodyPart bodyPart)
+                            throws Exception {
+                        byteArrayOutputStream.write(bodyPart.getBodyPartBytes());
+                        BufferedImage image = ImageIO.read(new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
+                        ImageIO.write(image, "png", cacheFile);
+                        System.out.println("Downloaded skin for " + username);
+                        return State.CONTINUE;
+                    }
+
+                    @Override
+                    public ByteArrayOutputStream onCompleted(Response response)
+                            throws Exception {
+                        SKINS_IN_THE_PROCESS_OF_DOWNLOADING.remove(username);
+                        return byteArrayOutputStream;
+                    }
+                });
+
+            }
+
+        } catch (Exception exception) {
+//            exception.printStackTrace();
+        }
     }
 
-    // These functions were coped from HttpTexture by Mojang (thak you moywang(
     @Nullable
     private static NativeImage processLegacySkin(NativeImage image) {
         int i = image.getHeight();

@@ -3,8 +3,10 @@ package com.duzo.fakeplayers.client.models.renderers;
 import com.duzo.fakeplayers.client.models.HumanoidEntityModel;
 import com.duzo.fakeplayers.common.entities.FakePlayerEntity;
 import com.duzo.fakeplayers.common.entities.HumanoidEntity;
+import com.duzo.fakeplayers.components.MyComponents;
 import com.duzo.fakeplayers.util.SkinGrabber;
 import net.minecraft.client.render.entity.EntityRendererFactory;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
 public class FakePlayerEntityRenderer extends HumanoidEntityRenderer<FakePlayerEntity, HumanoidEntityModel> {
@@ -12,11 +14,9 @@ public class FakePlayerEntityRenderer extends HumanoidEntityRenderer<FakePlayerE
         super(context);
     }
 
-
-
     @Override
     public Identifier getTexture(HumanoidEntity entity) {
-        if (entity.world.isClient) {
+        if (entity.getWorld().isClient) {
             if (entity.getCustomName() == null ||entity.getCustomName().getString().equals("")) {
                 // If the name is the default blank one, send back the error
                 return SkinGrabber.ERROR_TEXTURE;
