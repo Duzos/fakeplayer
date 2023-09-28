@@ -138,6 +138,17 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
 		modLanguageProvider.addTranslation(ItemInit.FAKE_PLAYER_SPAWN_EGG, "Oeuf de joueur");
 		modLanguageProvider.addTranslation(ItemInit.FAKE_PLAYER_SLIM_SPAWN_EGG, "Oeuf de joueur mince");
 		modLanguageProvider.addTranslation(Fakeplayers.FP_ITEM_GROUP, "Faux joueurs");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.skininput").toTranslationKey(), "NE FONCTIONNE PAS ACTUELLEMENT IGNORER CETTE CASE");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.skininputmessage").toTranslationKey(), "ENTRÉE");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.chatinput").toTranslationKey(), "message");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.chatinputmessage").toTranslationKey(), "CHAT");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.send").toTranslationKey(), "Envoyer");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.confirm").toTranslationKey(), "Confirmer");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "not_implemented_message").toTranslationKey(), "Cette fonctionnalité n'est pas encore mise en œuvre");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.sit").toTranslationKey(), "S'asseoir");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.stayput").toTranslationKey(), "Ne bougez pas");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.wander").toTranslationKey(), "Errer");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.follow").toTranslationKey(), "Suivre");
 
 
 		return modLanguageProvider;
@@ -157,6 +168,17 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
 		modLanguageProvider.addTranslation(ItemInit.FAKE_PLAYER_SPAWN_EGG, "huevo de jugador");
 		modLanguageProvider.addTranslation(ItemInit.FAKE_PLAYER_SLIM_SPAWN_EGG, "Huevo de jugador delgado");
 		modLanguageProvider.addTranslation(Fakeplayers.FP_ITEM_GROUP, "Jugadores falsos");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.skininput").toTranslationKey(), "NO FUNCIONA ACTUALMENTE IGNORAR ESTA CAJA");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.skininputmessage").toTranslationKey(), "ENTRADA");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.chatinput").toTranslationKey(), "mensaje");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.chatinputmessage").toTranslationKey(), "CHAT");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.send").toTranslationKey(), "Enviar");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.confirm").toTranslationKey(), "Confirmar");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "not_implemented_message").toTranslationKey(), "Esta característica aún no está implementada");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.sit").toTranslationKey(), "Sentarse");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.stayput").toTranslationKey(), "No te muevas");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.wander").toTranslationKey(), "Vagar");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.follow").toTranslationKey(), "Seguir");
 
 		return modLanguageProvider;
 	}
