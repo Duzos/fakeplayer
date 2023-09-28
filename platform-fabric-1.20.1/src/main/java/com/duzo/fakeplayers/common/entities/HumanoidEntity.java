@@ -22,10 +22,14 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Style;
+import net.minecraft.text.Text;
+import net.minecraft.text.TextColor;
 import net.minecraft.world.World;
 import org.w3c.dom.Attr;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 import java.util.jar.Attributes;
@@ -135,6 +139,45 @@ public class HumanoidEntity extends PathAwareEntity {
                 }
             }
         }
+    }
+    public LivingEntity forcedTarget = null;
+
+    public boolean forceTargetting = false;
+
+    public void setForceTargetting(boolean forceTargetting) {
+        this.forceTargetting = forceTargetting;
+    }
+    public void setForceTargeting(LivingEntity entity) {
+        if (entity == null) {
+            this.forceTargetting = false;
+            return;
+        }
+        this.forceTargetting = true;
+        this.forcedTarget = entity;
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+
+        if (!this.getWorld().isClient()) {
+            if (!(this.isAiDisabled()) && this.forceTargetting && this.forcedTarget != null && !(this.getTarget() == this.forcedTarget)) {
+                this.getNavigation().startMovingTo(this.forcedTarget, 0.35D); // holy fuck they are fast
+            }
+        }
+    }
+
+    public void sendChat(String message) {
+        Text nameText = this.getCustomName();
+        if (this.getCustomName() == null) {
+            nameText = this.getName();
+        }
+        assert nameText != null;
+        nameText = (Text) nameText.copy().setStyle(Style.EMPTY.withColor(TextColor.parse("blue")));
+        Text senderText = nameText.copy().append(Text.of(": "));
+        Text messageText = Text.of(message);
+        Text finalText = senderText.copy().append(messageText);
+        Objects.requireNonNull(this.getServer()).getPlayerManager().broadcast(finalText, false);
     }
 
     @Override

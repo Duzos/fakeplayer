@@ -117,6 +117,7 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.confirm").toTranslationKey(), "Confirm");
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "not_implemented_message").toTranslationKey(), "This feature is not yet implemented");
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.sit").toTranslationKey(), "Sit");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.stand").toTranslationKey(), "Stand");
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.stayput").toTranslationKey(), "Stay Put");
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.wander").toTranslationKey(), "Wander");
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.follow").toTranslationKey(), "Follow");
@@ -147,6 +148,7 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.confirm").toTranslationKey(), "Confirmer");
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "not_implemented_message").toTranslationKey(), "Cette fonctionnalité n'est pas encore mise en œuvre");
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.sit").toTranslationKey(), "S'asseoir");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.stand").toTranslationKey(), "Se tenir debout");
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.stayput").toTranslationKey(), "Ne bougez pas");
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.wander").toTranslationKey(), "Errer");
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.follow").toTranslationKey(), "Suivre");
@@ -178,6 +180,7 @@ public class ModDataGenerator implements DataGeneratorEntrypoint {
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.confirm").toTranslationKey(), "Confirmar");
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "not_implemented_message").toTranslationKey(), "Esta característica aún no está implementada");
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.sit").toTranslationKey(), "Sentarse");
+		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.stand").toTranslationKey(), "Estar de pie");
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.stayput").toTranslationKey(), "No te muevas");
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.wander").toTranslationKey(), "Vagar");
 		modLanguageProvider.addTranslation(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.follow").toTranslationKey(), "Seguir");

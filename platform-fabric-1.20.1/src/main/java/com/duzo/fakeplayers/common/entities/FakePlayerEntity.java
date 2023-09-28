@@ -5,6 +5,8 @@ import com.duzo.fakeplayers.client.screens.FakePlayerScreen;
 import com.duzo.fakeplayers.common.goals.MoveTowardsItemsGoal;
 import com.duzo.fakeplayers.components.MyComponents;
 import com.duzo.fakeplayers.util.SkinGrabber;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.data.DataTracker;
@@ -77,10 +79,15 @@ public class FakePlayerEntity extends HumanoidEntity{
     @Override
     protected ActionResult interactMob(PlayerEntity player, Hand hand) {
         if (hand == Hand.MAIN_HAND && player.isSneaking() && player.getWorld().isClient) {
-            MinecraftClient.getInstance().setScreen(new FakePlayerScreen(Text.translatable(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.name").toTranslationKey()), this, player));
+            setScreenToFakePlayerEdit(player);
             return ActionResult.SUCCESS;
         }
 
         return super.interactMob(player, hand);
+    }
+
+    @Environment(EnvType.CLIENT)
+    private void setScreenToFakePlayerEdit(PlayerEntity player) {
+        MinecraftClient.getInstance().setScreen(new FakePlayerScreen(Text.translatable(new Identifier(Fakeplayers.MOD_ID, "screen.fakeplayerscreen.name").toTranslationKey()), this, player));
     }
 }

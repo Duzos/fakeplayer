@@ -4,6 +4,9 @@ import com.duzo.fakeplayers.common.ItemInit;
 import com.duzo.fakeplayers.common.entities.FakePlayerEntity;
 import com.duzo.fakeplayers.common.entities.FakePlayerSlimEntity;
 import com.duzo.fakeplayers.common.entities.HumanoidEntity;
+import com.duzo.fakeplayers.networking.packets.C2SHumanoidChatPacket;
+import com.duzo.fakeplayers.networking.packets.C2SHumanoidFollowPlayerPacket;
+import com.duzo.fakeplayers.networking.packets.C2SHumanoidToggleAiPacket;
 import com.duzo.fakeplayers.networking.packets.S2CDownloadSkinAsync;
 import com.duzo.fakeplayers.util.SkinGrabber;
 import io.wispforest.owo.itemgroup.Icon;
@@ -31,11 +34,14 @@ import net.minecraft.registry.Registry;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.PlayerManager;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.UUID;
 
 public class Fakeplayers implements ModInitializer {
     public static final String MOD_ID = "fakeplayers";
@@ -94,6 +100,30 @@ public class Fakeplayers implements ModInitializer {
                 }
             }
             sendURLsToClients(urlsToDownload.toArray(new String[0]));
+        }));
+        NETWORK.registerServerbound(C2SHumanoidChatPacket.class, ((message, access) -> {
+            ServerPlayerEntity serverPlayerEntity = access.player();
+            ServerWorld serverWorld = serverPlayerEntity.getServerWorld();
+            if (serverWorld.getEntity(UUID.fromString(message.humanoidUUID())) instanceof HumanoidEntity humanoidEntity) {
+                humanoidEntity.sendChat(message.message());
+            }
+        }));
+        NETWORK.registerServerbound(C2SHumanoidFollowPlayerPacket.class, ((message, access) -> {
+            if (Objects.equals(message.playerUUID(), "")){
+                return;
+            }
+            ServerPlayerEntity serverPlayerEntity = access.player();
+            ServerWorld serverWorld = serverPlayerEntity.getServerWorld();
+            if (serverWorld.getEntity(UUID.fromString(message.humanoidUUID())) instanceof HumanoidEntity humanoidEntity) {
+                humanoidEntity.setForceTargeting(serverPlayerEntity);
+            }
+        }));
+        NETWORK.registerServerbound(C2SHumanoidToggleAiPacket.class, ((message, access) -> {
+            ServerPlayerEntity serverPlayerEntity = access.player();
+            ServerWorld serverWorld = serverPlayerEntity.getServerWorld();
+            if (serverWorld.getEntity(UUID.fromString(message.humanoidUUID())) instanceof HumanoidEntity humanoidEntity) {
+                humanoidEntity.setAiDisabled(message.state());
+            }
         }));
     }
 
