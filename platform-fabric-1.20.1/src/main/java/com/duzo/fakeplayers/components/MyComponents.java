@@ -11,8 +11,10 @@ import net.minecraft.util.Identifier;
 
 public class MyComponents implements EntityComponentInitializer {
     public static final ComponentKey<FakePlayerSkinComponent> FAKE_PLAYER_SKIN_COMPONENT_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new Identifier(Fakeplayers.MOD_ID, "fake_player_skin_component"), FakePlayerSkinComponent.class);
+    public static final ComponentKey<FakePlayerSittingComponent> FAKE_PLAYER_SITTING_COMPONENT_COMPONENT = ComponentRegistryV3.INSTANCE.getOrCreate(new Identifier(Fakeplayers.MOD_ID, "fake_player_sitting_component"), FakePlayerSittingComponent.class);
     @Override
     public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
         registry.registerFor(HumanoidEntity.class, FAKE_PLAYER_SKIN_COMPONENT_COMPONENT, FakePlayerSkinComponent::new);
+        registry.registerFor(HumanoidEntity.class, FAKE_PLAYER_SITTING_COMPONENT_COMPONENT, FakePlayerSittingComponent::new);
     }
 }

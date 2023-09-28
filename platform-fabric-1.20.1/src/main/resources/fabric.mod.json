@@ -35,6 +35,6 @@
     "minecraft": "${minecraft_version}"
   },
   "custom": {
-    "cardinal-components": ["fakeplayers:fake_player_skin_component"]
+    "cardinal-components": ["fakeplayers:fake_player_skin_component", "fakeplayers:fake_player_sitting_component"]
   }
 }
