@@ -8,7 +8,7 @@ group = 'com.duzo.fakeplayers'
 version = "${mod_version}-${minecraft_version}-FORGE"
 
 java {
-    archivesBaseName = 'fakeplayers'
+    archivesBaseName = 'platform-forge-1.19.4'
     toolchain.languageVersion = JavaLanguageVersion.of(17)
 }
 
