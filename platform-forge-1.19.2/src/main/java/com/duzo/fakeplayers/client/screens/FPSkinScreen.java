@@ -39,9 +39,9 @@ public class FPSkinScreen extends Screen {
     @Override
     protected void init() {
         super.init();
-        int l = this.height / 4 + 48;
+        int l = ((this.height - this.imageHeight) / 2) + (int) (this.imageHeight * 0.05);
         int i = (this.width - this.imageWidth) / 2;
-        int j = (this.height - this.imageWidth) / 2;
+        int j = this.imageWidth - (int) ( this.imageWidth * 0.1);
 
         assert this.minecraft != null;
         this.input = new EditBox(this.minecraft.fontFilterFishy, (i) + (this.imageWidth/2)  - j + (j/2),l,j, 12, Component.translatable("screen.fakeplayers.skin"));
@@ -53,48 +53,57 @@ public class FPSkinScreen extends Screen {
         if (FPClientConfigs.USES_FILES.get()) {
             this.input.setValue("PUT FILE PATH HERE!");
         }
+        int after_input_edit_box_y = this.input.y + this.input.getHeight() + ((int) (this.height * 0.01));
 
-        this.chatBox = new EditBox(this.minecraft.fontFilterFishy, (i) + (this.imageWidth/2)  - j + (j/2),l + 20,j, 12, Component.translatable("screen.fakeplayers.chatbox"));
+        this.chatBox = new EditBox(this.minecraft.fontFilterFishy, (i) + (this.imageWidth/2)  - j + (j/2),after_input_edit_box_y,j, 12, Component.translatable("screen.fakeplayers.chatbox"));
         this.chatBox.setValue("Input chat message here!");
         this.chatBox.setEditable(true);
         this.chatBox.setMaxLength(256);
         this.chatBox.setBordered(true);
         this.addWidget(this.chatBox);
+        int after_chat_edit_box_y = this.chatBox.y + this.chatBox.getHeight() + ((int) (this.height * 0.02));
 
-        this.send = new Button((i) + (this.imageWidth/2) - (98/2),l + 40,98,20,Component.translatable("screens.fakeplayers.send"), (p_96786_) -> {
+        this.send = new Button((i) + (this.imageWidth/2) - (98/2),after_chat_edit_box_y,98,20,Component.translatable("screens.fakeplayers.send"), (p_96786_) -> {
             this.pressSendChatButton();
         });
         this.addRenderableWidget(this.send);
 
-        this.confirm = new Button((i) + (this.imageWidth/2) - (98/2),l + (128),98,20,Component.translatable("screens.fakeplayers.done"), (p_96786_) -> {
-            this.pressDoneButton();
-        });
-        this.addRenderableWidget(this.confirm);
+        int after_send_button_y = this.send.y + this.send.getHeight() + ((int) (this.height * 0.05));
 
-        this.sitting = new Button((i) + (this.imageWidth/2) - (23), l + 60,46,20,Component.translatable("screens.fakeplayers.sit"), (p_96786_) -> {
+        this.sitting = new Button((i) + (this.imageWidth/2) - (23), after_send_button_y,46,20,Component.translatable("screens.fakeplayers.sit"), (p_96786_) -> {
             this.pressToggleSit();
         });
         this.addRenderableWidget(this.sitting);
 
-        this.nametagShown = new Button((i) + (this.imageWidth/2) - (43), l + 80,86,20,Component.translatable("screens.fakeplayers.nametagShown"), (p_96786_) -> {
+        int after_sitting_button_y = this.sitting.y + this.sitting.getHeight();
+
+        this.nametagShown = new Button((i) + (this.imageWidth/2) - (43), after_sitting_button_y,86,20,Component.translatable("screens.fakeplayers.nametagShown"), (p_96786_) -> {
             this.pressNameTagShown();
         });
         this.addRenderableWidget(this.nametagShown);
+        int after_nametag_shown_button_y = this.nametagShown.y + this.nametagShown.getHeight();
+        
 
-        this.stayPut = new Button((i) + (this.imageWidth/2) - 23, l + 100,46,20,Component.translatable("screens.fakeplayers.stayPut"), (p_96786_) -> {
+        this.stayPut = new Button((i) + (this.imageWidth/2) - 23, after_nametag_shown_button_y,46,20,Component.translatable("screens.fakeplayers.stayPut"), (p_96786_) -> {
             this.pressStayPut();
         });
         this.addRenderableWidget(this.stayPut);
 
-        this.wander = new Button((i) + (this.imageWidth/2) - (23*3), l + 100,46,20,Component.translatable("screens.fakeplayers.wander"), (p_96786_) -> {
+        this.wander = new Button((i) + (this.imageWidth/2) - (23*3), after_nametag_shown_button_y,46,20,Component.translatable("screens.fakeplayers.wander"), (p_96786_) -> {
             this.pressWanderButton();
         });
         this.addRenderableWidget(this.wander);
 
-        this.follow = new Button((i) + (this.imageWidth/2) + 23, l + 100,46,20,Component.translatable("screens.fakeplayers.follow"), (p_96786_) -> {
+        this.follow = new Button((i) + (this.imageWidth/2) + 23, after_nametag_shown_button_y,46,20,Component.translatable("screens.fakeplayers.follow"), (p_96786_) -> {
             this.pressFollowButton();
         });
         this.addRenderableWidget(this.follow);
+        int after_other_buttons_y = this.follow.y + this.follow.getHeight() + ((int) (this.height * 0.02));
+
+        this.confirm = new Button((i) + (this.imageWidth/2) - (98/2),after_other_buttons_y,98,20,Component.translatable("screens.fakeplayers.done"), (p_96786_) -> {
+            this.pressDoneButton();
+        });
+        this.addRenderableWidget(this.confirm);
     }
 
 

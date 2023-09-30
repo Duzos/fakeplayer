@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<module version="4">
-  <component name="AdditionalModuleElements">
-    <content url="file://$MODULE_DIR$/../../platform-forge-1.19.2" dumb="true">
-      <excludeFolder url="file://$MODULE_DIR$/../../platform-forge-1.19.2/run" />
-    </content>
-  </component>
-</module>
