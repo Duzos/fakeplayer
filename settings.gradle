@@ -3,16 +3,17 @@ pluginManagement {
         maven { url = "https://maven.fabricmc.net/" }
         maven { url = "https://maven.architectury.dev/" }
         maven { url = "https://maven.minecraftforge.net/" }
-        maven { url = "https://maven.quiltmc.org/repository/release" }
         gradlePluginPortal()
     }
 }
 
-include 'fakeplayers-common'
-include 'fakeplayers-1.20.2'
-
 rootProject.name = "fakeplayers"
-include 'common'
-include 'fabric'
-include 'forge'
+
+include 'v1.20.2'
+include 'v1.20.2:common'
+findProject(':v1.20.2:common')?.name = 'common'
+include 'v1.20.2:fabric'
+findProject(':v1.20.2:fabric')?.name = 'fabric'
+include 'v1.20.2:forge'
+findProject(':v1.20.2:forge')?.name = 'forge'
 

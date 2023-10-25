@@ -5,79 +5,13 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="17" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/common" />
-            <option value="$PROJECT_DIR$/fabric" />
-            <option value="$PROJECT_DIR$/fakeplayers-1.20.2" />
-            <option value="$PROJECT_DIR$/fakeplayers-common" />
-            <option value="$PROJECT_DIR$/forge" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/platform-fabric-1.19.4" />
-        <option name="gradleJvm" value="17" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/platform-fabric-1.19.4" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/platform-fabric-1.20.1" />
-        <option name="gradleJvm" value="17" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/platform-fabric-1.20.1" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/platform-fabric-1.20.2" />
-        <option name="gradleJvm" value="17" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/platform-fabric-1.20.2" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/platform-forge-1.19.2" />
-        <option name="gradleJvm" value="17" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/platform-forge-1.19.2" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/platform-forge-1.19.3" />
-        <option name="gradleJvm" value="17" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/platform-forge-1.19.3" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/platform-forge-1.19.4" />
-        <option name="gradleJvm" value="17" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/platform-forge-1.19.4" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/platform-forge-1.20.1" />
-        <option name="gradleHome" value="$PROJECT_DIR$/../../../../Gradle/gradle-8.2.1" />
-        <option name="gradleJvm" value="17" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/platform-forge-1.20.1" />
+            <option value="$PROJECT_DIR$/v1.20.2" />
+            <option value="$PROJECT_DIR$/v1.20.2/common" />
+            <option value="$PROJECT_DIR$/v1.20.2/fabric" />
+            <option value="$PROJECT_DIR$/v1.20.2/forge" />
           </set>
         </option>
       </GradleProjectSettings>
