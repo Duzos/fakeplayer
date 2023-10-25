@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/fabric" />
             <option value="$PROJECT_DIR$/fakeplayers-1.20.2" />
             <option value="$PROJECT_DIR$/fakeplayers-common" />
+            <option value="$PROJECT_DIR$/forge" />
           </set>
         </option>
       </GradleProjectSettings>
