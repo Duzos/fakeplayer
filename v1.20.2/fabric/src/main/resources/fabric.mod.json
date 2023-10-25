@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "id": "fakeplayers",
   "version": "${version}",
-  "name": "fakeplayers",
+  "name": "FakePlayers",
   "description": "",
-  "authors": ["Duzo"],
+  "authors": ["Duzo", "Creativious"],
   "contact": {
     "repo": "https://github.com/Duzos/fakeplayer"
   },

@@ -1,0 +1,26 @@
+modLoader = "javafml"
+loaderVersion = "[${forge_version},)"
+issueTrackerURL = "https://github.com/Duzos/fakeplayer/issues"
+license = "MIT"
+
+[[mods]]
+modId = "fakeplayers"
+version = "${version}"
+displayName = "FakePlayers"
+authors = "Duzos, Creativious"
+description = ''''''
+logoFile = "icon.png"
+
+[[dependencies.fakeplayers]]
+modId = "forge"
+mandatory = true
+versionRange = "[${forge_version},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.fakeplayers]]
+modId = "minecraft"
+mandatory = true
+versionRange = "${minecraft_version}"
+ordering = "NONE"
+side = "BOTH"
