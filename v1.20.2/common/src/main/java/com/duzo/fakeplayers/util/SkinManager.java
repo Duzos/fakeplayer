@@ -3,12 +3,12 @@ package com.duzo.fakeplayers.util;
 import com.duzo.fakeplayers.FakePlayers;
 import com.duzo.fakeplayers.util.downloader.DownloaderThread;
 import com.duzo.fakeplayers.util.skins.Skin;
+import com.duzo.fakeplayers.util.skins.SkinDownloadCallback;
 import net.minecraft.util.Identifier;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Set;
-import java.util.UUID;
+import java.net.URL;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -22,48 +22,79 @@ public class SkinManager {
     public static final HashMap<UUID, Skin> UUID_TO_SKIN_HASHMAP = new HashMap<>();
     public static final HashMap<String, Skin> DEFAULT_SKINNAME_TO_SKIN_HASHMAP = new HashMap<>();
     public static final HashMap<String, Skin> CUSTOM_SKINNAME_TO_SKIN_HASHMAP = new HashMap<>();
+    public static final List<UUID> UUIDS_WAITING_FOR_SKIN = new ArrayList<>();
+    public static boolean clientSide = true;
 
-    public void init() {
+    public static void init(boolean client) {
+        clientSide = client;
+        ensureDirExists();
         loadDefaultSkins();
         loadCustomSkins();
     }
 
-    public void loadDefaultSkins() {
+    public static void ensureDirExists() {
+        File defaultDirFilepath = new File(DEFAULT_DIR);
+        File defaultCustomDirFilepath = new File(DEFAULT_CUSTOM_DIR);
+        if (!defaultDirFilepath.exists()) {
+            defaultDirFilepath.mkdirs();
+        }
+        if (!defaultCustomDirFilepath.exists()) {
+            defaultCustomDirFilepath.mkdirs();
+        }
+    }
+
+    public static void loadDefaultSkins() {
         File[] skinFiles = listFiles(DEFAULT_DIR);
         for (File file : skinFiles) {
-            String filename = removeExtension(file.getName());
-            Skin skin = new Skin(filename, false);
-            DEFAULT_SKINNAME_TO_SKIN_HASHMAP.put(filename, skin);
+            Skin skin = new Skin(file, false, clientSide);
+            DEFAULT_SKINNAME_TO_SKIN_HASHMAP.put(skin.getSkinName(), skin);
         }
     }
 
-    public void loadCustomSkins() {
+    public static void loadCustomSkins() {
         File[] skinFiles = listFiles(DEFAULT_CUSTOM_DIR);
         for (File file : skinFiles) {
-            String filename = removeExtension(file.getName());
-            Skin skin = new Skin(filename, true);
-            CUSTOM_SKINNAME_TO_SKIN_HASHMAP.put(filename, skin);
+            Skin skin = new Skin(file, true, clientSide);
+            CUSTOM_SKINNAME_TO_SKIN_HASHMAP.put(skin.getSkinName(), skin);
         }
 
     }
 
-    public File[] listFiles(String dir) {
+    public static File[] listFiles(String dir) {
         return new File(dir).listFiles();
     }
 
-    public static String removeExtension(String fname) {
-        int pos = fname.lastIndexOf('.');
-        if(pos > -1)
-            return fname.substring(0, pos);
-        else
-            return fname;
+
+    public static Skin getSkin(UUID uuid, String name, Boolean isCustom, String url) {
+        if (UUID_TO_SKIN_HASHMAP.containsKey(uuid)) {
+            return UUID_TO_SKIN_HASHMAP.get(uuid);
+        } else {
+            if (isCustom && CUSTOM_SKINNAME_TO_SKIN_HASHMAP.containsKey(name)) {
+                Skin skin = CUSTOM_SKINNAME_TO_SKIN_HASHMAP.get(name);
+                UUID_TO_SKIN_HASHMAP.put(uuid, skin);
+                return skin;
+            }
+            else if (!isCustom && DEFAULT_SKINNAME_TO_SKIN_HASHMAP.containsKey(name)) {
+                Skin skin = DEFAULT_SKINNAME_TO_SKIN_HASHMAP.get(name);
+                UUID_TO_SKIN_HASHMAP.put(uuid, skin);
+                return skin;
+            }
+            else {
+                String filepath = (isCustom ? DEFAULT_CUSTOM_DIR : DEFAULT_DIR) + File.separator + name + ".png";
+                UUIDS_WAITING_FOR_SKIN.add(uuid);
+                downloadSkinAsync((isCustom ? url : DEFAULT_URL), filepath, uuid);
+                return null;
+            }
+        }
     }
 
-    public static Skin getSkinFromUUID(UUID uuid) {
-        return UUID_TO_SKIN_HASHMAP.get(uuid);
-    }
-
-    public static void downloadSkinAsync(String URL, String SKIN_NAME) {
+    public static void downloadSkinAsync(String url, String filepath, UUID uuid) {
+        boolean isCustom = (!Objects.equals(url, DEFAULT_URL));
+        SkinDownloadCallback skinDownloadCallback = new SkinDownloadCallback(filepath, isCustom, clientSide, uuid);
+        DownloaderThread downloaderThread = new DownloaderThread().setCallback(skinDownloadCallback).setFilepath(filepath).setUrl(url);
+        downloaderThread.start();
+        // maybe need to uncomment this
+//        downloaderThread.run();
 
     }
 }

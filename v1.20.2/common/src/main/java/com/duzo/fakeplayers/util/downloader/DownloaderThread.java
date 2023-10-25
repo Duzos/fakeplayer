@@ -6,17 +6,15 @@ import java.net.URLConnection;
 
 public class DownloaderThread extends Thread implements Runnable{
     private String url;
-    private String filename;
-    private String destinationFolder;
+    private String filepath;
     private DownloaderCallback callback;
     public DownloaderThread() {
         this.callback = null;
     }
-    public DownloaderThread(DownloaderCallback callback, String url, String filename, String destinationFolder) {
+    public DownloaderThread(DownloaderCallback callback, String url, String filepath) {
         this.callback = callback;
         this.url = url;
-        this.filename = filename;
-        this.destinationFolder = destinationFolder;
+        this.filepath = filepath;
     }
 
     public DownloaderThread setCallback(DownloaderCallback callback) {
@@ -29,13 +27,8 @@ public class DownloaderThread extends Thread implements Runnable{
         return this;
     }
 
-    public DownloaderThread setFilename(String filename) {
-        this.filename = filename;
-        return this;
-    }
-
-    public DownloaderThread setDestinationFolder(String destinationFolder){
-        this.destinationFolder = destinationFolder;
+    public DownloaderThread setFilepath(String filepath) {
+        this.filepath = filepath;
         return this;
     }
 
@@ -53,7 +46,7 @@ public class DownloaderThread extends Thread implements Runnable{
             int count;
 
             InputStream input = new BufferedInputStream(url.openStream());
-            OutputStream output = new FileOutputStream(destinationFolder + File.separator + filename);
+            OutputStream output = new FileOutputStream(filepath);
 
             byte data[] = new byte[4096];
             long current = 0;
