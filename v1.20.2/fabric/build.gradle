@@ -16,6 +16,7 @@ loom {
             vmArg "-Dfabric-api.datagen"
             vmArg "-Dfabric-api.datagen.output-dir=${common.file("src/generated/resources")}"
             vmArg "-Dfabric-api.datagen.modid=fakeplayers"
+            vmArg "-Dporting_lib.datagen.existing_resources=${common.file("src/main/resources")}"
 
             environmentVariable("DATAGEN", "TRUE")
         }
@@ -37,6 +38,10 @@ configurations.configureEach {
     }
 }
 
+repositories {
+    maven { url = "https://mvn.devos.one/snapshots/" }
+}
+
 dependencies {
     modImplementation("net.fabricmc:fabric-loader:${fabric_loader_version}")
     common(project(path: "${project.parent.path}:common", configuration: "namedElements")) { transitive = false }
@@ -47,7 +52,7 @@ dependencies {
 
 processResources {
     // include packs
-    from(rootProject.file("common/src/main/resources")) {
+    from(project.parent.project.file("common/src/main/resources")) {
         include("resourcepacks/")
     }
 

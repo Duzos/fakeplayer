@@ -20,7 +20,7 @@ dependencies {
 
 processResources {
     // include packs
-    from(rootProject.file("common/src/main/resources")) {
+    from(project.parent.project.file("common/src/main/resources")) {
         include("resourcepacks/")
     }
 
