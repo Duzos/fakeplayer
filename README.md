@@ -45,3 +45,28 @@ This mod supports both slim skins and regular skins.
 ### [Curseforge](https://www.curseforge.com/minecraft/mc-mods/fake-player)
 ### [Modrinth](https://modrinth.com/mod/fake-players)
 ### [Discord](https://discord.gg/ZgssqpUMHS)
+
+---
+## F.A.Q
+
+### - Q: Skins are not showing up or they're just an error texture.
+### - A: If you are using MacOS or Linux (Or any other UNIX based OS) you may need to give Minecraft permission to write files, as this is how custom skins are downloaded and cached.
+### - A: Ensure you're on the latest version of the mod, check github releases for the latest version.
+### - A: If none of the above apply to you, make a github issue describing your issue
+
+---
+
+### - Q: Will you port 'X' version?
+### - A: Probably not, unless it's a newer version or exceptionally popular. Only the 2 last major versions will be supported, and probably at most 2 minor versions each of those major versions. 
+
+---
+
+### - Q: What versions are supported at the current moment?
+### - A: 1.20.2, 1.20.1, 1.19.4 | For both Forge and Fabric
+
+---
+
+### - Q: My game crashes or all the old fake player entities are gone or broken after installing a new version
+### - A: If you were using a version from before the v2.0.0 release then it is likely that compatibility with older versions of the mod were broken. v2.0.0 is a complete rewrite of the mod for both forge and fabric to keep feature parity.
+
+---

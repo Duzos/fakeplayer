@@ -1,0 +1,96 @@
+architectury {
+    platformSetupLoomIde()
+    fabric()
+}
+version += "-FABRIC"
+
+loom {
+    Project common = parent.project("common")
+    accessWidenerPath = common.loom.accessWidenerPath
+
+    runs {
+        datagen {
+            inherit server
+
+            name "Data Generation"
+            vmArg "-Dfabric-api.datagen"
+            vmArg "-Dfabric-api.datagen.output-dir=${common.file("src/generated/resources")}"
+            vmArg "-Dfabric-api.datagen.modid=fakeplayers"
+            vmArg "-Dporting_lib.datagen.existing_resources=${common.file("src/main/resources")}"
+
+            environmentVariable("DATAGEN", "TRUE")
+        }
+    }
+}
+
+configurations {
+    common
+    compileClasspath.extendsFrom common
+    runtimeClasspath.extendsFrom common
+    developmentFabric.extendsFrom common
+}
+
+configurations.configureEach {
+    resolutionStrategy.eachDependency {
+        if (requested.module.name == "fabric-loader") {
+            useVersion(fabric_loader_version)
+        }
+    }
+}
+
+repositories {
+    maven { url = "https://mvn.devos.one/snapshots/" }
+}
+
+dependencies {
+    modImplementation("net.fabricmc:fabric-loader:${fabric_loader_version}")
+    common(project(path: "${project.parent.path}:common", configuration: "namedElements")) { transitive = false }
+
+    // dependencies
+    modImplementation("net.fabricmc.fabric-api:fabric-api:${fabric_version}")
+}
+
+processResources {
+    // include packs
+    from(project.parent.project.file("common/src/main/resources")) {
+        include("resourcepacks/")
+    }
+
+    // set up properties for filling into metadata
+    Map<String, String> properties = Map.of(
+            "version", version as String,
+            "loader_version", fabric_loader_version,
+            "fabric_api_version", fabric_version,
+            "minecraft_version", minecraft_version
+    )
+    properties.forEach((k, v) -> inputs.property(k, v))
+
+    filesMatching("fabric.mod.json") {
+        expand properties
+    }
+}
+
+def getGitHash = { ->
+    def stdout = new ByteArrayOutputStream()
+    exec {
+        commandLine 'git', 'rev-parse', 'HEAD'
+        standardOutput = stdout
+    }
+    return stdout.toString().trim()
+}
+
+def hasUnstaged = { ->
+    def stdout = new ByteArrayOutputStream()
+    exec {
+        commandLine 'git', 'status', '--porcelain'
+        standardOutput = stdout
+    }
+    def result = stdout.toString().replaceAll("M gradlew", "").trim()
+    if (!result.isEmpty())
+        println("Found stageable results:\n${result}\n")
+    return !result.isEmpty()
+}
+
+remapJar {
+    archiveClassifier = null
+}

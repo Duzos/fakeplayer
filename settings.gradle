@@ -1,17 +1,19 @@
 pluginManagement {
     repositories {
-        maven {
-            name = 'Fabric'
-            url = 'https://maven.fabricmc.net/'
-        }
-        maven {
-            name = 'MinecraftForge'
-            url = 'https://maven.minecraftforge.net/'
-        }
+        maven { url = "https://maven.fabricmc.net/" }
+        maven { url = "https://maven.architectury.dev/" }
+        maven { url = "https://maven.minecraftforge.net/" }
         gradlePluginPortal()
     }
 }
 
-rootProject.name = 'fakeplayers'
-include 'fakeplayers-common'
+rootProject.name = "fakeplayers"
+
+include 'v1.20.2'
+include 'v1.20.2:common'
+findProject(':v1.20.2:common')?.name = 'common'
+include 'v1.20.2:fabric'
+findProject(':v1.20.2:fabric')?.name = 'fabric'
+include 'v1.20.2:forge'
+findProject(':v1.20.2:forge')?.name = 'forge'
 

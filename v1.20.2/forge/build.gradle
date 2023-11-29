@@ -1,0 +1,59 @@
+architectury {
+    platformSetupLoomIde()
+    forge()
+}
+
+version += "-FORGE"
+
+
+configurations {
+    common
+    compileClasspath.extendsFrom common
+    runtimeClasspath.extendsFrom common
+    developmentForge.extendsFrom common
+}
+
+dependencies {
+    forge("net.minecraftforge:forge:${minecraft_version}-${forge_version}")
+    common(project(path: "${project.parent.path}:common", configuration: "namedElements")) { transitive = false }
+}
+
+processResources {
+    // include packs
+    from(project.parent.project.file("common/src/main/resources")) {
+        include("resourcepacks/")
+    }
+
+    // set up properties for filling into metadata
+    Map<String, String> properties = Map.of(
+            "version", version as String,
+            "forge_version", forge_version.split("\\.")[0], // only specify major version of forge
+            "minecraft_version", minecraft_version
+    )
+    properties.forEach((k, v) -> inputs.property(k, v))
+
+    filesMatching("META-INF/mods.toml") {
+        expand properties
+    }
+}
+
+def getGitHash = { ->
+    def stdout = new ByteArrayOutputStream()
+    exec {
+        commandLine 'git', 'rev-parse', 'HEAD'
+        standardOutput = stdout
+    }
+    return stdout.toString().trim()
+}
+
+def hasUnstaged = { ->
+    def stdout = new ByteArrayOutputStream()
+    exec {
+        commandLine 'git', 'status', '--porcelain'
+        standardOutput = stdout
+    }
+    def result = stdout.toString().replaceAll("M gradlew", "").trim()
+    if (!result.isEmpty())
+        println("Found stageable results:\n${result}\n")
+    return !result.isEmpty()
+}

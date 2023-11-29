@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "fakeplayers",
+  "version": "${version}",
+  "name": "FakePlayers",
+  "description": "",
+  "authors": ["Duzo", "Creativious"],
+  "contact": {
+    "repo": "https://github.com/Duzos/fakeplayer"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/fakeplayers/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "com.duzo.fakeplayers.fabric.client.FakePlayersFabricClient"
+    ],
+    "main": [
+      "com.duzo.fakeplayers.fabric.FakePlayersFabric"
+    ]
+  },
+  "mixins": [
+    "fakeplayers.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
