@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "fakeplayer",
+  "version": "${version}",
+  "name": "Fake Players",
+  "description": "TODO",
+  "authors": [
+    "Duzo"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "Insert License Here",
+  "icon": "assets/examplemod/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "mc.duzo.fakeplayer.fabric.FakePlayerFabric"
+    ]
+  },
+  "mixins": [
+    "fakeplayer.mixins.json",
+    "fakeplayer-common.mixins.json"
+  ],
+  "depends": {
+    "fabric": "*",
+    "minecraft": ">=1.20.1",
+    "architectury": ">=9.1.12"
+  }
+}
