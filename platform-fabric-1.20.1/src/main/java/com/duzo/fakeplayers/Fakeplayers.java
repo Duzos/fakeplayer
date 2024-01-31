@@ -101,6 +101,7 @@ public class Fakeplayers implements ModInitializer {
             }
             sendURLsToClients(urlsToDownload.toArray(new String[0]));
         }));
+        NETWORK.registerClientboundDeferred(S2CDownloadSkinAsync.class);
         NETWORK.registerServerbound(C2SHumanoidChatPacket.class, ((message, access) -> {
             ServerPlayerEntity serverPlayerEntity = access.player();
             ServerWorld serverWorld = serverPlayerEntity.getServerWorld();
