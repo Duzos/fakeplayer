@@ -1,6 +1,7 @@
 plugins {
     id "architectury-plugin" version "3.4-SNAPSHOT"
     id "dev.architectury.loom" version "1.7-SNAPSHOT" apply false
+    id "com.diffplug.spotless" version "6.20.0"
 }
 
 apply from: 'versioning.gradle'
@@ -53,5 +54,29 @@ allprojects {
 
     java {
         withSourcesJar()
+    }
+}
+
+spotless {
+    format 'misc', {
+        // define the files to apply `misc` to
+        target '*.gradle', '.gitattributes', '.gitignore'
+
+        // define the steps to apply to those files
+        trimTrailingWhitespace()
+        indentWithSpaces()
+        endWithNewline()
+    }
+
+    java {
+        //eclipse()
+
+        removeUnusedImports()
+        importOrder('java', 'javax', '', 'net.minecraft', group)
+
+        indentWithSpaces()
+        trimTrailingWhitespace()
+
+        formatAnnotations()
     }
 }
