@@ -3,7 +3,7 @@ name: Publish Beta on Discord
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master", "rewrite" ]
 
 jobs:
   build:
