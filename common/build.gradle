@@ -1,3 +1,7 @@
+plugins {
+    id "com.diffplug.spotless" version "6.20.0"
+}
+
 architectury {
     common(rootProject.enabled_platforms.split(","))
 }
@@ -26,5 +30,29 @@ publishing {
     // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
     repositories {
         // Add repositories to publish to here.
+    }
+}
+
+spotless {
+    format 'misc', {
+        // define the files to apply `misc` to
+        target '*.gradle', '.gitattributes', '.gitignore'
+
+        // define the steps to apply to those files
+        trimTrailingWhitespace()
+        indentWithSpaces()
+        endWithNewline()
+    }
+
+    java {
+        //eclipse()
+
+        removeUnusedImports()
+        importOrder('java', 'javax', '', 'net.minecraft', group)
+
+        indentWithSpaces()
+        trimTrailingWhitespace()
+
+        formatAnnotations()
     }
 }
