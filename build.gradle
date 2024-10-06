@@ -3,6 +3,8 @@ plugins {
     id "dev.architectury.loom" version "1.7-SNAPSHOT" apply false
 }
 
+apply from: 'versioning.gradle'
+
 architectury {
     minecraft = rootProject.minecraft_version
 }
@@ -32,7 +34,8 @@ allprojects {
         archivesName = rootProject.archives_base_name
     }
 
-    version = rootProject.mod_version
+
+    version = getCurrentVersion()
     group = rootProject.maven_group
 
     repositories {
