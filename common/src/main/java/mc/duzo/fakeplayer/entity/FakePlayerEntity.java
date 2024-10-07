@@ -7,8 +7,14 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
 import mc.duzo.fakeplayer.network.FPNetwork;
@@ -56,6 +62,11 @@ public class FakePlayerEntity extends HumanoidEntity {
 
         FPNetwork.CHANNEL.sendToPlayers((Iterable<ServerPlayerEntity>) this.getWorld().getPlayers(), new SendSkinS2CPacket(this));
     }
+    private void syncURL(ServerPlayerEntity target) {
+        if (this.getWorld().isClient()) return;
+
+        FPNetwork.CHANNEL.sendToPlayer(target, new SendSkinS2CPacket(this));
+    }
 
     @Override
     public void setCustomName(@Nullable Text name) {
@@ -66,5 +77,41 @@ public class FakePlayerEntity extends HumanoidEntity {
         if (name.getString().isBlank()) return;
 
         this.setURL(SkinGrabber.URL + name.getString(), true);
+    }
+
+    @Override
+    public void readCustomDataFromNbt(NbtCompound nbt) {
+        super.readCustomDataFromNbt(nbt);
+
+        this.setURL(nbt.getString("SkinURL"), true);
+        this.setSlim(nbt.getBoolean("Slim"));
+    }
+
+    @Override
+    public void writeCustomDataToNbt(NbtCompound nbt) {
+        super.writeCustomDataToNbt(nbt);
+
+        nbt.putString("SkinURL", this.getURL());
+        nbt.putBoolean("Slim", this.isSlim());
+    }
+
+    @Override
+    protected ActionResult interactMob(PlayerEntity player, Hand hand) {
+        ItemStack stack = player.getStackInHand(hand);
+
+        if (stack.isIn(ItemTags.STAIRS)) {
+            // toggle sitting
+            this.setSitting(!this.isSitting());
+            return ActionResult.SUCCESS;
+        }
+
+        return super.interactMob(player, hand);
+    }
+
+    @Override
+    public void onStartedTrackingBy(ServerPlayerEntity player) {
+        super.onStartedTrackingBy(player);
+
+        this.syncURL(player);
     }
 }

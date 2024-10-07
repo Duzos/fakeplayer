@@ -25,6 +25,8 @@ import net.minecraft.util.Identifier;
 
 import mc.duzo.fakeplayer.FakePlayerMod;
 
+// poor jeryn got some of his code yoinked back in 2023 and now im sat here writing a-
+// todo - make my own code
 public class SkinGrabber {
     private static final Logger LOGGER = LogUtils.getLogger();
     public static final String URL = "https://mineskin.eu/skin/";
@@ -201,6 +203,15 @@ public class SkinGrabber {
             for (int j = p_118025_; j < p_118027_; ++j) {
                 p_118023_.setColor(i, j, p_118023_.getColor(i, j) | -16777216);
             }
+        }
+    }
+
+    public static boolean isURL(String str) {
+        try {
+            new URL(str).toURI();
+            return true;
+        } catch (Exception e) {
+            return false;
         }
     }
 }

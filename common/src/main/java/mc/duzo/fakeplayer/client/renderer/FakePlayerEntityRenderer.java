@@ -14,7 +14,6 @@ public class FakePlayerEntityRenderer extends HumanoidEntityRenderer<FakePlayerE
     }
 
 
-
     @Override
     public Identifier getTexture(HumanoidEntity entity) {
         if (entity.getCustomName() == null || entity.getCustomName().getString().isBlank()) {

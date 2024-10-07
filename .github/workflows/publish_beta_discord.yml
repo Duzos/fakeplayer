@@ -37,8 +37,8 @@ jobs:
         uses: DrTheodor/discord-webhook-upload-action@v1.2
         with:
           url: ${{ secrets.DEV_BUILDS }}
-          file: 'build/libs/*'
-          username: tony stank
+          file: 'common/build/libs/*'
+          username: fake steve
           avatar: 'https://preview.redd.it/this-is-not-my-steve-what-did-they-do-to-my-steve-its-just-v0-moel6p6eutmd1.jpeg?auto=webp&s=ad43f007832ceda8fd529f4f43ca203b4417a62e'
           commit: '> :sparkles: [%MESSAGE%](<%LINK%>) by [%AUTHOR%](<%AUTHOR_LINK%>)'
           message: |

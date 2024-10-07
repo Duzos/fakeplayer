@@ -28,6 +28,10 @@ public abstract class HumanoidEntityRenderer<F extends HumanoidEntity, H extends
 
         matrixStack.scale(0.9375F, 0.9375F, 0.9375F);
 
+        if (livingEntity.isSitting()) {
+            matrixStack.translate(0,-0.5f,0);
+        }
+
         super.render(livingEntity, f, g, matrixStack, vertexConsumerProvider, i);
         matrixStack.pop();
     }
