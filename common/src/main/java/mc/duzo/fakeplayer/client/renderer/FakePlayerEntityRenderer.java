@@ -1,6 +1,9 @@
 package mc.duzo.fakeplayer.client.renderer;
 
+import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
+import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 import mc.duzo.fakeplayer.client.model.HumanoidEntityModel;
@@ -28,5 +31,12 @@ public class FakePlayerEntityRenderer extends HumanoidEntityRenderer<FakePlayerE
         }
 
         return SkinGrabber.ERROR_TEXTURE;
+    }
+
+    @Override
+    protected void renderLabelIfPresent(HumanoidEntity entity, Text text, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
+        if (!((FakePlayerEntity) entity).isTagVisible()) return;
+
+        super.renderLabelIfPresent(entity, text, matrices, vertexConsumers, light);
     }
 }

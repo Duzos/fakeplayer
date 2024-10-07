@@ -9,6 +9,7 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -24,6 +25,7 @@ import mc.duzo.fakeplayer.util.SkinGrabber;
 public class FakePlayerEntity extends HumanoidEntity {
     private static final TrackedData<String> SKIN_URL = DataTracker.registerData(FakePlayerEntity.class, TrackedDataHandlerRegistry.STRING);
     private static final TrackedData<Boolean> SLIM = DataTracker.registerData(FakePlayerEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+    private static final TrackedData<Boolean> HAS_NAMETAG = DataTracker.registerData(FakePlayerEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
     public FakePlayerEntity(EntityType<? extends HumanoidEntity> entityType, World world) {
         super(entityType, world);
@@ -35,6 +37,7 @@ public class FakePlayerEntity extends HumanoidEntity {
 
         this.dataTracker.startTracking(SKIN_URL,"");
         this.dataTracker.startTracking(SLIM, false);
+        this.dataTracker.startTracking(HAS_NAMETAG, true);
     }
 
     @Override
@@ -68,6 +71,13 @@ public class FakePlayerEntity extends HumanoidEntity {
         FPNetwork.CHANNEL.sendToPlayer(target, new SendSkinS2CPacket(this));
     }
 
+    private void setTagVisible(boolean var) {
+        this.dataTracker.set(HAS_NAMETAG, var);
+    }
+    public boolean isTagVisible() {
+        return this.dataTracker.get(HAS_NAMETAG);
+    }
+
     @Override
     public void setCustomName(@Nullable Text name) {
         super.setCustomName(name);
@@ -85,6 +95,7 @@ public class FakePlayerEntity extends HumanoidEntity {
 
         this.setURL(nbt.getString("SkinURL"), true);
         this.setSlim(nbt.getBoolean("Slim"));
+        this.setTagVisible(nbt.getBoolean("HasNameTag"));
     }
 
     @Override
@@ -93,6 +104,7 @@ public class FakePlayerEntity extends HumanoidEntity {
 
         nbt.putString("SkinURL", this.getURL());
         nbt.putBoolean("Slim", this.isSlim());
+        nbt.putBoolean("HasNameTag", this.isTagVisible());
     }
 
     @Override
@@ -102,6 +114,12 @@ public class FakePlayerEntity extends HumanoidEntity {
         if (stack.isIn(ItemTags.STAIRS)) {
             // toggle sitting
             this.setSitting(!this.isSitting());
+            return ActionResult.SUCCESS;
+        }
+
+        if (stack.isOf(Items.NAME_TAG) && !stack.hasCustomName()) { // blank name tag
+            // toggle name tag
+            this.setTagVisible(!this.isTagVisible());
             return ActionResult.SUCCESS;
         }
 
