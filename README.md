@@ -1,8 +1,6 @@
 # Fake Players Mod
 A Forge/Fabric mod aimed at adding fake players to the game.
 
-## CHECK GITHUB RELEASES FOR NEWEST RELEASE IF YOU ARE HAVING ISSUES
-
 ## Features
 ### Fake Player Mob
 These mobs look exactly like regular players.
