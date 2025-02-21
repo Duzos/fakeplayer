@@ -182,10 +182,14 @@ public class SkinGrabber {
 	private void downloadSkin(String username) {
 		this.downloadQueue.add(username);
 
+		Constants.LOG.info("Downloading {}..", username);
+
 		new Thread(() -> {
 			this.downloadImageFromURL(username, new File(DEFAULT_DIR), API_URL + username);
 			this.registerSkin(username);
 			this.downloadQueue.remove(username);
+
+			Constants.LOG.info("Downloaded skin for {}!", username);
 		}, Constants.MOD_ID + "-Download").start();
 	}
 }
