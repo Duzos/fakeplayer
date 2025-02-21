@@ -103,6 +103,13 @@ public class SkinGrabber {
 		}
 	}
 
+	/**
+	 * Get the skin for a player
+	 * This will download the skin if it doesn't exist
+	 *
+	 * @param name The name of the player
+	 * @return The skin, or a missing texture if it doesn't exist / is downloading
+	 */
 	public ResourceLocation getSkin(String name) {
 		name = name.toLowerCase().replace(" ", "_");
 
