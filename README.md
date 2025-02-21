@@ -46,6 +46,12 @@ You can also set the skin of a fake player to a skin from a URL.
 
 To do this, you run the command ```/players url <entity> <url>```
 
+### Trending Skins
+
+The mod provides a list of trending skins that you can use for your fake players.
+
+To use this feature, shift and right-click the fake player to open the GUI.
+
 ### Slim Skin Support!
 This mod supports both slim skins and regular skins.
 
