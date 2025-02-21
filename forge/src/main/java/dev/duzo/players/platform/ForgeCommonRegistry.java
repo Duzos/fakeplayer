@@ -1,7 +1,9 @@
 package dev.duzo.players.platform;
 
+import com.mojang.brigadier.CommandDispatcher;
 import dev.duzo.players.Constants;
 import dev.duzo.players.platform.services.ICommonRegistry;
+import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.Entity;
@@ -20,6 +22,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -28,6 +31,7 @@ public class ForgeCommonRegistry implements ICommonRegistry {
 	public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(Registries.ENTITY_TYPE, Constants.MOD_ID);
 	public static final HashMap<Supplier<? extends EntityType<?>>, Supplier<AttributeSupplier.Builder>> ATTRIBUTES = new HashMap<>();
 	public static final HashMap<ResourceKey<CreativeModeTab>, List<Supplier<Item>>> GROUPS = new HashMap<>();
+	public static final List<Consumer<CommandDispatcher<CommandSourceStack>>> COMMANDS = new ArrayList<>();
 
 	public static void init(IEventBus bus) {
 		ITEMS.register(bus);
@@ -70,5 +74,10 @@ public class ForgeCommonRegistry implements ICommonRegistry {
 		}
 
 		GROUPS.get(tab).add((Supplier<Item>) item);
+	}
+
+	@Override
+	public void registerCommand(Consumer<CommandDispatcher<CommandSourceStack>> command) {
+		COMMANDS.add(command);
 	}
 }

@@ -1,8 +1,11 @@
 package dev.duzo.players.platform;
 
+import com.mojang.brigadier.CommandDispatcher;
 import dev.duzo.players.platform.services.ICommonRegistry;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
@@ -14,6 +17,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class FabricCommonRegistry implements ICommonRegistry {
@@ -44,6 +48,13 @@ public class FabricCommonRegistry implements ICommonRegistry {
 	public <T extends Item> void addToGroup(Supplier<T> item, ResourceKey<CreativeModeTab> tab) {
 		ItemGroupEvents.modifyEntriesEvent(tab).register((group) -> {
 			group.accept(item.get());
+		});
+	}
+
+	@Override
+	public void registerCommand(Consumer<CommandDispatcher<CommandSourceStack>> command) {
+		CommandRegistrationCallback.EVENT.register((dispatcher, access, env) -> {
+			command.accept(dispatcher);
 		});
 	}
 }

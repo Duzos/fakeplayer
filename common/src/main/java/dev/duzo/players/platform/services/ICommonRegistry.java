@@ -1,5 +1,7 @@
 package dev.duzo.players.platform.services;
 
+import com.mojang.brigadier.CommandDispatcher;
+import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -10,6 +12,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public interface ICommonRegistry {
@@ -24,4 +27,6 @@ public interface ICommonRegistry {
 	default <T extends Item> void addToGroup(Supplier<T> item, String tab) {
 		addToGroup(item, ResourceKey.create(Registries.CREATIVE_MODE_TAB, new ResourceLocation(tab)));
 	}
+
+	void registerCommand(Consumer<CommandDispatcher<CommandSourceStack>> command);
 }

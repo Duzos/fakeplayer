@@ -186,12 +186,12 @@ public class FakePlayerEntity extends PathfinderMob {
 		return this.getSkinData().getSkin();
 	}
 
-	protected void setSkin(SkinData skin) {
+	public void setSkin(SkinData skin) {
 		this.entityData.set(SKIN_DATA, skin.toNbt());
 		this.dataCache = skin;
 	}
 
-	protected void setSkin(String username) {
+	public void setSkin(String username) {
 		this.setSkin(new SkinData(username));
 	}
 
