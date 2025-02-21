@@ -1,11 +1,13 @@
 package dev.duzo.players.api;
 
 import com.mojang.blaze3d.platform.NativeImage;
+import com.mojang.datafixers.util.Pair;
 import dev.duzo.players.Constants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.MinecraftServer;
 
 import javax.annotation.Nullable;
 import javax.imageio.ImageIO;
@@ -15,10 +17,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Most of this code is referenced from Craig's regeneration mod, love u craig
@@ -29,11 +29,17 @@ public class SkinGrabber {
 	private static final String DEFAULT_DIR = "./" + Constants.MOD_ID + "/skins/";
 	private static final ResourceLocation MISSING = new ResourceLocation(Constants.MOD_ID, "textures/skins/error.png");
 	private final ConcurrentHashMap<String, ResourceLocation> downloads;
-	private final List<String> downloadQueue;
+	private final ConcurrentQueueMap<String, String> downloadQueue;
 
 	private SkinGrabber() {
 		downloads = new ConcurrentHashMap<>();
-		downloadQueue = new CopyOnWriteArrayList<>();
+		downloadQueue = new ConcurrentQueueMap<>();
+	}
+
+	public void tick(MinecraftServer server) {
+		if (server.getTickCount() % 20 != 0) return;
+		// called every second
+		this.downloadNext();
 	}
 
 	// These functions were coped from HttpTexture by Mojang (thak you moywang(
@@ -126,16 +132,19 @@ public class SkinGrabber {
 	}
 
 	public ResourceLocation getSkinOrDownload(String id, String url) {
+		id = id.toLowerCase().replace(" ", "_");
+
 		ResourceLocation existing = getPossibleSkin(id).orElse(null);
 		if (existing != null) {
 			return existing;
 		}
 
-		if (downloadQueue.contains(id)) {
+		if (downloadQueue.get(id) != null) {
 			return missing();
 		}
 
-		this.downloadSkin(id, url);
+		url = url.toLowerCase().replace(" ", "_");
+		this.enqueueDownload(id, url);
 		return missing();
 	}
 
@@ -145,7 +154,7 @@ public class SkinGrabber {
 
 	private ResourceLocation registerSkin(String name) {
 		// register new skin to prepare
-		File file = new File(DEFAULT_DIR + name.toLowerCase().replace(" ", "") + ".png");
+		File file = new File(DEFAULT_DIR + name.toLowerCase().replace(" ", "_") + ".png");
 		ResourceLocation location = fileToLocation(file);
 		downloads.put(name, location);
 		return location;
@@ -165,11 +174,12 @@ public class SkinGrabber {
 	}
 
 	private ResourceLocation fileToLocation(File file) {
-		NativeImage image = null;
+		NativeImage image;
 		try {
 			image = processLegacySkin(NativeImage.read(new FileInputStream(file)));
 		} catch (IOException e) {
-			e.printStackTrace();
+			Constants.LOG.error("Failed to load ResourceLocation from file", e);
+			return missing();
 		}
 		if (image == null) {
 			return missing();
@@ -179,7 +189,7 @@ public class SkinGrabber {
 
 	private ResourceLocation registerImage(NativeImage image) {
 		TextureManager manager = Minecraft.getInstance().getTextureManager();
-		return manager.register("humanoid", new DynamicTexture(image));
+		return manager.register("player_", new DynamicTexture(image));
 	}
 
 	private void downloadImageFromURL(String filename, File filepath, String URL) {
@@ -201,15 +211,28 @@ public class SkinGrabber {
 		}
 	}
 
-	private void downloadSkin(String id, String url) {
-		this.downloadQueue.add(id);
+	private void enqueueDownload(String id, String url) {
+		this.downloadQueue.put(id, url);
 
+		Constants.LOG.info("Enqueued Download {} for {}", url, id);
+	}
+
+	private void downloadNext() {
+		if (this.downloadQueue.isEmpty()) {
+			return;
+		}
+
+		Pair<String, String> data = this.downloadQueue.remove();
+
+		this.download(data.getFirst(), data.getSecond());
+	}
+
+	private void download(String id, String url) {
 		Constants.LOG.info("Downloading {} for {}", url, id);
 
 		new Thread(() -> {
 			this.downloadImageFromURL(id, new File(DEFAULT_DIR), url);
 			this.registerSkin(id);
-			this.downloadQueue.remove(id);
 
 			Constants.LOG.info("Downloaded {} for {}!", url, id);
 		}, Constants.MOD_ID + "-Download").start();

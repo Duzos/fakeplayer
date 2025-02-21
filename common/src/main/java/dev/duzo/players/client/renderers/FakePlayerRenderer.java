@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.layers.*;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 
 public class FakePlayerRenderer extends LivingEntityRenderer<FakePlayerEntity, FakePlayerModel> {
@@ -43,5 +44,14 @@ public class FakePlayerRenderer extends LivingEntityRenderer<FakePlayerEntity, F
 	@Override
 	public ResourceLocation getTextureLocation(FakePlayerEntity entity) {
 		return entity.getSkin();
+	}
+
+	@Override
+	protected void renderNameTag(FakePlayerEntity entity, Component name, PoseStack stack, MultiBufferSource buffer, int p_114502_) {
+		if (!entity.isCustomNameVisible()) {
+			return;
+		}
+
+		super.renderNameTag(entity, name, stack, buffer, p_114502_);
 	}
 }
