@@ -5,6 +5,7 @@ import dev.duzo.players.core.FPEntities;
 import dev.duzo.players.entities.goal.HumanoidWaterAvoidingRandomStrollGoal;
 import dev.duzo.players.entities.goal.MoveTowardsItemsGoal;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -22,6 +23,7 @@ import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
 
 public class FakePlayerEntity extends PathfinderMob {
 	private static final EntityDataAccessor<Boolean> SITTING = SynchedEntityData.defineId(FakePlayerEntity.class, EntityDataSerializers.BOOLEAN);
@@ -95,7 +97,30 @@ public class FakePlayerEntity extends PathfinderMob {
 	}
 
 	protected String getStringKey() {
-		return this.entityData.get(SKIN_KEY);
+		String key = this.entityData.get(SKIN_KEY);
+
+		if (key.isBlank()) {
+			this.setSkin("duzo");
+			return "duzo";
+		}
+
+		return key;
+	}
+
+	@Override
+	public @Nullable Component getCustomName() {
+		return Component.literal(this.getStringKey());
+	}
+
+	@Override
+	public void setCustomName(@Nullable Component component) {
+		super.setCustomName(component);
+
+		if (component == null) {
+			this.setSkin("duzo");
+			return;
+		}
+		this.setSkin(component.getString());
 	}
 
 	public ResourceLocation getSkin() {
