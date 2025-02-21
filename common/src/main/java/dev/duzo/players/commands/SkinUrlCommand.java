@@ -6,15 +6,13 @@ import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import dev.duzo.players.Constants;
+import dev.duzo.players.api.SkinGrabber;
 import dev.duzo.players.entities.FakePlayerEntity;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 public class SkinUrlCommand {
 	public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
@@ -46,28 +44,12 @@ public class SkinUrlCommand {
 		}
 
 		String texture = StringArgumentType.getString(context, "texture");
-		String key = encode(texture);
+		String key = SkinGrabber.encodeURL(texture);
 		String name = target.hasCustomName() ? target.getCustomName().getString() : "duzo";
 
 		target.setSkin(new FakePlayerEntity.SkinData(name, key, texture));
 
 		source.sendSuccess(() -> Component.literal("Skin set to " + texture), true);
 		return Command.SINGLE_SUCCESS;
-	}
-
-	private static String encode(String input) {
-		try {
-			MessageDigest md = MessageDigest.getInstance("SHA-256");
-			byte[] hash = md.digest(input.getBytes());
-			StringBuilder hexString = new StringBuilder();
-			for (byte b : hash) {
-				String hex = Integer.toHexString(0xff & b);
-				if (hex.length() == 1) hexString.append('0');
-				hexString.append(hex);
-			}
-			return hexString.toString();
-		} catch (NoSuchAlgorithmException e) {
-			throw new RuntimeException(e);
-		}
 	}
 }
