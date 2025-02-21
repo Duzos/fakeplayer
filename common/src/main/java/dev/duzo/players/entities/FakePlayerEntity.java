@@ -58,13 +58,13 @@ public class FakePlayerEntity extends PathfinderMob {
 
 	@Override
 	protected void registerGoals() {
-		this.goalSelector.addGoal(5, new MoveTowardsItemsGoal(this, 1.0D, true));
 		this.goalSelector.addGoal(4, new HumanoidWaterAvoidingRandomStrollGoal(this, 1.0D));
 		this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
 		this.goalSelector.addGoal(3, new OpenDoorGoal(this, true));
 		this.goalSelector.addGoal(2, new HurtByTargetGoal(this));
 		this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.5D, true));
 		this.goalSelector.addGoal(1, new FloatGoal(this));
+		this.goalSelector.addGoal(1, new MoveTowardsItemsGoal(this, 1.0D, true));
 	}
 
 	@Override
@@ -79,7 +79,7 @@ public class FakePlayerEntity extends PathfinderMob {
 	public void addAdditionalSaveData(CompoundTag nbt) {
 		super.addAdditionalSaveData(nbt);
 
-		nbt.putBoolean("sitting", this.isSitting());
+		nbt.putInt("State", this.getPhysicalState().ordinal());
 		nbt.putString("SkinKey", this.getStringKey());
 		nbt.putBoolean("Slim", this.isSlim());
 	}
@@ -100,6 +100,11 @@ public class FakePlayerEntity extends PathfinderMob {
 		this.entityData.define(PHYSICAL_STATE, 0);
 		this.entityData.define(SKIN_KEY, "duzo");
 		this.entityData.define(SLIM, false);
+	}
+
+	@Override
+	public boolean canPickUpLoot() {
+		return true;
 	}
 
 	public PhysicalState getPhysicalState() {

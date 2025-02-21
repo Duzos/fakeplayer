@@ -29,7 +29,7 @@ public class MoveTowardsItemsGoal extends Goal {
 
 	@Override
 	public boolean canUse() {
-		return getNearbyItems(this.mob, 4).size() != 0;
+		return !getNearbyItems(this.mob, 4).isEmpty();
 	}
 
 	public boolean canContinueToUse() {
@@ -46,7 +46,7 @@ public class MoveTowardsItemsGoal extends Goal {
 
 	public void start() {
 		List<ItemEntity> nearbyItems = getNearbyItems(this.mob, 4);
-		assert nearbyItems.size() != 0;
+		assert !nearbyItems.isEmpty();
 		for (ItemEntity checkedItem : nearbyItems) { // @TODO: If this has lag, maybe add a maximum depth we can go
 			if (checkedItem.onGround()) {
 				this.mob.getNavigation().moveTo(checkedItem.getX(), checkedItem.getY(), checkedItem.getZ(), this.speedModifier);
