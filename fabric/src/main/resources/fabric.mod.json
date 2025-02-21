@@ -17,6 +17,9 @@
     "entrypoints": {
         "main": [
             "dev.duzo.players.PlayersFabric"
+        ],
+        "client": [
+            "dev.duzo.players.client.PlayersFabricClient"
         ]
     },
     "mixins": [

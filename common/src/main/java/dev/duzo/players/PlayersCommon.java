@@ -1,11 +1,13 @@
 package dev.duzo.players;
 
+import dev.duzo.players.core.FPEntities;
 import dev.duzo.players.core.FPItems;
 import net.minecraft.resources.ResourceLocation;
 
 public class PlayersCommon {
     public static void init() {
         FPItems.init();
+        FPEntities.init();
     }
 
     public static ResourceLocation id(String path) {
