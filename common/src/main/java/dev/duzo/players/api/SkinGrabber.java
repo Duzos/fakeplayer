@@ -1,5 +1,7 @@
 package dev.duzo.players.api;
 
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
 import com.mojang.blaze3d.platform.NativeImage;
 import com.mojang.datafixers.util.Pair;
 import dev.duzo.players.Constants;
@@ -11,13 +13,14 @@ import net.minecraft.resources.ResourceLocation;
 import javax.annotation.Nullable;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.Optional;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Most of this code is referenced from Craig's regeneration mod, love u craig
@@ -28,22 +31,40 @@ public class SkinGrabber {
 	private static final String DEFAULT_DIR = "./" + Constants.MOD_ID + "/skins/";
 	private static final ResourceLocation MISSING = new ResourceLocation(Constants.MOD_ID, "textures/skins/error.png");
 	private final ConcurrentHashMap<String, ResourceLocation> downloads;
+	private final ConcurrentHashMap<String, String> urls;
 	private final ConcurrentQueueMap<String, String> downloadQueue;
+	private final CopyOnWriteArrayList<Page> pages;
 	private int ticks;
 
 	private SkinGrabber() {
 		downloads = new ConcurrentHashMap<>();
+		urls = new ConcurrentHashMap<>();
 		downloadQueue = new ConcurrentQueueMap<>();
+		pages = new CopyOnWriteArrayList<>();
 	}
 
-	public void tick() {
-		ticks++;
+	public static ResourceLocation missing() {
+		return MISSING;
+	}
 
-		if (ticks % 20 != 0) return;
-		// called every second
-		this.downloadNext();
+	public static String encodeURL(String input) {
+		try {
+			MessageDigest md = MessageDigest.getInstance("SHA-256");
+			byte[] hash = md.digest(input.getBytes());
+			StringBuilder hexString = new StringBuilder();
+			for (byte b : hash) {
+				String hex = Integer.toHexString(0xff & b);
+				if (hex.length() == 1) hexString.append('0');
+				hexString.append(hex);
+			}
+			return hexString.toString();
+		} catch (NoSuchAlgorithmException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
-		ticks = 0;
+	public List<String> getAllKeys() {
+		return List.copyOf(downloads.keySet());
 	}
 
 	// These functions were coped from HttpTexture by Mojang (thak you moywang(
@@ -152,8 +173,8 @@ public class SkinGrabber {
 		return missing();
 	}
 
-	private ResourceLocation missing() {
-		return MISSING;
+	public String getUrl(String key) {
+		return urls.get(key);
 	}
 
 	private ResourceLocation registerSkin(String name) {
@@ -215,6 +236,16 @@ public class SkinGrabber {
 		}
 	}
 
+	public void tick() {
+		ticks++;
+
+		if (ticks % 5 != 0) return;
+		// called every second
+		this.downloadNext();
+
+		ticks = 0;
+	}
+
 	private void enqueueDownload(String id, String url) {
 		this.downloadQueue.put(id, url);
 
@@ -231,8 +262,19 @@ public class SkinGrabber {
 		this.download(data.getFirst(), data.getSecond());
 	}
 
+	public void downloadNextPage() {
+		// if any arent downloaded, dont download
+		if (this.hasDownloads()) return;
+
+		Page page = new Page(pages.size() + 1, new ArrayList<>(15));
+		page.download();
+		pages.add(page);
+	}
+
 	private void download(String id, String url) {
 		Constants.LOG.info("Downloading {} for {}", url, id);
+
+		urls.put(id, url);
 
 		new Thread(() -> {
 			this.downloadImageFromURL(id, new File(DEFAULT_DIR), url);
@@ -240,5 +282,86 @@ public class SkinGrabber {
 
 			Constants.LOG.info("Downloaded {} for {}!", url, id);
 		}, Constants.MOD_ID + "-Download").start();
+	}
+
+	public int getPagesDownloaded() {
+		return pages.size();
+	}
+
+	public boolean hasDownloads() {
+		return !downloadQueue.isEmpty();
+	}
+
+	public int getDownloadsRemaining() {
+		return downloadQueue.size();
+	}
+
+	public record Page(int index, List<String> keys) {
+		public Page {
+			if (index <= 0) {
+				throw new IllegalArgumentException("Index must be greater than 0");
+			}
+		}
+
+		public void download() {
+			Constants.LOG.info("Downloading page {}", index);
+
+			if (this.isDownloaded()) {
+				Constants.LOG.warn("Page {} is already downloaded", index);
+			}
+
+			new Thread(() -> {
+				try {
+					URL api = new URL("https://api.mineskin.org/get/list/" + index);
+					URLConnection connection = api.openConnection();
+					connection.connect();
+					connection.setConnectTimeout(5000);
+					connection.setReadTimeout(5000);
+
+					// read json list [skins]
+					// enqueue each skin for download
+					InputStream inputStream = connection.getInputStream();
+					BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+					StringBuilder stringBuilder = new StringBuilder();
+					String line;
+
+					while ((line = reader.readLine()) != null) {
+						stringBuilder.append(line);
+					}
+
+					HashMap<String, String> skins = new HashMap<>();
+					JsonElement data = new GsonBuilder().create().fromJson(stringBuilder.toString(), JsonElement.class);
+					if (!data.isJsonObject()) {
+						throw new IllegalStateException("Expected object");
+					}
+					data = data.getAsJsonObject().get("skins");
+					if (!data.isJsonArray()) {
+						throw new IllegalStateException("Expected array");
+					}
+
+					data.getAsJsonArray().forEach(element -> {
+						if (!element.isJsonObject()) {
+							throw new IllegalStateException("Expected object");
+						}
+
+						String url = element.getAsJsonObject().get("url").getAsString();
+						String id = encodeURL(url);
+
+						skins.put(id, url);
+					});
+
+					keys.clear();
+					keys.addAll(skins.keySet());
+
+					skins.forEach(SkinGrabber.INSTANCE::enqueueDownload);
+				} catch (Exception exception) {
+					Constants.LOG.error("Failed to download page, {}", index, exception);
+				}
+			}, Constants.MOD_ID + "-Page").start();
+		}
+
+		public boolean isDownloaded() {
+			return new HashSet<>(SkinGrabber.INSTANCE.getAllKeys()).containsAll(keys);
+		}
 	}
 }

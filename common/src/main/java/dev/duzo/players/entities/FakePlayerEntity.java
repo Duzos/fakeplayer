@@ -1,6 +1,7 @@
 package dev.duzo.players.entities;
 
 import dev.duzo.players.api.SkinGrabber;
+import dev.duzo.players.client.PlayersCommonClient;
 import dev.duzo.players.core.FPEntities;
 import dev.duzo.players.core.FPItems;
 import dev.duzo.players.entities.goal.HumanoidWaterAvoidingRandomStrollGoal;
@@ -50,7 +51,19 @@ public class FakePlayerEntity extends PathfinderMob {
 
 	@Override
 	protected InteractionResult mobInteract(Player player, InteractionHand hand) {
+		if (hand == InteractionHand.MAIN_HAND && player.level().isClientSide()) {
+			if (player.isShiftKeyDown()) {
+				PlayersCommonClient.openSelectScreen(this);
+
+				return InteractionResult.SUCCESS;
+			}
+		}
+
 		if (hand == InteractionHand.MAIN_HAND && !player.level().isClientSide()) {
+			if (player.isShiftKeyDown()) {
+				return InteractionResult.SUCCESS;
+			}
+
 			return InteractionRegistry.INSTANCE.get(player.getItemInHand(hand).getItem()).run((ServerPlayer) player, this);
 		}
 
@@ -195,7 +208,7 @@ public class FakePlayerEntity extends PathfinderMob {
 		this.setSkin(new SkinData(username));
 	}
 
-	protected SkinData getSkinData() {
+	public SkinData getSkinData() {
 		if (dataCache == null) {
 			dataCache = SkinData.fromNbt(this.entityData.get(SKIN_DATA));
 		}
