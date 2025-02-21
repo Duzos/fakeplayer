@@ -9,7 +9,7 @@ These mobs look exactly like regular players.
 - Wander around
 - Attack when hurt
 - Change username from name tag
-- Change skin from name tag
+- Change skin
 - Wear armour
 - Hold items
 - Utilise inventory space
@@ -39,6 +39,12 @@ This means that the fake player will always have the correct and matching skin t
 To do this you name the fake player with the username of the player.
 
 Image of this in gallery!
+
+### Skin from URL
+
+You can also set the skin of a fake player to a skin from a URL.
+
+To do this, you run the command ```/players url <entity> <url>```
 
 ### Slim Skin Support!
 This mod supports both slim skins and regular skins.
