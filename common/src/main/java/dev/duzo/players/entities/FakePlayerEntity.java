@@ -36,8 +36,9 @@ import javax.annotation.Nullable;
 
 public class FakePlayerEntity extends PathfinderMob {
 	private static final EntityDataAccessor<Integer> PHYSICAL_STATE = SynchedEntityData.defineId(FakePlayerEntity.class, EntityDataSerializers.INT);
-	private static final EntityDataAccessor<String> SKIN_KEY = SynchedEntityData.defineId(FakePlayerEntity.class, EntityDataSerializers.STRING);
+	private static final EntityDataAccessor<CompoundTag> SKIN_DATA = SynchedEntityData.defineId(FakePlayerEntity.class, EntityDataSerializers.COMPOUND_TAG);
 	private static final EntityDataAccessor<Boolean> SLIM = SynchedEntityData.defineId(FakePlayerEntity.class, EntityDataSerializers.BOOLEAN);
+	private SkinData dataCache;
 
 	public FakePlayerEntity(EntityType<? extends FakePlayerEntity> type, Level level) {
 		super(type, level);
@@ -84,7 +85,7 @@ public class FakePlayerEntity extends PathfinderMob {
 		super.addAdditionalSaveData(nbt);
 
 		nbt.putInt("State", this.getPhysicalState().ordinal());
-		nbt.putString("SkinKey", this.getStringKey());
+		nbt.put("SkinData", this.entityData.get(SKIN_DATA));
 		nbt.putBoolean("Slim", this.isSlim());
 	}
 
@@ -92,9 +93,19 @@ public class FakePlayerEntity extends PathfinderMob {
 	public void readAdditionalSaveData(CompoundTag nbt) {
 		super.readAdditionalSaveData(nbt);
 
+		this.dataCache = null;
 		this.entityData.set(PHYSICAL_STATE, nbt.getInt("State"));
-		this.entityData.set(SKIN_KEY, nbt.getString("SkinKey"));
+		this.entityData.set(SKIN_DATA, nbt.getCompound("SkinData"));
 		this.entityData.set(SLIM, nbt.getBoolean("Slim"));
+	}
+
+	@Override
+	public void onSyncedDataUpdated(EntityDataAccessor<?> data) {
+		super.onSyncedDataUpdated(data);
+
+		if (SKIN_DATA.equals(data)) {
+			this.dataCache = null;
+		}
 	}
 
 	@Override
@@ -102,7 +113,7 @@ public class FakePlayerEntity extends PathfinderMob {
 		super.defineSynchedData();
 
 		this.entityData.define(PHYSICAL_STATE, 0);
-		this.entityData.define(SKIN_KEY, "duzo");
+		this.entityData.define(SKIN_DATA, new SkinData("duzo").toNbt());
 		this.entityData.define(SLIM, false);
 	}
 
@@ -155,20 +166,9 @@ public class FakePlayerEntity extends PathfinderMob {
 		return super.isSleeping() || this.getPhysicalState() == PhysicalState.LAYING;
 	}
 
-	protected String getStringKey() {
-		String key = this.entityData.get(SKIN_KEY);
-
-		if (key.isBlank()) {
-			this.setSkin("duzo");
-			return "duzo";
-		}
-
-		return key;
-	}
-
 	@Override
 	public @Nullable Component getCustomName() {
-		return Component.literal(this.getStringKey());
+		return Component.literal(this.getSkinData().name());
 	}
 
 	@Override
@@ -183,11 +183,24 @@ public class FakePlayerEntity extends PathfinderMob {
 	}
 
 	public ResourceLocation getSkin() {
-		return SkinGrabber.INSTANCE.getSkin(this.getStringKey());
+		return this.getSkinData().getSkin();
 	}
 
-	protected void setSkin(String skin) {
-		this.entityData.set(SKIN_KEY, skin);
+	protected void setSkin(SkinData skin) {
+		this.entityData.set(SKIN_DATA, skin.toNbt());
+		this.dataCache = skin;
+	}
+
+	protected void setSkin(String username) {
+		this.setSkin(new SkinData(username));
+	}
+
+	protected SkinData getSkinData() {
+		if (dataCache == null) {
+			dataCache = SkinData.fromNbt(this.entityData.get(SKIN_DATA));
+		}
+
+		return dataCache;
 	}
 
 	public boolean isSlim() {
@@ -202,5 +215,39 @@ public class FakePlayerEntity extends PathfinderMob {
 		STANDING,
 		SITTING,
 		LAYING
+	}
+
+	public record SkinData(String name, String key, String url) {
+		public SkinData(String username) {
+			this(username, username, SkinGrabber.API_URL + username);
+		}
+
+		public static SkinData fromNbt(CompoundTag nbt) {
+			return new SkinData(nbt.getString("Name"), nbt.getString("Key"), nbt.getString("Url"));
+		}
+
+		public CompoundTag toNbt() {
+			CompoundTag nbt = new CompoundTag();
+			nbt.putString("Name", this.name);
+			nbt.putString("Key", this.key);
+			nbt.putString("Url", this.url);
+			return nbt;
+		}
+
+		public ResourceLocation getSkin() {
+			return SkinGrabber.INSTANCE.getSkinOrDownload(this.key, this.url);
+		}
+
+		public SkinData withName(String name) {
+			return new SkinData(name, this.key, this.url);
+		}
+
+		public SkinData withKey(String key) {
+			return new SkinData(this.name, key, this.url);
+		}
+
+		public SkinData withUrl(String url) {
+			return new SkinData(this.name, this.key, url);
+		}
 	}
 }

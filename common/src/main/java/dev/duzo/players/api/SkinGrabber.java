@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -24,7 +25,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 public class SkinGrabber {
 	public static final SkinGrabber INSTANCE = new SkinGrabber();
-	private static final String API_URL = "https://mineskin.eu/skin/";
+	public static final String API_URL = "https://mineskin.eu/skin/";
 	private static final String DEFAULT_DIR = "./" + Constants.MOD_ID + "/skins/";
 	private static final ResourceLocation MISSING = new ResourceLocation(Constants.MOD_ID, "textures/skins/error.png");
 	private final ConcurrentHashMap<String, ResourceLocation> downloads;
@@ -111,16 +112,30 @@ public class SkinGrabber {
 	 * @return The skin, or a missing texture if it doesn't exist / is downloading
 	 */
 	public ResourceLocation getSkin(String name) {
-		name = name.toLowerCase().replace(" ", "_");
+		return getSkinOrDownload(name, API_URL + name);
+	}
 
-		if (downloads.containsKey(name)) {
-			return downloads.get(name);
+	public Optional<ResourceLocation> getPossibleSkin(String id) {
+		id = id.toLowerCase().replace(" ", "_");
+
+		if (downloads.containsKey(id)) {
+			return Optional.of(downloads.get(id));
 		}
-		if (downloadQueue.contains(name)) {
+
+		return Optional.empty();
+	}
+
+	public ResourceLocation getSkinOrDownload(String id, String url) {
+		ResourceLocation existing = getPossibleSkin(id).orElse(null);
+		if (existing != null) {
+			return existing;
+		}
+
+		if (downloadQueue.contains(id)) {
 			return missing();
 		}
 
-		this.downloadSkin(name);
+		this.downloadSkin(id, url);
 		return missing();
 	}
 
@@ -186,17 +201,17 @@ public class SkinGrabber {
 		}
 	}
 
-	private void downloadSkin(String username) {
-		this.downloadQueue.add(username);
+	private void downloadSkin(String id, String url) {
+		this.downloadQueue.add(id);
 
-		Constants.LOG.info("Downloading {}..", username);
+		Constants.LOG.info("Downloading {} for {}", url, id);
 
 		new Thread(() -> {
-			this.downloadImageFromURL(username, new File(DEFAULT_DIR), API_URL + username);
-			this.registerSkin(username);
-			this.downloadQueue.remove(username);
+			this.downloadImageFromURL(id, new File(DEFAULT_DIR), url);
+			this.registerSkin(id);
+			this.downloadQueue.remove(id);
 
-			Constants.LOG.info("Downloaded skin for {}!", username);
+			Constants.LOG.info("Downloaded {} for {}!", url, id);
 		}, Constants.MOD_ID + "-Download").start();
 	}
 }
