@@ -2,6 +2,7 @@ package dev.duzo.players.entities;
 
 import dev.duzo.players.api.SkinGrabber;
 import dev.duzo.players.core.FPEntities;
+import dev.duzo.players.core.FPItems;
 import dev.duzo.players.entities.goal.HumanoidWaterAvoidingRandomStrollGoal;
 import dev.duzo.players.entities.goal.MoveTowardsItemsGoal;
 import net.minecraft.nbt.CompoundTag;
@@ -13,6 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.PathfinderMob;
@@ -27,6 +29,7 @@ import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 import javax.annotation.Nullable;
@@ -106,6 +109,15 @@ public class FakePlayerEntity extends PathfinderMob {
 	@Override
 	public boolean canPickUpLoot() {
 		return true;
+	}
+
+	@Override
+	protected void dropCustomDeathLoot(DamageSource source, int p_21386_, boolean p_21387_) {
+		super.dropCustomDeathLoot(source, p_21386_, p_21387_);
+
+		ItemStack egg = FPItems.PLAYER_EGG.get().getDefaultInstance();
+		egg.setHoverName(this.getCustomName());
+		this.spawnAtLocation(egg);
 	}
 
 	public PhysicalState getPhysicalState() {

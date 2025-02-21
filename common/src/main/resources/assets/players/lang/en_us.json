@@ -1,0 +1,14 @@
+{
+  "item.players.player_egg": "Player Egg",
+  "item.players.player_egg_slim": "Slim Player Egg",
+  "item.players.player_shell": "Robot Shell",
+  "item.players.player_ai": "Robot AI",
+  "itemGroup.fp_tab": "Fake Players",
+  "screens.players.done": "Done",
+  "screens.players.stayPut": "Stay",
+  "screens.players.follow": "Follow",
+  "screens.players.wander": "Wander",
+  "screens.players.send": "Send chat",
+  "screens.players.sit": "Toggle Sit",
+  "screens.players.nametagShown": "Toggle NameTag"
+}

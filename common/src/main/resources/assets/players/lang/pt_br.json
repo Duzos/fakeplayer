@@ -1,0 +1,13 @@
+{
+  "item.players.player_egg": "Ovo de Jogador Falso",
+  "item.players.player_egg_slim": "Ovo de Jogador Falso Magro",
+  "item.players.player_shell": "Casca de Robô",
+  "item.players.player_ai": "IA de Robô",
+  "itemGroup.fp_tab": "Jogadores Falsos",
+  "screens.players.done": "Concluído",
+  "screens.players.stayPut": "Permanecer",
+  "screens.players.follow": "Seguir",
+  "screens.players.wander": "Vagar",
+  "screens.players.send": "Enviar chat",
+  "screens.players.sit": "Alternar Sentar"
+}

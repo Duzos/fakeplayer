@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "players:player_ai"
+    },
+    {
+      "item": "players:player_shell"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "players:player_egg"
+  }
+}
