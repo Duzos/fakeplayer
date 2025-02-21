@@ -7,7 +7,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.MinecraftServer;
 
 import javax.annotation.Nullable;
 import javax.imageio.ImageIO;
@@ -30,16 +29,21 @@ public class SkinGrabber {
 	private static final ResourceLocation MISSING = new ResourceLocation(Constants.MOD_ID, "textures/skins/error.png");
 	private final ConcurrentHashMap<String, ResourceLocation> downloads;
 	private final ConcurrentQueueMap<String, String> downloadQueue;
+	private int ticks;
 
 	private SkinGrabber() {
 		downloads = new ConcurrentHashMap<>();
 		downloadQueue = new ConcurrentQueueMap<>();
 	}
 
-	public void tick(MinecraftServer server) {
-		if (server.getTickCount() % 20 != 0) return;
+	public void tick() {
+		ticks++;
+
+		if (ticks % 20 != 0) return;
 		// called every second
 		this.downloadNext();
+
+		ticks = 0;
 	}
 
 	// These functions were coped from HttpTexture by Mojang (thak you moywang(

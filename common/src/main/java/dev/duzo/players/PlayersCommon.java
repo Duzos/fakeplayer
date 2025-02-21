@@ -1,6 +1,5 @@
 package dev.duzo.players;
 
-import dev.duzo.players.api.SkinGrabber;
 import dev.duzo.players.commands.SkinUrlCommand;
 import dev.duzo.players.core.FPEntities;
 import dev.duzo.players.core.FPItems;
@@ -21,6 +20,5 @@ public class PlayersCommon {
     }
 
     public static void tick(MinecraftServer server) {
-        SkinGrabber.INSTANCE.tick(server);
     }
 }
