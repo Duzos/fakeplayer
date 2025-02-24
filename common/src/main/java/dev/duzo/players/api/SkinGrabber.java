@@ -221,25 +221,21 @@ public class SkinGrabber {
 		return manager.register("player_", new DynamicTexture(image));
 	}
 
-	private void downloadImageFromURL(String filename, File filepath, String URL) {
-		try {
-			URL url = new URL(URL);
-			URLConnection connection = url.openConnection();
-			connection.connect();
-			connection.setConnectTimeout(5000);
-			connection.setReadTimeout(5000);
-			connection.setRequestProperty("User-Agent", USER_AGENT);
+	private void downloadImageFromURL(String filename, File filepath, String URL) throws IOException {
+		URL url = new URL(URL);
+		URLConnection connection = url.openConnection();
+		connection.connect();
+		connection.setConnectTimeout(100);
+		connection.setReadTimeout(100);
+		connection.setRequestProperty("User-Agent", USER_AGENT);
 
-			BufferedImage image = ImageIO.read(connection.getInputStream());
+		BufferedImage image = ImageIO.read(connection.getInputStream());
 
-			if (!filepath.exists()) {
-				filepath.mkdirs();
-			}
-
-			ImageIO.write(image, "png", new File(filepath, filename + ".png"));
-		} catch (Exception exception) {
-			exception.printStackTrace();
+		if (!filepath.exists()) {
+			filepath.mkdirs();
 		}
+
+		ImageIO.write(image, "png", new File(filepath, filename + ".png"));
 	}
 
 	public void tick() {
@@ -274,9 +270,12 @@ public class SkinGrabber {
 		urls.put(id, url);
 
 		new Thread(() -> {
-			this.downloadImageFromURL(id, new File(DEFAULT_DIR), url);
-			this.registerSkin(id);
-
+			try {
+				this.downloadImageFromURL(id, new File(DEFAULT_DIR), url);
+				this.registerSkin(id);
+			} catch (Exception exception) {
+				Constants.LOG.error("Failed to download {} for {}", url, id, exception);
+			}
 			Constants.LOG.info("Downloaded {} for {}!", url, id);
 		}, Constants.MOD_ID + "-Download").start();
 	}
@@ -336,8 +335,8 @@ public class SkinGrabber {
 				URL api = new URL(JERYN_URL);
 				URLConnection connection = api.openConnection();
 				connection.connect();
-				connection.setConnectTimeout(5000);
-				connection.setReadTimeout(5000);
+				connection.setConnectTimeout(100);
+				connection.setReadTimeout(100);
 				connection.setRequestProperty("User-Agent", USER_AGENT);
 
 				InputStream inputStream = connection.getInputStream();
