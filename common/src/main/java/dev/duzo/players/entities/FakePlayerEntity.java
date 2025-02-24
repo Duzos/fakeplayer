@@ -22,15 +22,14 @@ import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.FloatGoal;
-import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.world.entity.ai.goal.OpenDoorGoal;
-import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
+import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 
 import javax.annotation.Nullable;
@@ -76,13 +75,14 @@ public class FakePlayerEntity extends PathfinderMob {
 
 	@Override
 	protected void registerGoals() {
-		this.goalSelector.addGoal(4, new HumanoidWaterAvoidingRandomStrollGoal(this, 1.0D));
-		this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
-		this.goalSelector.addGoal(3, new OpenDoorGoal(this, true));
-		this.goalSelector.addGoal(2, new HurtByTargetGoal(this));
-		this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.5D, true));
-		this.goalSelector.addGoal(1, new FloatGoal(this));
-		this.goalSelector.addGoal(1, new MoveTowardsItemsGoal(this, 1.0D, true));
+		this.goalSelector.addGoal(7, new HumanoidWaterAvoidingRandomStrollGoal(this, 1.0D));
+		this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(5, new OpenDoorGoal(this, true));
+		this.goalSelector.addGoal(4, new HurtByTargetGoal(this));
+		this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.5D, true));
+		this.goalSelector.addGoal(2, new MoveTowardsItemsGoal(this, 1.0D, true));
+		this.goalSelector.addGoal(1, new TemptGoal(this, 1.0D, Ingredient.of(Items.REDSTONE_BLOCK, Items.REDSTONE_TORCH), false));
+		this.goalSelector.addGoal(0, new FloatGoal(this));
 	}
 
 	@Override
