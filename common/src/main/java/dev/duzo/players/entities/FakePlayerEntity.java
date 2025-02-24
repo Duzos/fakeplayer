@@ -232,7 +232,7 @@ public class FakePlayerEntity extends PathfinderMob {
 
 	public record SkinData(String name, String key, String url) {
 		public SkinData(String username) {
-			this(username, username, SkinGrabber.API_URL + username);
+			this(username, username, SkinGrabber.SKIN_URL + username);
 		}
 
 		public static SkinData fromNbt(CompoundTag nbt) {

@@ -20,27 +20,30 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 /**
- * Most of this code is referenced from Craig's regeneration mod, love u craig
+ * Most of this code is referenced from jeryn's regeneration mod, love u craig
  */
 public class SkinGrabber {
 	public static final SkinGrabber INSTANCE = new SkinGrabber();
-	public static final String API_URL = "https://mineskin.eu/skin/";
+	public static final String SKIN_URL = "https://mineskin.eu/skin/";
 	private static final String DEFAULT_DIR = "./" + Constants.MOD_ID + "/skins/";
 	private static final ResourceLocation MISSING = new ResourceLocation(Constants.MOD_ID, "textures/skins/error.png");
+
 	private final ConcurrentHashMap<String, ResourceLocation> downloads;
 	private final ConcurrentHashMap<String, String> urls;
 	private final ConcurrentQueueMap<String, String> downloadQueue;
-	private final CopyOnWriteArrayList<Page> pages;
+	public final JerynSkins jeryn;
+
 	private int ticks;
 
 	private SkinGrabber() {
 		downloads = new ConcurrentHashMap<>();
 		urls = new ConcurrentHashMap<>();
 		downloadQueue = new ConcurrentQueueMap<>();
-		pages = new CopyOnWriteArrayList<>();
+		jeryn = new JerynSkins(new ArrayList<>());
 	}
 
 	public static ResourceLocation missing() {
@@ -143,7 +146,7 @@ public class SkinGrabber {
 	 * @return The skin, or a missing texture if it doesn't exist / is downloading
 	 */
 	public ResourceLocation getSkin(String name) {
-		return getSkinOrDownload(name, API_URL + name);
+		return getSkinOrDownload(name, SKIN_URL + name);
 	}
 
 	public Optional<ResourceLocation> getPossibleSkin(String id) {
@@ -262,15 +265,6 @@ public class SkinGrabber {
 		this.download(data.getFirst(), data.getSecond());
 	}
 
-	public void downloadNextPage() {
-		// if any arent downloaded, dont download
-		if (this.hasDownloads()) return;
-
-		Page page = new Page(pages.size() + 1, new ArrayList<>(15));
-		page.download();
-		pages.add(page);
-	}
-
 	private void download(String id, String url) {
 		Constants.LOG.info("Downloading {} for {}", url, id);
 
@@ -284,10 +278,6 @@ public class SkinGrabber {
 		}, Constants.MOD_ID + "-Download").start();
 	}
 
-	public int getPagesDownloaded() {
-		return pages.size();
-	}
-
 	public boolean hasDownloads() {
 		return !downloadQueue.isEmpty();
 	}
@@ -296,72 +286,119 @@ public class SkinGrabber {
 		return downloadQueue.size();
 	}
 
-	public record Page(int index, List<String> keys) {
-		public Page {
-			if (index <= 0) {
-				throw new IllegalArgumentException("Index must be greater than 0");
-			}
-		}
-
-		public void download() {
-			Constants.LOG.info("Downloading page {}", index);
+	public interface IDownloadSource {
+		default void download() {
+			Constants.LOG.info("Downloading {}", getId());
 
 			if (this.isDownloaded()) {
-				Constants.LOG.warn("Page {} is already downloaded", index);
+				Constants.LOG.warn("{} is already downloaded", getId());
 			}
 
 			new Thread(() -> {
 				try {
-					URL api = new URL("https://api.mineskin.org/get/list/" + index);
-					URLConnection connection = api.openConnection();
-					connection.connect();
-					connection.setConnectTimeout(5000);
-					connection.setReadTimeout(5000);
+					this.downloadThreaded();
+				} catch (Exception exception) {
+					Constants.LOG.error("Failed to download {}", getId(), exception);
+				}
+			}, this.getId() + "-Download").start();
+		}
 
-					// read json list [skins]
-					// enqueue each skin for download
-					InputStream inputStream = connection.getInputStream();
-					BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-					StringBuilder stringBuilder = new StringBuilder();
-					String line;
+		void downloadThreaded();
 
-					while ((line = reader.readLine()) != null) {
-						stringBuilder.append(line);
-					}
+		String getId();
 
-					HashMap<String, String> skins = new HashMap<>();
-					JsonElement data = new GsonBuilder().create().fromJson(stringBuilder.toString(), JsonElement.class);
-					if (!data.isJsonObject()) {
+		boolean isDownloaded();
+
+		default SkinGrabber getTracker() {
+			return SkinGrabber.INSTANCE;
+		}
+	}
+
+	public static class JerynSkins implements IDownloadSource {
+		public static final String JERYN_URL = "https://api.jeryn.dev/mc/skins/random";
+		private final ArrayList<String> keys;
+
+		public JerynSkins(ArrayList<String> keys) {
+			this.keys = keys;
+		}
+
+		@Override
+		public boolean isDownloaded() {
+			return !keys.isEmpty() && new HashSet<>(this.getTracker().getAllKeys()).containsAll(keys);
+		}
+
+		@Override
+		public void downloadThreaded() {
+			try {
+				URL api = new URL(JERYN_URL);
+				URLConnection connection = api.openConnection();
+				connection.connect();
+				connection.setConnectTimeout(5000);
+				connection.setReadTimeout(5000);
+
+				InputStream inputStream = connection.getInputStream();
+				BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+				StringBuilder stringBuilder = new StringBuilder();
+				String line;
+
+				while ((line = reader.readLine()) != null) {
+					stringBuilder.append(line);
+				}
+
+				JsonElement data = new GsonBuilder().create().fromJson(stringBuilder.toString(), JsonElement.class);
+				if (!data.isJsonArray()) {
+					throw new IllegalStateException("Expected array");
+				}
+
+				HashMap<String, String> skins = new HashMap<>();
+
+				data.getAsJsonArray().forEach(element -> {
+					if (!element.isJsonObject()) {
 						throw new IllegalStateException("Expected object");
 					}
-					data = data.getAsJsonObject().get("skins");
-					if (!data.isJsonArray()) {
-						throw new IllegalStateException("Expected array");
-					}
 
-					data.getAsJsonArray().forEach(element -> {
-						if (!element.isJsonObject()) {
-							throw new IllegalStateException("Expected object");
-						}
+					String url = element.getAsJsonObject().get("link").getAsString();
+					String id = encodeURL(url);
 
-						String url = element.getAsJsonObject().get("url").getAsString();
-						String id = encodeURL(url);
+					skins.put(id, url);
+				});
 
-						skins.put(id, url);
-					});
+				keys.clear();
+				keys.addAll(skins.keySet());
 
-					keys.clear();
-					keys.addAll(skins.keySet());
+				skins.forEach(SkinGrabber.INSTANCE::enqueueDownload);
+			} catch (Exception exception) {
+				Constants.LOG.error("Failed to download JerynSkins", exception);
+			}
+		}
 
-					skins.forEach(SkinGrabber.INSTANCE::enqueueDownload);
-				} catch (Exception exception) {
-					Constants.LOG.error("Failed to download page, {}", index, exception);
-				}
-			}, Constants.MOD_ID + "-Page").start();
+		@Override
+		public String getId() {
+			return Constants.MOD_ID + "-JerynSkins";
+		}
+	}
+
+	public static class SimpleDownloadSource implements IDownloadSource {
+		protected final Consumer<SimpleDownloadSource> download;
+		protected final Function<SimpleDownloadSource, Boolean> isDownloaded;
+		private final String id;
+
+		public SimpleDownloadSource(String id, Consumer<SimpleDownloadSource> download, Function<SimpleDownloadSource, Boolean> isDownloaded) {
+			this.id = id;
+			this.download = download;
+			this.isDownloaded = isDownloaded;
 		}
 
 		public boolean isDownloaded() {
-			return new HashSet<>(SkinGrabber.INSTANCE.getAllKeys()).containsAll(keys);
+			return this.isDownloaded.apply(this);
+		}
+
+		public void downloadThreaded() {
+			this.download.accept(this);
+		}
+
+		public String getId() {
+			return Constants.MOD_ID + id;
 		}
 	}
 }
