@@ -31,6 +31,7 @@ public class SkinGrabber {
 	public static final String SKIN_URL = "https://mineskin.eu/skin/";
 	private static final String DEFAULT_DIR = "./" + Constants.MOD_ID + "/skins/";
 	private static final ResourceLocation MISSING = new ResourceLocation(Constants.MOD_ID, "textures/skins/error.png");
+	private static final String USER_AGENT = Constants.MOD_ID + "/1.0";
 
 	private final ConcurrentHashMap<String, ResourceLocation> downloads;
 	private final ConcurrentHashMap<String, String> urls;
@@ -225,7 +226,9 @@ public class SkinGrabber {
 			URL url = new URL(URL);
 			URLConnection connection = url.openConnection();
 			connection.connect();
-			connection.setConnectTimeout(0);
+			connection.setConnectTimeout(5000);
+			connection.setReadTimeout(5000);
+			connection.setRequestProperty("User-Agent", USER_AGENT);
 
 			BufferedImage image = ImageIO.read(connection.getInputStream());
 
@@ -335,6 +338,7 @@ public class SkinGrabber {
 				connection.connect();
 				connection.setConnectTimeout(5000);
 				connection.setReadTimeout(5000);
+				connection.setRequestProperty("User-Agent", USER_AGENT);
 
 				InputStream inputStream = connection.getInputStream();
 				BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
