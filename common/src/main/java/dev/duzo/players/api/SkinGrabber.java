@@ -29,21 +29,25 @@ import java.util.function.Function;
 public class SkinGrabber {
 	public static final SkinGrabber INSTANCE = new SkinGrabber();
 	public static final String SKIN_URL = "https://mineskin.eu/skin/";
-	private static final String DEFAULT_DIR = "./" + Constants.MOD_ID + "/skins/";
+	public static final String DEFAULT_DIR = "./" + Constants.MOD_ID + "/";
+	public static final String SKIN_DIR = DEFAULT_DIR + "/skins/";
 	private static final ResourceLocation MISSING = new ResourceLocation(Constants.MOD_ID, "textures/skins/error.png");
 	private static final String USER_AGENT = Constants.MOD_ID + "/1.0";
 
 	private final ConcurrentHashMap<String, ResourceLocation> downloads;
 	private final ConcurrentHashMap<String, String> urls;
 	private final ConcurrentQueueMap<String, String> downloadQueue;
+	private final SkinCache cache;
 	public final JerynSkins jeryn;
 
 	private int ticks;
+	private boolean connection;
 
 	private SkinGrabber() {
 		downloads = new ConcurrentHashMap<>();
 		urls = new ConcurrentHashMap<>();
 		downloadQueue = new ConcurrentQueueMap<>();
+		cache = new SkinCache();
 		jeryn = new JerynSkins(new ArrayList<>());
 	}
 
@@ -183,7 +187,7 @@ public class SkinGrabber {
 
 	private ResourceLocation registerSkin(String name) {
 		// register new skin to prepare
-		File file = new File(DEFAULT_DIR + name.toLowerCase().replace(" ", "_") + ".png");
+		File file = new File(SKIN_DIR + name.toLowerCase().replace(" ", "_") + ".png");
 		ResourceLocation location = fileToLocation(file);
 		downloads.put(name, location);
 		return location;
@@ -224,10 +228,10 @@ public class SkinGrabber {
 	private void downloadImageFromURL(String filename, File filepath, String URL) throws IOException {
 		URL url = new URL(URL);
 		URLConnection connection = url.openConnection();
-		connection.connect();
-		connection.setConnectTimeout(100);
-		connection.setReadTimeout(100);
+		connection.setConnectTimeout(5000);
+		connection.setReadTimeout(5000);
 		connection.setRequestProperty("User-Agent", USER_AGENT);
+		connection.connect();
 
 		BufferedImage image = ImageIO.read(connection.getInputStream());
 
@@ -241,7 +245,7 @@ public class SkinGrabber {
 	public void tick() {
 		ticks++;
 
-		if (ticks % 5 != 0) return;
+		if (ticks % 5 != 0 || connection) return;
 		// called every second
 		this.downloadNext();
 
@@ -267,16 +271,35 @@ public class SkinGrabber {
 	private void download(String id, String url) {
 		Constants.LOG.info("Downloading {} for {}", url, id);
 
+		connection = true;
+
+		// check cache
+		SkinCache.CacheData data = cache.get(id).orElse(null);
+		if (data != null) {
+			try {
+				Constants.LOG.info("Using cached skin for {}", id);
+				urls.put(id, data.url());
+				this.registerSkin(id);
+				connection = false;
+				return;
+			} catch (Exception exception) {
+				Constants.LOG.error("Failed to load cached skin for {}", id, exception);
+			}
+		}
+
 		urls.put(id, url);
 
 		new Thread(() -> {
 			try {
-				this.downloadImageFromURL(id, new File(DEFAULT_DIR), url);
+				this.downloadImageFromURL(id, new File(SKIN_DIR), url);
 				this.registerSkin(id);
+				this.cache.add(id, url);
+				Constants.LOG.info("Downloaded {} for {}!", url, id);
 			} catch (Exception exception) {
 				Constants.LOG.error("Failed to download {} for {}", url, id, exception);
+			} finally {
+				connection = false;
 			}
-			Constants.LOG.info("Downloaded {} for {}!", url, id);
 		}, Constants.MOD_ID + "-Download").start();
 	}
 
@@ -288,9 +311,16 @@ public class SkinGrabber {
 		return downloadQueue.size();
 	}
 
+	public void onStopping() {
+		this.clearTextures();
+		cache.save();
+	}
+
 	public interface IDownloadSource {
 		default void download() {
 			Constants.LOG.info("Downloading {}", getId());
+
+			getTracker().connection = true;
 
 			if (this.isDownloaded()) {
 				Constants.LOG.warn("{} is already downloaded", getId());
@@ -301,6 +331,8 @@ public class SkinGrabber {
 					this.downloadThreaded();
 				} catch (Exception exception) {
 					Constants.LOG.error("Failed to download {}", getId(), exception);
+				} finally {
+					getTracker().connection = false;
 				}
 			}, this.getId() + "-Download").start();
 		}
@@ -334,10 +366,10 @@ public class SkinGrabber {
 			try {
 				URL api = new URL(JERYN_URL);
 				URLConnection connection = api.openConnection();
-				connection.connect();
-				connection.setConnectTimeout(100);
-				connection.setReadTimeout(100);
+				connection.setConnectTimeout(5000);
+				connection.setReadTimeout(5000);
 				connection.setRequestProperty("User-Agent", USER_AGENT);
+				connection.connect();
 
 				InputStream inputStream = connection.getInputStream();
 				BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
