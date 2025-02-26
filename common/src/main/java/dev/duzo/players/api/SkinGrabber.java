@@ -245,7 +245,7 @@ public class SkinGrabber {
 	public void tick() {
 		ticks++;
 
-		if (ticks % 5 != 0 || connection) return;
+		if (/*ticks % 5 != 0 ||*/ connection) return;
 		// called every second
 		this.downloadNext();
 
@@ -358,12 +358,19 @@ public class SkinGrabber {
 
 		@Override
 		public boolean isDownloaded() {
-			return !keys.isEmpty() && new HashSet<>(this.getTracker().getAllKeys()).containsAll(keys);
+			return !this.getTracker().cache.isJerynOutdated() || !keys.isEmpty() && new HashSet<>(this.getTracker().getAllKeys()).containsAll(keys);
 		}
 
 		@Override
 		public void downloadThreaded() {
 			try {
+				if (this.isDownloaded()) {
+					Constants.debug("JerynSkins is already downloaded");
+					return;
+				}
+
+				this.getTracker().cache.lastJerynCheck = System.currentTimeMillis();
+
 				URL api = new URL(JERYN_URL);
 				URLConnection connection = api.openConnection();
 				connection.setConnectTimeout(5000);

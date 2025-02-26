@@ -2,6 +2,7 @@ package dev.duzo.players.api;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import dev.duzo.players.Constants;
 
@@ -14,14 +15,15 @@ import java.util.Optional;
 
 /**
  * A handler for the skin cache files, stored in a .json file
- * Stores the key and the URL of the skin as a key-value pair
+ * Stores the key and the URL of the skin
  */
 public class SkinCache {
 	private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-	private static final String CACHE_FILE = "skins.json";
+	private static final String CACHE_FILE = "cache.json";
 
 	private boolean locked;
 	private ArrayList<CacheData> data;
+	long lastJerynCheck;
 
 	public SkinCache() {
 
@@ -42,9 +44,11 @@ public class SkinCache {
 
 			if (Files.exists(path)) {
 				String json = Files.readString(path);
+				JsonObject jsonObject = GSON.fromJson(json, JsonObject.class);
 				Type listType = new TypeToken<ArrayList<CacheData>>() {
 				}.getType();
-				data = GSON.fromJson(json, listType);
+				data = GSON.fromJson(jsonObject.get("data"), listType);
+				lastJerynCheck = jsonObject.has("jeryn_update") ? jsonObject.get("jeryn_update").getAsLong() : 0;
 				Constants.debug("Loaded skin cache");
 			}
 		} catch (Exception e) {
@@ -66,8 +70,10 @@ public class SkinCache {
 
 		try {
 			Path path = getSavePath();
-			String json = GSON.toJson(data);
-
+			JsonObject jsonObject = new JsonObject();
+			jsonObject.add("data", GSON.toJsonTree(data));
+			jsonObject.addProperty("jeryn_update", lastJerynCheck);
+			String json = GSON.toJson(jsonObject);
 			Files.writeString(path, json);
 			Constants.debug("Saved skin cache");
 		} catch (Exception e) {
@@ -120,6 +126,10 @@ public class SkinCache {
 		}
 
 		return result;
+	}
+
+	boolean isJerynOutdated() {
+		return System.currentTimeMillis() - lastJerynCheck > 1000 * 60 * 60 * 12; // 1/2 day
 	}
 
 	public record CacheData(String key, String url, long lastUpdate) {
