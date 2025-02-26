@@ -255,7 +255,7 @@ public class SkinGrabber {
 	private void enqueueDownload(String id, String url) {
 		this.downloadQueue.put(id, url);
 
-		Constants.LOG.info("Enqueued Download {} for {}", url, id);
+		Constants.debug("Enqueued Download {} for {}", url, id);
 	}
 
 	private void downloadNext() {
@@ -269,7 +269,7 @@ public class SkinGrabber {
 	}
 
 	private void download(String id, String url) {
-		Constants.LOG.info("Downloading {} for {}", url, id);
+		Constants.debug("Downloading {} for {}", url, id);
 
 		connection = true;
 
@@ -277,7 +277,7 @@ public class SkinGrabber {
 		SkinCache.CacheData data = cache.get(id).orElse(null);
 		if (data != null) {
 			try {
-				Constants.LOG.info("Using cached skin for {}", id);
+				Constants.debug("Using cached skin for {}", id);
 				urls.put(id, data.url());
 				this.registerSkin(id);
 				connection = false;
@@ -294,7 +294,7 @@ public class SkinGrabber {
 				this.downloadImageFromURL(id, new File(SKIN_DIR), url);
 				this.registerSkin(id);
 				this.cache.add(id, url);
-				Constants.LOG.info("Downloaded {} for {}!", url, id);
+				Constants.debug("Downloaded {} for {}!", url, id);
 			} catch (Exception exception) {
 				Constants.LOG.error("Failed to download {} for {}", url, id, exception);
 			} finally {
@@ -318,7 +318,7 @@ public class SkinGrabber {
 
 	public interface IDownloadSource {
 		default void download() {
-			Constants.LOG.info("Downloading {}", getId());
+			Constants.debug("Downloading {}", getId());
 
 			getTracker().connection = true;
 

@@ -45,11 +45,20 @@ public class SkinCache {
 				Type listType = new TypeToken<ArrayList<CacheData>>() {
 				}.getType();
 				data = GSON.fromJson(json, listType);
-				Constants.LOG.info("Loaded skin cache");
+				Constants.debug("Loaded skin cache");
 			}
 		} catch (Exception e) {
 			Constants.LOG.error("Failed to load skin cache", e);
 		}
+
+		// enqueue the data
+		locked = true;
+
+		for (CacheData cache : data) {
+			SkinGrabber.INSTANCE.getSkinOrDownload(cache.key, cache.url);
+		}
+
+		locked = false;
 	}
 
 	void save() {
@@ -60,7 +69,7 @@ public class SkinCache {
 			String json = GSON.toJson(data);
 
 			Files.writeString(path, json);
-			Constants.LOG.info("Saved skin cache");
+			Constants.debug("Saved skin cache");
 		} catch (Exception e) {
 			Constants.LOG.error("Failed to save skin cache", e);
 		}
@@ -87,7 +96,7 @@ public class SkinCache {
 		}
 		this.load();
 
-		if (data.stream().noneMatch(cache -> cache.key.equals(uuid))) {
+		if (this.get(uuid).isEmpty()) {
 			data.add(new CacheData(uuid, url));
 			return true;
 		}
@@ -100,9 +109,26 @@ public class SkinCache {
 
 		this.load();
 
-		return data.stream().filter(cache -> cache.key.equals(uuid)).findFirst();
+		Optional<CacheData> result = data.stream().filter(cache -> cache.key.equals(uuid)).findFirst();
+		if (result.isEmpty()) return result;
+
+		if (result.get().isOutdated()) {
+			Constants.debug("Removing outdated skin from cache: {}", result.get().key);
+
+			data.remove(result.get());
+			return Optional.empty();
+		}
+
+		return result;
 	}
 
-	public record CacheData(String key, String url) {
+	public record CacheData(String key, String url, long lastUpdate) {
+		public CacheData(String key, String url) {
+			this(key, url, System.currentTimeMillis());
+		}
+
+		public boolean isOutdated() {
+			return System.currentTimeMillis() - lastUpdate > 1000 * 60 * 60 * 24; // 1 day
+		}
 	}
 }
