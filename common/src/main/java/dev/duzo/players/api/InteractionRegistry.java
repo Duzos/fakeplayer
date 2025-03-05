@@ -1,5 +1,6 @@
-package dev.duzo.players.entities;
+package dev.duzo.players.api;
 
+import dev.duzo.players.entities.FakePlayerEntity;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;

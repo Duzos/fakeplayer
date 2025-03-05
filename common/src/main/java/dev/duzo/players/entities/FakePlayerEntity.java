@@ -1,5 +1,6 @@
 package dev.duzo.players.entities;
 
+import dev.duzo.players.api.InteractionRegistry;
 import dev.duzo.players.api.SkinGrabber;
 import dev.duzo.players.client.PlayersCommonClient;
 import dev.duzo.players.core.FPEntities;
@@ -220,7 +221,7 @@ public class FakePlayerEntity extends PathfinderMob {
 		return this.entityData.get(SLIM);
 	}
 
-	protected void setSlim(boolean val) {
+	public void setSlim(boolean val) {
 		this.entityData.set(SLIM, val);
 	}
 
