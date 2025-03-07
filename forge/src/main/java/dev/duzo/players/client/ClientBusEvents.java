@@ -2,12 +2,13 @@ package dev.duzo.players.client;
 
 import dev.duzo.players.Constants;
 import net.minecraft.client.Minecraft;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = Constants.MOD_ID)
+@Mod.EventBusSubscriber(modid = Constants.MOD_ID, value = Dist.CLIENT)
 public class ClientBusEvents {
 	@SubscribeEvent
 	public static void onClientTick(TickEvent.ClientTickEvent e) {
