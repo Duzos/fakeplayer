@@ -12,10 +12,12 @@
 These mobs look exactly like regular players.
 
 #### What can they do?
+
+- Send chat messages
+- Change skin
 - Wander around
 - Attack when hurt
 - Change username from name tag
-- Change skin
 - Wear armour
 - Hold items
 - Utilise inventory space
@@ -31,7 +33,8 @@ And much more!
 - **Stairs**: Make the fake player sit
 - **Beds**: Make the fake player sleep
 - **Slabs**: Toggle slim skin
-- **Paper**: Toggle name tag visibility
+- **Eye of Ender**: Toggle name tag visibility
+- **Paper**: Send a chat message
 
 #### How do I get one?
 You need to craft a ```Robot Shell``` and a ```Robot AI``` and combine them in a crafting table
