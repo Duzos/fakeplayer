@@ -68,6 +68,14 @@ This mod supports both slim skins and regular skins.
 
 - [Jeryn](https://modrinth.com/user/Jeryn/) - for his API and Skin Downloading code.
 
+# Why am I crashing on dedicated forge servers?
+
+This is a known issue and is being worked on.
+
+It's because forge *( nightmare modloader of doom and despair )* by default tries to load client-only code in server.
+
+Try setting advertiseDedicatedServerToLan to false in your server config.
+
 # Handy Dandy Links
 ### [Showcase](https://www.youtube.com/watch?v=O5BO6fA41n0)
 ### [Curseforge](https://www.curseforge.com/minecraft/mc-mods/fake-player)
