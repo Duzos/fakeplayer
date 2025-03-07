@@ -1,5 +1,6 @@
 package dev.duzo.players;
 
+import dev.duzo.players.commands.SendChatCommand;
 import dev.duzo.players.commands.SkinUrlCommand;
 import dev.duzo.players.core.FPEntities;
 import dev.duzo.players.core.FPItems;
@@ -14,6 +15,7 @@ public class PlayersCommon {
         FPEntities.init();
 
         Services.COMMON_REGISTRY.registerCommand(SkinUrlCommand::register);
+        Services.COMMON_REGISTRY.registerCommand(SendChatCommand::register);
 
         PlayersNetwork.init();
     }

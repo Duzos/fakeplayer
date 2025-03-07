@@ -225,6 +225,15 @@ public class SkinGrabber {
 		return manager.register("player_", new DynamicTexture(image));
 	}
 
+	private static boolean isValidUrl(String url) {
+		try {
+			new URL(url).toURI();
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
 	private void downloadImageFromURL(String filename, File filepath, String URL) throws IOException {
 		URL url = new URL(URL);
 		URLConnection connection = url.openConnection();
@@ -271,6 +280,11 @@ public class SkinGrabber {
 	private void download(String id, String url) {
 		Constants.debug("Downloading {} for {}", url, id);
 
+		if (!(isValidUrl(url))) {
+			Constants.LOG.error("Discarding Invalid URL: {}", url);
+			return;
+		}
+
 		connection = true;
 
 		// check cache
@@ -312,7 +326,7 @@ public class SkinGrabber {
 	}
 
 	public void onStopping() {
-		this.clearTextures();
+		// this.clearTextures();
 		cache.save();
 	}
 

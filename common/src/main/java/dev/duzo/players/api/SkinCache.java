@@ -34,13 +34,15 @@ public class SkinCache {
 	}
 
 	private void load() {
-		if (this.isLoaded()) return;
+		if (this.isLoaded() || locked) return;
+
+		data = new ArrayList<>();
+
+		locked = true;
 
 		// read data from file
 		try {
 			Path path = getSavePath();
-
-			data = new ArrayList<>();
 
 			if (Files.exists(path)) {
 				String json = Files.readString(path);
@@ -48,6 +50,9 @@ public class SkinCache {
 				Type listType = new TypeToken<ArrayList<CacheData>>() {
 				}.getType();
 				data = GSON.fromJson(jsonObject.get("data"), listType);
+				if (data == null) {
+					data = new ArrayList<>();
+				}
 				lastJerynCheck = jsonObject.has("jeryn_update") ? jsonObject.get("jeryn_update").getAsLong() : 0;
 				Constants.debug("Loaded skin cache");
 			}
@@ -56,8 +61,6 @@ public class SkinCache {
 		}
 
 		// enqueue the data
-		locked = true;
-
 		for (CacheData cache : data) {
 			SkinGrabber.INSTANCE.getSkinOrDownload(cache.key, cache.url);
 		}
@@ -67,6 +70,9 @@ public class SkinCache {
 
 	void save() {
 		if (locked) return;
+		if (data == null || data.isEmpty()) return;
+
+		locked = true;
 
 		try {
 			Path path = getSavePath();
@@ -79,6 +85,8 @@ public class SkinCache {
 		} catch (Exception e) {
 			Constants.LOG.error("Failed to save skin cache", e);
 		}
+
+		locked = false;
 	}
 
 	private Path getSavePath() throws IOException {

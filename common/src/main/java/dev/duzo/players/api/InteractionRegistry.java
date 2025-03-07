@@ -8,6 +8,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
 import java.util.HashMap;
@@ -66,7 +67,7 @@ public class InteractionRegistry {
 			return InteractionResult.SUCCESS;
 		}));
 
-		register(Items.PAPER, ((player, entity) -> {
+		register(Items.ENDER_EYE, ((player, entity) -> {
 			// toggle name visibility
 			entity.setCustomNameVisible(!entity.isCustomNameVisible());
 			player.sendSystemMessage(Component.literal(entity.isCustomNameVisible() ? "Name Visible" : "Name Hidden"), true);
@@ -74,7 +75,16 @@ public class InteractionRegistry {
 			return InteractionResult.SUCCESS;
 		}));
 
+		register(Items.PAPER, ((player, entity) -> {
+			// get itemstack name
+			ItemStack stack = player.getMainHandItem();
+			if (!stack.is(Items.PAPER)) return InteractionResult.FAIL;
 
+			String text = stack.hasCustomHoverName() ? stack.getHoverName().getString() : "Hello World!";
+			entity.sendChat(text);
+
+			return InteractionResult.SUCCESS;
+		}));
 	}
 
 	private Interaction fallback() {

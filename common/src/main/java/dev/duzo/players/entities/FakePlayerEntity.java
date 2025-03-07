@@ -8,7 +8,9 @@ import dev.duzo.players.core.FPItems;
 import dev.duzo.players.entities.goal.HumanoidWaterAvoidingRandomStrollGoal;
 import dev.duzo.players.entities.goal.MoveTowardsItemsGoal;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.ChatType;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.PlayerChatMessage;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -224,6 +226,13 @@ public class FakePlayerEntity extends PathfinderMob {
 	public void setSlim(boolean val) {
 		this.entityData.set(SLIM, val);
 	}
+
+	public void sendChat(String message) {
+		if (this.level().isClientSide) return;
+
+		this.getServer().getPlayerList().broadcastChatMessage(PlayerChatMessage.system(message), this.createCommandSourceStack(), ChatType.bind(ChatType.CHAT, this));
+	}
+
 
 	public enum PhysicalState {
 		STANDING,
