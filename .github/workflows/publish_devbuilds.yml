@@ -42,10 +42,10 @@ jobs:
           url: ${{ secrets.DEV_BUILDS }}
           file: 'fabric/build/libs/*'
           username: FABRIC builds
-          avatar: 'https://wiki.tf2classic.com/w/images/e/ec/Engineer_BLU.png'
+          avatar: 'https://wiki.tf2classic.com/w/images/b/b3/Engineer_BLU.png'
           commit: '> :sparkles: [%MESSAGE%](<%LINK%>) by [%AUTHOR%](<%AUTHOR_LINK%>)'
           message: |
-            <@!316546939481096192> <:new1:1253371736510959636><:new2:1253371805734015006> New `${{ github.repository }}` dev build `#${{ github.run_number }}`:
+            <:new1:1253371736510959636><:new2:1253371805734015006> New `${{ github.repository }}` dev build `#${{ github.run_number }}`:
             %COMMITS%
   forge:
     runs-on: ubuntu-latest
@@ -86,5 +86,5 @@ jobs:
           avatar: 'https://wiki.tf2classic.com/w/images/b/b3/Engineer_RED.png'
           commit: '> :sparkles: [%MESSAGE%](<%LINK%>) by [%AUTHOR%](<%AUTHOR_LINK%>)'
           message: |
-            <@!316546939481096192> <:new1:1253371736510959636><:new2:1253371805734015006> New `${{ github.repository }}` dev build `#${{ github.run_number }}`:
+            <:new1:1253371736510959636><:new2:1253371805734015006> New `${{ github.repository }}` dev build `#${{ github.run_number }}`:
             %COMMITS%
